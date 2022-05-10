@@ -7,7 +7,7 @@ const colors = ["text-#F00", "text-#0F0", "text-#00F"];
 </script>
 
 <template>
-  <div class="group" w="max" pos="relative" mb="3">
+  <div class="group" w="max" pos="relative" mb="3" cursor="pointer">
     <h1 font="header semibold" text="4xl lg:9xl" opacity="0">{{ text }}</h1>
     <template v-for="(c, k) in colors">
       <h1
