@@ -19,7 +19,7 @@ const colors = ["text-#F00", "text-#0F0", "text-#00F"];
         cursor="pointer"
         select="none"
       >
-        <template v-for="(t, i) in text">
+        <template v-for="(t, i) in [...text]">
           <span
             pos="relative top-0 left-0"
             mix-blend="difference"
