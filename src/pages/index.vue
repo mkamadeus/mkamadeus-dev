@@ -27,7 +27,7 @@ import socialMedias from "~/constants/socialmedia";
       <div flex="~" space="x-4" justify="center items-center">
         <template v-for="l in ['blog', 'projects', 'contact']" :key="l.url">
           <div flex="~ col" justify="center">
-            <div underline="~ dotted gray-100" text="center middle" @click="">
+            <div underline="~ dotted gray-100" text="center middle">
               <router-link :to="`/${l}`">&#x23;{{ l }}</router-link>
             </div>
           </div>
