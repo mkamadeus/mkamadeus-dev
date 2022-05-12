@@ -14,8 +14,8 @@ import socialMedias from "~/constants/socialmedia";
     <div flex="~ col" justify="center" h="90%" w="full">
       <div m="b-6">
         <chroma-header text="welcome." />
-        <div text="sm lg:base">mkamadeus' site.</div>
-        <div text="sm lg:base">get in touch with me.</div>
+        <div text="base lg:lg">mkamadeus' site.</div>
+        <div text="base lg:lg">get in touch with me.</div>
       </div>
     </div>
     <div h="10%" w="full">
