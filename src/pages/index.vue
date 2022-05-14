@@ -14,8 +14,8 @@ import socialMedias from "~/constants/socialmedia";
     <div flex="~ col" justify="center" h="90%" w="full">
       <div m="b-6">
         <chroma-header text="welcome." />
-        <div text="sm lg:base">mkamadeus' site.</div>
-        <div text="sm lg:base">get in touch with me.</div>
+        <div text="base lg:lg">mkamadeus' site.</div>
+        <div text="base lg:lg">get in touch with me.</div>
       </div>
     </div>
     <div h="10%" w="full">
@@ -27,7 +27,7 @@ import socialMedias from "~/constants/socialmedia";
       <div flex="~" space="x-4" justify="center items-center">
         <template v-for="l in ['blog', 'projects', 'contact']" :key="l.url">
           <div flex="~ col" justify="center">
-            <div underline="~ dotted gray-100" text="center middle" @click="">
+            <div underline="~ dotted gray-100" text="center middle">
               <router-link :to="`/${l}`">&#x23;{{ l }}</router-link>
             </div>
           </div>
