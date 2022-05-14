@@ -18,7 +18,17 @@ export default defineConfig({
     vue({
       include: [/\.vue$/, /\.md$/],
     }),
-    pages({ extensions: ["vue", "md"] }),
+    pages({
+      extensions: ["vue", "md"],
+      extendRoute: (route, parent) => {
+        if (route.path.indexOf("/blog") === 0 && route.path !== "/blog") {
+          return {
+            ...route,
+            meta: { layout: "blog" },
+          };
+        }
+      },
+    }),
     layouts(),
     markdown(),
     autoimport({
