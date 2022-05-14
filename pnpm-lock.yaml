@@ -15,6 +15,7 @@ specifiers:
   vite-plugin-md: ^0.11.7
   vite-plugin-pages: ^0.20.0
   vite-plugin-voie: ^0.7.3
+  vite-plugin-vue-layouts: ^0.6.0
   vue: ^3.2.25
   vue-router: '4'
   vue-tsc: ^0.29.8
@@ -38,6 +39,7 @@ devDependencies:
   vite-plugin-md: 0.11.7_vite@2.7.10
   vite-plugin-pages: 0.20.0_vite@2.7.10
   vite-plugin-voie: 0.7.3_356ec39c15e6be83b5da8ae2fd7c7b8a
+  vite-plugin-vue-layouts: 0.6.0_356ec39c15e6be83b5da8ae2fd7c7b8a
   vue-tsc: 0.29.8_typescript@4.5.4
 
 packages:
@@ -465,14 +467,12 @@ packages:
       magic-string: 0.25.7
       postcss: 8.4.5
       source-map: 0.6.1
-    dev: false
 
   /@vue/compiler-ssr/3.2.26:
     resolution: {integrity: sha512-2mywLX0ODc4Zn8qBoA2PDCsLEZfpUGZcyoFRLSOjyGGK6wDy2/5kyDOWtf0S0UvtoyVq95OTSGIALjZ4k2q/ag==}
     dependencies:
       '@vue/compiler-dom': 3.2.26
       '@vue/shared': 3.2.26
-    dev: false
 
   /@vue/devtools-api/6.0.0-beta.21.1:
     resolution: {integrity: sha512-FqC4s3pm35qGVeXRGOjTsRzlkJjrBLriDS9YXbflHLsfA9FrcKzIyWnLXoNm+/7930E8rRakXuAc2QkC50swAw==}
@@ -485,7 +485,6 @@ packages:
       '@vue/shared': 3.2.26
       estree-walker: 2.0.2
       magic-string: 0.25.7
-    dev: false
 
   /@vue/reactivity/3.2.26:
     resolution: {integrity: sha512-h38bxCZLW6oFJVDlCcAiUKFnXI8xP8d+eO0pcDxx+7dQfSPje2AO6M9S9QO6MrxQB7fGP0DH0dYQ8ksf6hrXKQ==}
@@ -2356,6 +2355,23 @@ packages:
       vue-router: 4.0.12_vue@3.2.26
     transitivePeerDependencies:
       - vue
+    dev: true
+
+  /vite-plugin-vue-layouts/0.6.0_356ec39c15e6be83b5da8ae2fd7c7b8a:
+    resolution: {integrity: sha512-7QX7o/NpCfs+hyXphwYfmPqAEQ6qd4uXsvI0VsovjGT2eCoEE5dMdP6L+uqqNWY4uqv7oCvtinecZmbzZv/9Rg==}
+    peerDependencies:
+      vite: ^2.5.0
+      vue: ^2.6.12 || ^3.2.4
+      vue-router: ^3.5.1 || ^ 4.0.11
+    dependencies:
+      '@vue/compiler-sfc': 3.2.26
+      debug: 4.3.3
+      fast-glob: 3.2.11
+      vite: 2.7.10
+      vue: 3.2.26
+      vue-router: 4.0.12_vue@3.2.26
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /vite/2.7.10:
