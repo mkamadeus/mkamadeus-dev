@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import projects from "~/constants/project";
-import socialMedias from "~/constants/socialmedia";
-</script>
-
 <template>
   <main
     font="body antialiased"
@@ -31,3 +26,8 @@ import socialMedias from "~/constants/socialmedia";
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+import projects from "~/constants/project";
+import socialMedias from "~/constants/socialmedia";
+</script>

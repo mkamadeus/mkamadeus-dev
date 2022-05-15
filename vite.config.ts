@@ -7,7 +7,10 @@ import components from "unplugin-vue-components/vite";
 import markdown from "vite-plugin-md";
 import pages from "vite-plugin-pages";
 import layouts from "vite-plugin-vue-layouts";
+
+// MARKDOWN-IT PLUGINS
 import shiki from "markdown-it-shiki";
+import latex from "markdown-it-latex";
 
 export default defineConfig({
   resolve: {
@@ -22,6 +25,7 @@ export default defineConfig({
     pages({
       extensions: ["vue", "md"],
       extendRoute: (route, parent) => {
+        console.log(route, parent);
         if (route.path.indexOf("/blog") === 0 && route.path !== "/blog") {
           return {
             ...route,
@@ -37,6 +41,7 @@ export default defineConfig({
       },
       markdownItSetup: (md) => {
         md.use(shiki);
+        md.use(latex);
       },
     }),
     autoimport({

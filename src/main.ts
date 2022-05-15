@@ -8,7 +8,10 @@ import { setupLayouts } from "virtual:generated-layouts";
 import generatedRoutes from "virtual:generated-pages";
 
 const routes = setupLayouts(generatedRoutes);
-const router = createRouter({ routes, history: createWebHistory() });
+const router = createRouter({
+  routes,
+  history: createWebHistory(),
+});
 
 // MAIN APP
 import { createApp } from "vue";
