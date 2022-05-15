@@ -7,6 +7,7 @@ import components from "unplugin-vue-components/vite";
 import markdown from "vite-plugin-md";
 import pages from "vite-plugin-pages";
 import layouts from "vite-plugin-vue-layouts";
+import shiki from "markdown-it-shiki";
 
 export default defineConfig({
   resolve: {
@@ -30,7 +31,14 @@ export default defineConfig({
       },
     }),
     layouts(),
-    markdown(),
+    markdown({
+      markdownItOptions: {
+        typographer: true,
+      },
+      markdownItSetup: (md) => {
+        md.use(shiki);
+      },
+    }),
     autoimport({
       dts: "src/autoimports.d.ts",
       include: [/\.vue$/, /\.vue\?vue/],

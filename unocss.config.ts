@@ -15,9 +15,9 @@ export default defineConfig({
       cssExtend: {
         h1: { "font-family": "'Inter', sans-serif" },
         p: { "font-family": "'Inter', sans-serif" },
-        code: {
+        pre: {
           "font-family": "'Ubuntu Mono', monospace",
-          background: "#AAAAAA",
+          "background-color": "#222 !important",
         },
       },
     }),
