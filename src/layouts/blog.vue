@@ -9,9 +9,7 @@
     m="x-auto"
     w="full"
   >
-    <article prose="~">
-      <router-view />
-    </article>
+    <router-view />
   </main>
   <footer font="body antialiased" bg="black" text="gray-100" p="6 lg:12">
     <div text="center sm gray-500" font="italic" m="b-4">

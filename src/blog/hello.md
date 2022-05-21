@@ -1,12 +1,8 @@
 ---
 title: Hello World!
-date: 2022-05-15
-layout: blog
+author: mkamadeus
+createdAt: 2022-05-15
 ---
-
-# {{frontmatter.title}}
-
-:: {{frontmatter.date}}
 
 This is a short blog test on making a Markdown-based blog.
 I have gone through different iterations of these; and this version is what I end up with.
