@@ -1,14 +1,6 @@
 <template>
-  <div
-    font="body antialiased"
-    bg="black"
-    text="gray-100 base lg:lg"
-    p="6 lg:12"
-    h="screen"
-    flex="~ col"
-    justify="center"
-  >
-    <h1 font="header semibold" text="4xl lg:9xl" mb="2">contact</h1>
+  <div flex="~ col" justify="center" h="90%" w="full">
+    <chroma-header text="contact" />
     <div flex="~ col">
       <div flex="~" space="x-2">
         <div flex="~ col" justify="center">

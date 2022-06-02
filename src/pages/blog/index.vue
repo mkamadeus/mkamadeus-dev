@@ -6,5 +6,8 @@ console.log(pages);
 </script>
 
 <template>
-  <div text="sm lg:base center">coming soon.</div>
+  <div>
+    <div><chroma-header text="blogs" /></div>
+    <div text="sm lg:base center">coming soon.</div>
+  </div>
 </template>
