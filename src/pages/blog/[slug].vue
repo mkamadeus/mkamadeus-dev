@@ -19,7 +19,7 @@ const page = defineAsyncComponent(() => {
 </script>
 
 <template>
-  <article flex="~ col" items-center w="lg:full">
+  <article flex="~ col" items-center min-h="screen">
     <header flex w-full p="lg:6">
       <div rounded-full w-1 h-full bg-gray-100 />
       <div ml-4>
