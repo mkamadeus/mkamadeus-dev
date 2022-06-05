@@ -8,13 +8,15 @@ const colors = ["text-#F00", "text-#0F0", "text-#00F"];
 
 <template>
   <div class="group" w="max" pos="relative" mb="3" cursor="pointer">
-    <h1 font="header semibold" text="4xl lg:9xl" opacity="0">{{ text }}</h1>
+    <h1 font="header semibold" text="4xl lg:9xl white" opacity="0">
+      {{ text }}
+    </h1>
     <template v-for="(c, k) in colors">
       <h1
         font="header semibold"
         text="4xl lg:9xl"
         :class="c"
-        mix-blend="difference"
+        mix-blend="exclusion"
         pos="absolute top-0 left-0"
         cursor="pointer"
         select="none"

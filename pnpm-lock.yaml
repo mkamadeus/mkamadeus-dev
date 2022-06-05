@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@iconify-json/carbon': ^1.0.12
   '@types/node': ^17.0.8
+  '@types/three': ^0.141.0
   '@unocss/preset-icons': ^0.22.0
   '@unocss/preset-typography': ^0.33.4
   '@unocss/reset': ^0.22.0
@@ -10,6 +11,7 @@ specifiers:
   '@vueuse/head': ^0.7.6
   markdown-it-latex: ^0.2.0
   markdown-it-shiki: ^0.5.1
+  three: ^0.141.0
   typescript: ^4.4.4
   unocss: 0.26.2
   unplugin-auto-import: ^0.5.9
@@ -32,11 +34,13 @@ dependencies:
 devDependencies:
   '@iconify-json/carbon': 1.0.12
   '@types/node': 17.0.8
+  '@types/three': 0.141.0
   '@unocss/preset-icons': 0.22.0
   '@unocss/preset-typography': 0.33.4
   '@vitejs/plugin-vue': 2.0.1_vite@2.7.10+vue@3.2.26
   markdown-it-latex: 0.2.0
   markdown-it-shiki: 0.5.1
+  three: 0.141.0
   typescript: 4.5.4
   unocss: 0.26.2
   unplugin-auto-import: 0.5.9_vite@2.7.10
@@ -217,8 +221,18 @@ packages:
     resolution: {integrity: sha512-YofkM6fGv4gDJq78g4j0mMuGMkZVxZDgtU0JRdx6FgiJDG+0fY0GKVolOV8WqVmEhLCXkQRjwDdKyPxJp/uucg==}
     dev: true
 
+  /@types/three/0.141.0:
+    resolution: {integrity: sha512-OJdKDgTPVBUgc+s74DYoy4aLznbFFC38Xm4ElmU1YwGNgR7GGFVvFCX7lpVgOsT6S1zSJtGdajTsOYE8/xY9nA==}
+    dependencies:
+      '@types/webxr': 0.4.0
+    dev: true
+
   /@types/throttle-debounce/2.1.0:
     resolution: {integrity: sha512-5eQEtSCoESnh2FsiLTxE121IiE60hnMqcb435fShf4bpLRjEu1Eoekht23y6zXS9Ts3l+Szu3TARnTsA0GkOkQ==}
+    dev: true
+
+  /@types/webxr/0.4.0:
+    resolution: {integrity: sha512-LQvrACV3Pj17GpkwHwXuTd733gfY+D7b9mKdrTmLdO7vo7P/o6209Qqtk63y/FCv/lspdmi0pWz6Qe/ull9kQg==}
     dev: true
 
   /@unocss/cli/0.26.2:
@@ -2232,6 +2246,10 @@ packages:
     dependencies:
       '@pkgr/utils': 2.1.0
       tslib: 2.4.0
+    dev: true
+
+  /three/0.141.0:
+    resolution: {integrity: sha512-JaSDAPWuk4RTzG5BYRQm8YZbERUxTfTDVouWgHMisS2to4E5fotMS9F2zPFNOIJyEFTTQDDKPpsgZVThKU3pXA==}
     dev: true
 
   /tiny-glob/0.2.9:

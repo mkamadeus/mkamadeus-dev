@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     ChromaHeader: typeof import('./components/chroma-header.vue')['default']
+    DotSphere: typeof import('./components/dot-sphere.vue')['default']
     HomeButton: typeof import('./components/home-button.vue')['default']
     NavFooter: typeof import('./components/nav-footer.vue')['default']
     ProjectCard: typeof import('./components/project-card.vue')['default']
