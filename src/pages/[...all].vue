@@ -9,7 +9,14 @@
     justify="center"
     align="items-center"
   >
-    <div text="lg lg:3xl center" font="header bold">404</div>
-    <div text="sm lg:base center">didn't find anything here.</div>
+    <div
+      text="lg lg:3xl center"
+      font="header bold"
+    >
+      404
+    </div>
+    <div text="sm lg:base center">
+      didn't find anything here.
+    </div>
   </div>
 </template>

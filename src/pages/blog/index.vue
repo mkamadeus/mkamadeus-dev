@@ -18,9 +18,13 @@ console.log(pages);
     <div m="b-4 lg:b-8">
       <chroma-header text="blogs" />
     </div>
-    <div flex="~ col lg:row" space="y-2 x-0 lg:y-0 lg:x-4">
+    <div
+      flex="~ col lg:row"
+      space="y-2 x-0 lg:y-0 lg:x-4"
+    >
       <router-link
         v-for="p in pages"
+        :key="p.slug"
         :to="`/blog/${p.slug}`"
         border="~ gray-100"
         p="2 lg:4"
@@ -28,7 +32,12 @@ console.log(pages);
         transform="~ hover:scale-105"
         transition="~"
       >
-        <div text-xl font-bold>{{ p.title }}</div>
+        <div
+          text-xl
+          font-bold
+        >
+          {{ p.title }}
+        </div>
         <div>@{{ p.author }}</div>
         <div>{{ p.createdAt }}</div>
       </router-link>

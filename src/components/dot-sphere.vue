@@ -9,7 +9,7 @@ import {
   WebGLRenderer,
 } from "three";
 
-const sphereCanvas = ref<HTMLCanvasElement | null>(null);
+const sphereCanvas = ref<HTMLCanvasElement>();
 
 const scene = new Scene();
 const camera = new PerspectiveCamera(70);
@@ -50,9 +50,8 @@ camera.position.set(10, 0, 10);
 scene.add(group);
 
 onMounted(() => {
-  console.log(sphereCanvas);
   const renderer = new WebGLRenderer({
-    canvas: sphereCanvas.value!,
+    canvas: sphereCanvas.value,
     antialias: true,
     alpha: true,
   });
@@ -66,8 +65,12 @@ onMounted(() => {
   );
 
   let render = function () {
-    sphereCanvas.value!.width = window.innerWidth;
-    sphereCanvas.value!.height = window.innerHeight;
+    if (!sphereCanvas.value) {
+      return;
+    }
+
+    sphereCanvas.value.width = window.innerWidth;
+    sphereCanvas.value.height = window.innerHeight;
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     const rotateX = group.rotation.x + 0.0005;
@@ -83,5 +86,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <canvas ref="sphereCanvas" filter="~ blur-sm" />
+  <canvas
+    ref="sphereCanvas"
+    filter="~ blur-sm"
+  />
 </template>
