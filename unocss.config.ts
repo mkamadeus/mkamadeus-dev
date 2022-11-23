@@ -13,11 +13,31 @@ export default defineConfig({
     presetIcons(),
     presetTypography({
       cssExtend: {
-        h1: { "font-family": "'Inter', sans-serif" },
-        p: { "font-family": "'Inter', sans-serif" },
+        "h1,h2,h3": { "font-family": "'Inter', sans-serif", color: "#ddd" },
+        p: {
+          "font-family": "'Inter', sans-serif",
+          color: "#bbb",
+          "line-height": "1.75",
+        },
+        span: { color: "#bbb" },
+        blockquote: {
+          "font-style": "normal",
+          color: "#bbb",
+          "border-left": "0.25em solid #7d7d7d4d",
+        },
         pre: {
           "font-family": "'Ubuntu Mono', monospace",
-          "background-color": "#222 !important",
+          margin: "0",
+          padding: "0",
+          "border-radius": "0.5rem",
+        },
+        a: {
+          color: "#ddd",
+          "text-decoration-style": "dotted",
+          cursor: "pointer",
+        },
+        code: {
+          "font-family": "'Ubuntu Mono', monospace",
         },
       },
     }),
@@ -40,6 +60,6 @@ export default defineConfig({
       },
     },
   },
-  include: [/\.ts$/, /\.vue$/, /\.vue\?vue/],
+  include: [/\.ts$/, /\.vue$/, /\.vue\?vue/, /\.md/],
   exclude: [/unocss\.config\.ts$/],
 });

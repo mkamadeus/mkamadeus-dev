@@ -16,39 +16,19 @@ defineProps<Props>();
     justify="end items-end"
     border="~ white"
     p="3"
-    w="64"
+    w="full"
     opacity="75"
   >
-    <div
-      flex="~"
-      space="x-1"
-      m="b-1"
-    >
-      <span
-        text="lg"
-        :class="icon || 'i-carbon-search'"
-      />
+    <div flex="~" space="x-1" m="b-1">
+      <span text="lg" :class="icon || 'i-carbon-search'" />
       <span font="bold header">{{ title }}</span>
     </div>
-    <div
-      flex="~ wrap"
-      justify="start"
-      m="b-2"
-    >
-      <div
-        v-for="s in stacks"
-        :key="title + s"
-        text="xs"
-        border="b"
-        m="r-2"
-      >
+    <div flex="~ wrap" justify="start" m="b-2">
+      <div v-for="s in stacks" :key="title + s" text="xs" border="b" m="r-2">
         #{{ s }}
       </div>
     </div>
-    <div
-      text="sm"
-      m="b-10"
-    >
+    <div text="sm" m="b-10">
       {{ description }}
     </div>
     <div
@@ -59,10 +39,7 @@ defineProps<Props>();
       justify="end"
     >
       <template v-if="Array.isArray(url)">
-        <template
-          v-for="(u, i) in url"
-          :key="`project-card-${i}`"
-        >
+        <template v-for="(u, i) in url" :key="`project-card-${i}`">
           <a
             display="block"
             border="~ gray-100"
