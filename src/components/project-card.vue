@@ -21,7 +21,7 @@ defineProps<Props>();
   >
     <div flex="~" space="x-1" m="b-1">
       <span text="lg" :class="icon || 'i-carbon-search'" />
-      <span font="bold header">{{ title }}</span>
+      <span font="bold sans">{{ title }}</span>
     </div>
     <div flex="~ wrap" justify="start" m="b-2">
       <div v-for="s in stacks" :key="title + s" text="xs" border="b" m="r-2">

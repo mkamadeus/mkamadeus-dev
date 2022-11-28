@@ -8,12 +8,12 @@ const colors = ["text-#FFF"];
 
 <template>
   <div class="group" w="max" pos="relative" mb="3 lg:7" cursor="pointer">
-    <h1 font="header semibold" text="4xl lg:9xl white" opacity="0">
+    <h1 font="sans 800" text="4xl lg:9xl white" opacity="0">
       {{ text }}
     </h1>
     <template v-for="(c, k) in colors" :key="`chroma-${k}`">
       <h1
-        font="header semibold"
+        font="sans 300"
         text="4xl lg:9xl white"
         :class="c"
         pos="absolute top-0 left-0"

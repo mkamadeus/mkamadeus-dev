@@ -13,6 +13,7 @@
     "@unocss/reset": "^0.46.3",
     "@vueuse/core": "^9.4.0",
     "@vueuse/head": "^0.9.8",
+    "dayjs": "^1.11.6",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6"
   },

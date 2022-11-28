@@ -64,7 +64,7 @@ export default defineConfig({
         });
         md.use(anchor);
         md.use(toc, {
-          includeLevel: [2, 3, 4],
+          includeLevel: [1, 2, 3],
         });
       },
     }),

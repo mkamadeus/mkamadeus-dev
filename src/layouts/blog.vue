@@ -10,17 +10,11 @@ console.log("layout", props);
 </script>
 
 <template>
-  <article
-    font="body antialiased"
-    p="6 lg:12"
-    flex="~"
-    justify="center items-center"
-    m="x-auto"
-    w="full"
-  >
-    <router-view />
-  </article>
-  <div text="white">
+  <main font="body antialiased" min-h="screen" pos="relative" text="white">
+    <NavHeader />
+    <article flex="~" justify-center items-center p="3vh lg:6vh" min-h="90vh">
+      <router-view />
+    </article>
     <NavFooter />
-  </div>
+  </main>
 </template>

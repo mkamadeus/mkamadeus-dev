@@ -14,7 +14,7 @@ const { projects } = defineProps<Props>();
 </script>
 
 <template>
-  <chroma-header text="projects" />
+  <h1 class="header" mb-2 font-600>Projects</h1>
   <div flex="~ col" space="y-2" container="~" m="t-8 x-auto">
     <template v-for="(p, i) in projects" :key="`project-${i}`">
       <project-card

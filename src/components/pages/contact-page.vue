@@ -14,7 +14,7 @@ const contacts = props.contacts;
 
 <template>
   <div flex="~ col" justify="center" h="78vh lg:66vh" w="full">
-    <chroma-header text="contact" />
+    <h1 class="header" mb-2>Contacts</h1>
     <div flex="~ col">
       <div
         v-for="(c, i) in contacts"
@@ -22,12 +22,17 @@ const contacts = props.contacts;
         flex="~"
         space="x-2"
       >
-        <div flex="~ col" justify="center">
-          <div :class="c.icon" text="gray-100 lg" />
-        </div>
-        <a :href="c.href" target="_blank" w="full" underline="hover:~ dotted">{{
-          c.contact
-        }}</a>
+        <a
+          class="link"
+          :href="c.href"
+          inline-flex
+          space-x-2
+          items-center
+          target="_blank"
+        >
+          <div :class="c.icon" inline-block />
+          <span>{{ c.contact }}</span>
+        </a>
       </div>
     </div>
   </div>

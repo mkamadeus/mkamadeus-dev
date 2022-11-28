@@ -1,8 +1,10 @@
 ---
 blog: true
 title: Hello World!
+description: Hello from mkamadeus' blog!
 author: mkamadeus
-date: 2022-06-15
+date: 2021-01-01
+duration: 1
 ---
 
 This is a short blog test on making a Markdown-based blog.

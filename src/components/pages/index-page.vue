@@ -8,9 +8,17 @@
     text="gray-100 sm lg:lg"
   >
     <div m="b-6">
-      <chroma-header text="welcome." />
-      <div text="center base lg:lg">mkamadeus' site.</div>
-      <div text="center base lg:lg">get in touch with me.</div>
+      <h1 class="header" text-center mb-2>mkamadeus</h1>
+      <div text="center sm lg:lg #888">
+        Infrastructure Engineer
+        <a class="link" href="https://www.linkedin.com/company/xendit/"
+          >@Xendit</a
+        >
+      </div>
+      <div text="center sm lg:lg #888">
+        Informatics Engineering Graduate
+        <a class="link" href="https://www.linkedin.com/company/xendit/">@ITB</a>
+      </div>
     </div>
   </div>
 </template>

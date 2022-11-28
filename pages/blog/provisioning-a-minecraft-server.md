@@ -1,13 +1,15 @@
 ---
 blog: true
 title: Provisioning a Minecraft Server
+description: A short guide on how to move resources that has been provisioned inside Kubernetes in order to make changes to a node.
 author: mkamadeus
 date: 2022-11-21
+duration: 5
 ---
 
 [[toc]]
 
-## Introduction
+# Introduction
 
 As an avid computer enjoyer, I enjoy playing Minecraft from time to time.
 Minecraft is an open game; not just in what can you do in game, it's also on how you want to play the game.
@@ -26,9 +28,9 @@ The development process, however, was not as smooth as I thought (skill issue).
 
 > Check out the repository [here](https://github.com/mkamadeus/minecraft-server)!
 
-## Implementation Process
+# Implementation Process
 
-### Initial Implementation
+## Initial Implementation
 
 > See [this](https://github.com/mkamadeus/minecraft-server/tree/v0.2.0-1.18.2) for more context. This refers to what the project used to look like.
 
@@ -74,7 +76,7 @@ I eventually added more tasks to the role, such as backing up the world data (co
 It looks good at the time, so I published the repository.
 Some improvements can be done though.
 
-### Improved Implementation
+## Improved Implementation
 
 > See [this](https://github.com/mkamadeus/minecraft-server/tree/v0.3.0-1.19.2) for more context. This refers to the improved implementation.
 

@@ -16,4 +16,14 @@ const routes = setupLayouts(generatedRoutes);
 // MAIN APP
 import App from "./App.vue";
 
-export const createApp = ViteSSG(App, { routes });
+export const createApp = ViteSSG(App, {
+  routes,
+  scrollBehavior: (to) => {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: "smooth",
+      };
+    }
+  },
+});

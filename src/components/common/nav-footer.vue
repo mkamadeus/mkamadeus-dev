@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import socialMedias from "~/constants/socialmedia";
+import dayjs from "dayjs";
 
 const routes = [
   { text: "#home", route: "/" },
@@ -10,11 +10,12 @@ const routes = [
 </script>
 
 <template>
-  <footer flex="~ col" justify-center h="10vh" w="full" text="white">
+  <!--<footer flex="~ col" justify-center h="10vh" w="full" text="#888">
     <div flex="~" justify="center items-center" space="x-2" m="b-2">
       <template v-for="l in socialMedias" :key="l.url">
         <a
           :class="l.icon"
+          :aria-label="l.title"
           class="text-2xl"
           opacity="75 hover:100"
           transition="all duration-150"
@@ -34,5 +35,15 @@ const routes = [
         </div>
       </template>
     </div>
+  </footer> -->
+  <footer
+    flex="~ col"
+    justify-center
+    items-center
+    h="10vh"
+    w="full"
+    text="#888"
+  >
+    CC BY-NC-SA 4.0 {{ dayjs().year() }}
   </footer>
 </template>
