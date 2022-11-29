@@ -13,9 +13,9 @@ const contacts = props.contacts;
 </script>
 
 <template>
-  <div flex="~ col" justify="center" h="78vh lg:66vh" w="full">
+  <div flex="~ col" justify="center" items-center h="78vh lg:66vh" w="full">
     <h1 class="header" mb-2>Contacts</h1>
-    <div flex="~ col">
+    <div flex="~ col" items-center>
       <div
         v-for="(c, i) in contacts"
         :key="`contact-${i}`"

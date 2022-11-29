@@ -71,7 +71,13 @@ export default defineConfig({
     autoimport({
       dts: "autoimports.d.ts",
       include: [/\.vue$/, /\.vue\?vue/],
-      imports: ["vue", "vue-router", "@vueuse/core", "@vueuse/head"],
+      imports: [
+        "vue",
+        "vue-router",
+        "@vueuse/core",
+        "@vueuse/head",
+        "vue/macros",
+      ],
     }),
     components({
       extensions: ["vue", "md"],

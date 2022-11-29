@@ -5,6 +5,11 @@ projects:
     description: "Student ID finder for ITB students. Static site with no backend."
     stacks: ["react", "vite", "tailwind", "cloudflare-pages"]
     url: "https://geprek.mkamadeus.dev"
+  - icon: "i-carbon-bot"
+    title: "NIC Scraper"
+    description: "(Legally) scrape university students' data to be fed into Geprek"
+    stacks: ["go", "http-request"]
+    url: "https://github.com/mkamadeus/nicscraper"
   - icon: "i-carbon-idea"
     title: "Arkalogica Monopoly"
     description: "Simple monopoly-like game based on websockets."
@@ -32,8 +37,7 @@ projects:
         "nextjs",
         "docker",
       ]
-    url: "https://github.com/mkamadeus/mtls-demo"
-    isPrivate: false
+    isPrivate: true
   - icon: "i-carbon-qr-code"
     title: "Simple RSVP System"
     description: "Makeshift QR code based RSVP system mainly relying on Google Suite"
@@ -44,6 +48,12 @@ projects:
     description: "University presence automated for the pandemic."
     stacks: ["docker", "python", "selenium", "http-request"]
     isPrivate: true
+  - icon: "i-carbon-cognitive"
+    title: "Myx: ML Experiment to Service"
+    description: "Final project and been made a thesis report for graduation."
+    stacks: ["go", "python", "fastapi", "mlops"]
+    url: ["https://github.com/mkamadeus/myx", https://report.mkamadeus.dev/]
+  
 ---
 
 <ProjectPage :projects="projects" />

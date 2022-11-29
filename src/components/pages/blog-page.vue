@@ -61,7 +61,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1 class="header" mb-2 font-600>Blogs</h1>
+  <h1 class="header" mb="2 lg:4" font-600>Blogs</h1>
+  <div text="#999">Pouring my thoughts on tech and other stuff in writing.</div>
   <div flex="~ col" space="y-2" container="~" m="t-8 x-auto">
     <ul>
       <li
