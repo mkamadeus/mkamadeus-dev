@@ -53,12 +53,10 @@ Object.keys(blogs).forEach((year) => {
 });
 
 const listItems = ref<HTMLLIElement[]>([]);
-const listHeights = computed(() =>
-  listItems.value.map((el) => el.clientHeight)
-);
+const listHeights = ref<number[]>([]);
 
 onMounted(() => {
-  console.log(listItems.value[0].clientHeight);
+  listHeights.value = listItems.value.map((el) => el.clientHeight);
 });
 </script>
 
@@ -80,7 +78,7 @@ onMounted(() => {
           </div>
           <div
             w="0.25"
-            :style="`height: calc(${listHeights[i]}px - 4em)`"
+            :style="`height: calc(${listHeights[i]}px - 2em)`"
             bg="#ddd"
             pos="absolute top-5 left-0.8"
           />

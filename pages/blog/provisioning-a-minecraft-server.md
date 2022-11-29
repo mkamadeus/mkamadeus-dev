@@ -1,7 +1,7 @@
 ---
 blog: true
 title: Provisioning a Minecraft Server
-description: A short guide on how to move resources that has been provisioned inside Kubernetes in order to make changes to a node.
+description: Personal guide and thought process on creating and provisinoing a Minecraft server.
 author: mkamadeus
 date: 2022-11-21
 duration: 5
