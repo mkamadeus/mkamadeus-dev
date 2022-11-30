@@ -19,7 +19,7 @@ const { projects } = defineProps<Props>();
     Got any projects?
     <router-link class="link text-#ddd" to="/contact">Contact me!</router-link>
   </div>
-  <div flex="~ col" space="y-6 lg:y-8" container="~" m="t-8 x-auto">
+  <div flex="~ col" space="y-8 lg:y-10" container="~" m="t-8 x-auto">
     <template v-for="(p, i) in projects" :key="`project-${i}`">
       <project-card
         :icon="p.icon"

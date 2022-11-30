@@ -30,9 +30,7 @@ const socialMedias = [
       <h1 class="header" text-center mb="2 lg:4">mkamadeus</h1>
       <div text="center sm lg:lg #888">
         Infrastructure Engineer
-        <a class="link" href="https://www.linkedin.com/company/xendit/"
-          >@Xendit</a
-        >
+        <a class="link" href="https://www.linkedin.com/company/xendit/">@Xendit</a>
       </div>
       <div text="center sm lg:lg #888">
         Informatics Engineering Graduate

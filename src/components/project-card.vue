@@ -30,7 +30,7 @@ let urlList = props.url ?? [];
       <span :class="icon" />
       <span font="600 sans">{{ title }}</span>
     </div>
-    <span col-span-2 v-if="!isPrivate && url" flex space-x-2 justify-end>
+    <span v-if="!isPrivate && url" col-span-2 flex space-x-2 justify-end>
       <template v-for="(u, i) in url" :key="`project-card-${i}`">
         <a
           display="block"
