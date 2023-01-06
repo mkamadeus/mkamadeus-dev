@@ -1,6 +1,6 @@
 <h1 align="center">mkamadeus.dev</h1>
 
-<p align="center"><code>@mkamadeus' personal site.</code></p>
-<p align="center"><code>Created using Vite & Vue.</code></p>
-<p align="center"><code>Heavily inspired and powered by <a href="https://antfu.me">@antfu</a>'s work 🙂</code></p>
+<p align="center" style="font-family:monospace;">@mkamadeus' personal site.</p>
+<p align="center" style="font-family:monospace;">Created using Vite & Vue.</p>
+<p align="center" style="font-family:monospace;">Heavily inspired and powered by <a href="https://antfu.me">@antfu</a>'s work 🙂</p>
 
