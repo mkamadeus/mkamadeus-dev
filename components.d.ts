@@ -8,16 +8,16 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AudioPlayer: typeof import('./src/components/audio-player.vue')['default']
-    BlogPage: typeof import('./src/components/pages/blog-page.vue')['default']
+    BlogPage: typeof import('./src/components/pages/blog/blog-page.vue')['default']
     ChromaHeader: typeof import('./src/components/chroma-header.vue')['default']
-    ContactPage: typeof import('./src/components/pages/contact-page.vue')['default']
+    ContactPage: typeof import('./src/components/pages/contact/contact-page.vue')['default']
     HomeButton: typeof import('./src/components/home-button.vue')['default']
-    IndexPage: typeof import('./src/components/pages/index-page.vue')['default']
+    IndexPage: typeof import('./src/components/pages/home/index-page.vue')['default']
     Markdown: typeof import('./src/components/common/markdown.vue')['default']
     NavFooter: typeof import('./src/components/common/nav-footer.vue')['default']
     NavHeader: typeof import('./src/components/common/nav-header.vue')['default']
-    ProjectCard: typeof import('./src/components/project-card.vue')['default']
-    ProjectPage: typeof import('./src/components/pages/project-page.vue')['default']
+    ProjectCard: typeof import('./src/components/pages/project/project-card.vue')['default']
+    ProjectPage: typeof import('./src/components/pages/project/project-page.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

@@ -21,7 +21,7 @@ const { projects } = defineProps<Props>();
   </div>
   <div flex="~ col" space="y-8 lg:y-10" container="~" m="t-8 x-auto">
     <template v-for="(p, i) in projects" :key="`project-${i}`">
-      <project-card
+      <ProjectCard
         :icon="p.icon"
         :description="p.description"
         :title="p.title"

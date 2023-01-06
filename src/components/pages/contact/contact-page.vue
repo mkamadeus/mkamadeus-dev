@@ -9,7 +9,6 @@ type Props = {
 
 const props = defineProps<Props>();
 const contacts = props.contacts;
-// import contacts from "~/constants/contact";
 </script>
 
 <template>

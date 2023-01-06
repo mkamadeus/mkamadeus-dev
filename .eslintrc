@@ -2,20 +2,6 @@
   "env": {
     "node": true
   },
-  "overrides": [
-    {
-      "files": ["*.vue"],
-      "parser": "vue-eslint-parser",
-      "parserOptions": {
-        "parser": "@typescript-eslint/parser"
-      },
-      "rules": {
-        "no-unused-vars": "off",
-        "no-undef": "off",
-        "@typescript-eslint/no-unused-vars": "off"
-      }
-    }
-  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -29,5 +15,19 @@
     "vue/no-setup-props-destructure": "off",
     "vue/max-attributes-per-line": "off",
     "vue/singleline-html-element-content-newline": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.vue"],
+      "parser": "vue-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser"
+      },
+      "rules": {
+        "no-unused-vars": "off",
+        "no-undef": "off",
+        "@typescript-eslint/no-unused-vars": "off"
+      }
+    }
+  ]
 }

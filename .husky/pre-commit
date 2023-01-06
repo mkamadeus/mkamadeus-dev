@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+BOLD="\e[1m"
+NORMAL="\e[0m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+
+printf "$BOLD$YELLOW%s$NORMAL\n" "[LINT] Linting project..."
+if npx lint-staged;
+then
+	printf "$GREEN%s$NORMAL\n" "[LINT] Lint successful!"
+else
+	printf "$RED%s$NORMAL\n" "[LINT] Lint failed!"
+	printf "$RED%s$NORMAL\n" "[LINT] Consider running \`pnpm run lint:fix\`"
+	exit 1
+fi
