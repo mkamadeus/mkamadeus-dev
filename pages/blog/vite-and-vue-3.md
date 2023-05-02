@@ -152,7 +152,28 @@ I have converted a project of mine from Vue and React, and it's way more readabl
 
 ## Styling
 
-When talking about frontend libraries, it's inevitable on how 
+When talking about frontend libraries, it's inevitable on how we should style our websites.
+Even though it's the age of Tailwind-like, people tend to use their own organization of styling.
+Vue definitely excels at this since it provides as with dedicated `<style>` tags inside the components.
+
+Vue also gives their users the ability to have conditional styling.
+A common pattern is to have certain styling active on some condition.
+With Vue's directive, we can achieve this with supplying the `class` attribute with a simple JSON map.
+This pattern works particularly well with Tailwind-like libraries.
+
+```vue
+<div :class="{"class-name-1": isLoading, "class-name-2": !isLoading }">
+	stuff here...
+</div>
+```
+
+React on the other hand doesn't really provide you with a way to give styles easily.
+Other than using `.css` files, the other best option you have is CSS in JS.
+Personal opinion starts here; I don't really like CSS in JS since it clutters my code.
+I'd rather use plain `.css` files instead.
+
+Vue enhances the DX for giving styles.
+I don't feel like React put much thought into how we should style something; it's left for us the users to decide.
 
 # What React is Good at
 
