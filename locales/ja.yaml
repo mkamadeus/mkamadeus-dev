@@ -1,0 +1,17 @@
+home:
+  job_title: インフラエンジニア
+  school_title: インフォマティクス・エンジニアリング大学院
+navbar:
+  home: ホーム
+  blogs: ブログ
+  projects: プロジェクト
+  contacts: 連絡先
+contacts:
+  title: 連絡先
+blogs:
+  title: ブログ
+  subtitle: 技術やその他のことについて書いています。
+projects:
+  title: プロジェクト
+  subtitle: 何かプロジェクトはある？
+  contact_me: 連絡してね！

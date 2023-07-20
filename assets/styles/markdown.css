@@ -1,0 +1,202 @@
+.prose h1,h2,h3 {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.prose h1 {
+	color: #ddd;
+	margin: 1.0em 0 0.5em;
+	font-weight: 800;
+	font-size: 2em;
+}
+
+.prose h2 {
+	color: #bbb;
+	font-weight: 500;
+	font-size: 1.5em;
+	margin: 0 0 0.5em;
+}
+
+.prose h3 {
+	color: #bbb;
+	font-weight: 500;
+	font-size: 1.2em;
+	margin: 0 0 0.5em;
+}
+
+.prose p {
+	font-family: 'Inter', sans-serif;
+	color: #bbb;
+	line-height: 1.75;
+	margin: 0 0 1em;
+}
+
+.prose code {
+	font-family: 'Ubuntu Mono', monospace;
+	margin-bottom: 2em;
+}
+
+.prose blockquote {
+	font-style: normal;
+	color: #bbb;
+	border-left: 0.25em solid #7d7d7d4d;
+	padding: 0 0 0 1em;
+}
+
+.prose ul {
+  margin-top: 0;
+}
+
+.prose ol * {
+  color: #bbb;
+}
+
+.prose ul *, .prose ol * {
+  color: #bbb;
+}
+
+.prose a {
+  text-decoration: none;
+  cursor: auto;
+  text-overflow: ellipsis;
+}
+
+.prose a:not([rel]) {
+  text-decoration: none;
+  cursor: auto;
+  text-overflow: ellipsis;
+}
+
+.prose a[rel=nofollow] {
+  color: #ddd;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  cursor: pointer;
+}
+
+.prose pre {
+  font-family: 'Ubuntu Mono', monospace;
+  padding: 1.0rem;
+  border-radius: 0.5rem;
+  background-color: #1a1a1a;
+}
+
+.prose p code {
+  background-color: #1a1a1a;
+  padding: 0.25em;
+  border-radius: 0.25em;
+}
+.prose p code:before, .prose p code:after {
+  content: none
+}
+
+.prose h1 code {
+  background-color: #1a1a1a;
+  padding: 0.25em;
+  border-radius: 0.25em;
+}
+.prose h1 code:before, .prose h1 code:after {
+  content: none
+}
+
+.prose h2 code {
+  background-color: #1a1a1a;
+  padding: 0.25em;
+  border-radius: 0.25em;
+}
+.prose h2 code:before, .prose h2 code:after {
+  content: none
+}
+
+.prose h3 {
+  background-color: #1a1a1a;
+  padding: 0.25em;
+  border-radius: 0.25em;
+}
+.prose h3 code:before, .prose h3 code:after {
+  content: none
+}
+
+.prose figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 1.5em;
+}
+
+.prose figure img {
+  margin-bottom: 0.5em;
+}
+
+.prose figure figcaption {
+  color: #ddd;
+  font-size: 0.8em;
+}
+
+/* 
+{
+        h3: {
+          color: "#bbb",
+          "font-weight": "500",
+          "font-size": "1.2em",
+          margin: "0 0 0.5em",
+        },
+        ".table-of-contents": {
+          "margin-bottom": "2em",
+          "margin-left": "-1em",
+        },
+        ".table-of-contents ul": {
+          margin: "0",
+          "list-style-type": "none",
+        },
+        ".table-of-contents a": {
+          "font-weight": "400",
+          "font-size": "0.8em",
+        },
+        ul: {
+          "margin-top": "0",
+        },
+        "ol *": {
+          color: "#bbb",
+        },
+        "ul *": {
+          color: "#bbb",
+        },
+        p: {
+          "font-family": "'Inter', sans-serif",
+          color: "#bbb",
+          "line-height": "1.75",
+        },
+        span: { color: "#bbb" },
+        blockquote: {
+          "font-style": "normal",
+          color: "#bbb",
+          "border-left": "0.25em solid #7d7d7d4d",
+        },
+        pre: {
+          "font-family": "'Ubuntu Mono', monospace",
+          margin: "0",
+          padding: "0",
+          "border-radius": "0.5rem",
+        },
+        a: {
+          color: "#ddd",
+          "text-decoration-style": "dotted",
+          cursor: "pointer",
+        },
+        code: {
+          "font-family": "'Ubuntu Mono', monospace",
+          "margin-bottom": "2em",
+        },
+        figure: {
+          display: "flex",
+          "flex-direction": "column",
+          "align-items": "center",
+        },
+        "figure > img": {
+          "margin-bottom": "0.5em",
+        },
+        figcaption: {
+          color: "#ddd",
+          "font-size": "0.8em",
+        },
+      }, */

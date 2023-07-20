@@ -1,0 +1,17 @@
+home:
+  job_title: 인프라 엔지니어
+  school_title: 정보공학과 졸업
+navbar:
+  home: 홈
+  blogs: 블로그
+  projects: 프로젝트
+  contacts: 연락처
+contacts:
+  title: 연락처
+blogs:
+  title: 블로그
+  subtitle: 기술과 그 외의 것들에 대해 씁니다.
+projects:
+  title: 프로젝트
+  subtitle: 프로젝트가 있나요?
+  contact_me: 연락주세요!

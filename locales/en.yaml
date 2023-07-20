@@ -1,0 +1,18 @@
+home:
+  job_title: Infrastructure Engineer
+  school_title: Informatics Engineering Graduate
+navbar:
+  home: Home
+  blogs: Blogs
+  projects: Projects
+  contacts: Contacts
+contacts:
+  title: Contacts
+blogs:
+  title: blogs
+  subtitle: Pouring my thoughts on tech and other stuff in writing.
+projects:
+  title: Projects
+  subtitle: Got any projects?
+  contact_me: Contact me!
+
