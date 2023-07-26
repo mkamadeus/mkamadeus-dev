@@ -1,0 +1,18 @@
+home:
+  job_title: Infrastructure Engineer
+  school_title: Teknik Informatika 2018
+navbar:
+  home: Home
+  blogs: Blog
+  projects: Proyek
+  contacts: Kontak
+contacts:
+  title: Kontak
+blogs:
+  title: Blog
+  subtitle: Beberapa pemikiran tentang teknologi dan lainnya dituangkan dalam tulisan.
+projects:
+  title: Proyek
+  subtitle: Ada proyek?
+  contact_me: Hubungi saya!
+

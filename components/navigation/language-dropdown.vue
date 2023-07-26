@@ -36,7 +36,7 @@ const onOption = (value: string) => {
         <div class="i-carbon-chevron-down" :class="{ 'rotate-180': open }" transition="~ duration-300" />
       </span>
     </div>
-    <div absolute flex="col" bg="#222" min-w="full" p-1 top-10 :class="{ 'hidden': !open, 'flex': open }">
+    <div absolute flex="col" bg="#222" w="40" p-1 top-10 right-0 z-50 :class="{ 'hidden': !open, 'flex': open }">
       <a v-for="(option, i) of localeOptions" :key="i" p-1 cursor-pointer bg="hover:#333"
         @click.prevent.stop="setLocale(option[1]); open = false;">
         {{ option[0] }}

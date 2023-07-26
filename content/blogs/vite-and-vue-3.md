@@ -9,9 +9,10 @@ duration: 6
 
 > Disclaimer: purely MY opinion and preference based on my experience using both of them.
 
-[[toc]]
+::TableOfContents
+::
 
-# Background
+## Background
 
 I came to programming and software engineering when first introduced to HTML and CSS in middle school.
 It is nothing much, but it was great start for a middle schooler like me.
@@ -29,9 +30,9 @@ With the rise of Vue 3 and Vite, however; it has improved a lot from what it was
 Nowadays, when choosing a front end framework/library I'm going to use Vue 3 as it has matured.
 I'll discuss from my POV about what has changed and why I choose Vue 3 over React.
 
-# Differences
+## Differences
 
-## State Management
+### State Management
 
 The old debate of how should we manage state in a frontend Javascript framework.
 To be fair, both React and Vue has similarity in this aspect alone.
@@ -47,7 +48,7 @@ Previously on Vue 2, most people we're using Vuex and as far as I can recall, it
 Nowadays, people probably use Pinia for their projects.
 It's really simple and straightforward to use and we can plug it easily into Vue and Vite projects.
 
-## Typescript 
+### Typescript 
 
 This is another problem where I think React hasn't handled well enough.
 React does support the use of Typescript, but I feel the typings created aren't really defined well enough.
@@ -69,7 +70,7 @@ It's not that inconsistent like `React.FC`, but the typings provided are not ver
 Again, sometimes people have different opinion on using the provided typing by React.
 People sometimes create their own type and sometimes have different style just for creating a simple context.
 
-## Plugins
+### Plugins
 
 > This part is mostly just why Vite is awesome! I see React and Vue in an equal position.
 
@@ -79,7 +80,7 @@ I hardly see a React x Vite project, so I don't really know how people will util
 The downside of using React however is there are no meta frameworks that run under Vite.
 Next.js, one of the most popular frameworks using React uses Webpack 5 under the hood which I understand why they don't choose to change it to Vite.
 
-## Readibility and Maintainability
+### Readibility and Maintainability
 
 Again, this varies between developer to developer.
 A good codebase, regardless of the frameworks their using can be easy to read and maintain.
@@ -150,7 +151,7 @@ With the introduction of `<script setup>`, things become much better to read and
 We "set up" everything we need there for business logic and helper functions we may need for the UI and simply use it.
 I have converted a project of mine from Vue and React, and it's way more readable than it was when using React and hooks.
 
-## Styling
+### Styling
 
 When talking about frontend libraries, it's inevitable on how we should style our websites.
 Even though it's the age of Tailwind-like, people tend to use their own organization of styling.
@@ -175,7 +176,7 @@ I'd rather use plain `.css` files instead.
 Vue enhances the DX for giving styles.
 I don't feel like React put much thought into how we should style something; it's left for us the users to decide.
 
-# What React is Good at
+## What React is Good at
 
 To close of my writing, it seems fair to bring up the positives of using React on this day of age.
 I acknowledge that React now has one of the biggest community, if not the biggest community among other Javascript libraries/frameworks.
@@ -187,7 +188,7 @@ Even though personally I would go with Flutter now, React Native was the first o
 Startups in every direction still uses React Native for their ground-breaking app.
 This is one aspect that Vue can work on (but I personally think they should stick to websites).
 
-# Conclusion
+## Conclusion
 
 My personal experience led me to use Vue for the rest of my projects.
 Vast plugins and the growing community made me stick to the Vue ecosystem.

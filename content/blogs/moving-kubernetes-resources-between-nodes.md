@@ -7,9 +7,10 @@ date: 2022-11-27
 duration: 2
 ---
 
-[[toc]]
+::TableOfContents
+::
 
-# Background
+## Background
 
 I provisioned a new Kubernetes cluster for my work.
 Using AWS Elastic Kubernetes Service and provided template, a cluster can be provisioned and set up with the apps required relatively quickly.
@@ -17,7 +18,7 @@ However, I noticed a configuration is wrong, particularly one of the node are no
 I already set up the apps for autoscaling, disaster recovery, etc.
 Instead of restarting my progress, I would like to keep the apps installed.
 
-# Procedure
+## Procedure
 
 TLDR; the procedure to move resources from a node to another is as follows:
 
@@ -30,15 +31,15 @@ TLDR; the procedure to move resources from a node to another is as follows:
 
 > This procedure is flexible and can be adapted to different cases of node reprovisioning.
 
-# Explanation
+## Explanation
 
-## Provisioning Temporary Node
+### Provisioning Temporary Node
 
 Since the node has already been provisioned, Kubernetes can't simply fix the problem by its own.
 Hence, we need to add this temporary node in order to move the resources here temporarily.
 Provision the node according to how you would do it in your own system since it may vary.
 
-## Cordoning Nodes
+### Cordoning Nodes
 
 Cordoning nodes is marking a node as unschedulable.
 This doesn't apply to resources that has been scheduled there.
@@ -50,7 +51,7 @@ kubectl get nodes
 kubectl cordon NODE
 ```
 
-## Draining Nodes
+### Draining Nodes
 
 Draining is cordoning with added step, which is to "drain" the resources i.e move it to another node.
 After marking a node as unschedulable (cordoning), the resources will be moved to an available node.
@@ -61,13 +62,13 @@ kubectl get nodes
 kubectl drain NODE
 ```
 
-## Reprovisioning the Node
+### Reprovisioning the Node
 
 In my case, I provisioned the node in the wrong subnet.
 No way to fix this node other than reprovisioning, hence why I got into cordoning and draining the nodes.
 These steps would be irrelevant to you if you don't need to reprovision the node.
 
-## Uncordoning the Node
+### Uncordoning the Node
 
 As the name suggest, this is the opposite of cordoning a node.
 This step makes the nodes schedulable again after you have finished the migration process.
@@ -77,7 +78,7 @@ kubectl get nodes
 kubectl uncordon NODE
 ```
 
-# Conclusion
+## Conclusion
 
 These steps can be followed to update a broken node.
 These steps also provide a general framework to update a broken node.

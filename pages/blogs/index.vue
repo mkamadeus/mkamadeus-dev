@@ -75,14 +75,14 @@ onMounted(() => {
 			<ul>
 				<li v-for="(y, i) in blogs.years" :ref="(el) => listItems.push(el as HTMLLIElement)" :key="`blog-${y}`" pb-8
 					animated="~ fade-in-up ease-in-out" :style="`animation-delay: ${1300 + 300 * i}ms`">
-					<div text-5xl font-800 mb-4>{{ y }}</div>
+					<div text="3xl lg:5xl" font="sans 700" mb-4>{{ y }}</div>
 					<div flex="~ col" space-y-2>
 						<div v-for="blog in blogs.posts[y]" :key="`blog-page-${blog.title}`" class="group" p="" cursor="pointer"
-							text="#aaa" @click="router.push(`/blogs${blog._path}`)">
+							text="#aaa" @click="router.push(`${blog._path}`)">
 							<div font="500" text="lg" group-hover:text="#ddd" transition="all duration-150">
 								{{ blog.title }}
 							</div>
-							<div inline-flex items-center space-x-1 font="300" text="sm" group-hover:text="#ddd"
+							<div inline-flex items-center space-x-1 font="300 mono" text="sm" group-hover:text="#ddd"
 								transition="all duration-150">
 								<div class="i-carbon-calendar" text-lg />
 								<div>
@@ -92,7 +92,7 @@ onMounted(() => {
 									•
 								</div>
 								<div inline-flex class="i-carbon-timer" text-lg />
-								<div>{{ blog.duration || "??" }} min</div>
+								<div>{{ blog.duration || "??" }} minute{{ blog.duration > 1 ? 's' : '' }}</div>
 							</div>
 						</div>
 					</div>

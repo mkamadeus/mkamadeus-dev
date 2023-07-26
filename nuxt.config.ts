@@ -26,6 +26,7 @@ export default defineNuxtConfig({
 	],
 	devServerHandlers: [],
 	app: {
+		layoutTransition: { name: 'layout', mode: 'out-in' },
 		head: {
 			viewport: 'width=device-width,initial-scale=1',
 			meta: [
@@ -50,13 +51,18 @@ export default defineNuxtConfig({
         file: 'en.yaml',
       },
       {
+        code: 'id',
+        name: 'Bahasa Indonesia',
+        file: 'id.yaml',
+      },
+      {
         code: 'ja',
-        name: 'Japanese',
+        name: '日本',
         file: 'ja.yaml',
       },
       {
         code: 'ko',
-        name: 'Korean',
+        name: '한국어',
         file: 'ko.yaml',
       },
     ],

@@ -20,7 +20,7 @@ const contacts = [
 
 <template>
   <div flex="~ col" justify="center" items-center h="78vh lg:66vh" w="full">
-    <h1 class="header" mb-2 animated="~ fade-in-up ease-in-out delay-500">{{ $t("contacts.title") }}</h1>
+    <h1 class="header" mb-4 animated="~ fade-in-up ease-in-out delay-500">{{ $t("contacts.title") }}</h1>
     <div flex="~ col" items-center>
       <div v-for="(c, i) in contacts" :key="`contact-${i}`" flex="~" space="x-2">
         <a class="link" :href="c.href" inline-flex space-x-2 items-center target="_blank"

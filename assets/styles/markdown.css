@@ -1,26 +1,22 @@
 .prose h1,h2,h3 {
 	font-family: 'Plus Jakarta Sans', sans-serif;
+  scroll-behavior: smooth;
 }
 
-.prose h1 {
-	color: #ddd;
+.prose h1 a, .prose h2 a {
+  color: #ddd;
 	margin: 1.0em 0 0.5em;
 	font-weight: 800;
-	font-size: 2em;
+	font-size: 1em;
+  scroll-behavior: smooth;
 }
 
-.prose h2 {
-	color: #bbb;
-	font-weight: 500;
-	font-size: 1.5em;
+.prose h3 a {
+  color: #ddd;
+	font-weight: 600;
+	font-size: 0.9em;
 	margin: 0 0 0.5em;
-}
-
-.prose h3 {
-	color: #bbb;
-	font-weight: 500;
-	font-size: 1.2em;
-	margin: 0 0 0.5em;
+  scroll-behavior: smooth;
 }
 
 .prose p {
@@ -52,12 +48,6 @@
 
 .prose ul *, .prose ol * {
   color: #bbb;
-}
-
-.prose a {
-  text-decoration: none;
-  cursor: auto;
-  text-overflow: ellipsis;
 }
 
 .prose a:not([rel]) {
@@ -107,7 +97,7 @@
   content: none
 }
 
-.prose h3 {
+.prose h3 code {
   background-color: #1a1a1a;
   padding: 0.25em;
   border-radius: 0.25em;
@@ -131,6 +121,23 @@
   color: #ddd;
   font-size: 0.8em;
 }
+
+.prose #toc {
+  font-size: 0.8em
+}
+
+.prose #toc ol {
+  list-style: none;
+  margin: 0;
+}
+
+.prose #toc a {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  cursor: pointer;
+  scroll-behavior: smooth;
+}
+
 
 /* 
 {

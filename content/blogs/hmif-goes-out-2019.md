@@ -9,9 +9,10 @@ duration: 7
 
 This is kinda a lengthy blogpost which tells the story about my first exposure to startups and tech comapnies up close. I am also writing my thoughts and summary of the presentation. This information provided in this writing may not be accurate as this was the information I got back in 2019. I hope this blog post would be interesting to read 🙂
 
-[[toc]]
+::TableOfContents
+::
 
-# Departure and Arrival
+## Departure and Arrival
 
 All of us at this event left at 05.30 WIB in the morning. At that time it was still quite dark; only stopped at one rest area. Fortunately, there was no traffic jam when we left.
 
@@ -38,10 +39,10 @@ We were also given a sticky note containing the wifi password, while waiting for
   <figcaption>The sticky note.</figcaption>
 </figure>
 
-# Presentation
+## Presentation
 
 
-## General Information
+### General Information
 
 Then came the presentation time! They opened the presentation with these statistics from a certain data source:
 
@@ -63,7 +64,7 @@ OVO itself has 3 types of customers; not only us as users because OVO is an inte
 2. Small merchants
 3. Merchant Channel, i.e the more modern ones; e.g: the ones in the shopping mall
 
-## Product Team
+### Product Team
 
 Here comes the more technical side of the presentation (which is the interesting bit 😀)! First up were two people who are Product Managers; different from PM/Project Managers. They are ITB alumni named Bryan from Mechanical Engineering and Arya from Systems and Information Technology (STI)!
 
@@ -87,7 +88,7 @@ The features they work on are as follows:
 - Insurance
 - and others (including features that are still confidential)
 
-## Data Engineering
+### Data Engineering
 
 <figure >
   <img src="/static/hmif-goes-out-05-data-tech.jpeg" alt="Figure" lazy="true" style="object-fit: cover;width: 500px; height: 500px" width="500" height="500">
@@ -116,7 +117,7 @@ Perhaps, a big difference from other competitors is that OVO opens up opportunit
 
 In addition, OVO also has a fraud detection system, dashboards as mentioned earlier, and one interesting feature which is dubbed as Complex Event Processing (CEP). For example, we can see that each person's OVO account gets different advertisements and promotions based on certain events or preferences. It happened because of certain combinations of preferences and events that happen and the system decides to give that certain promotions. That is an example of the results of the CEP processing!
 
-## Technology and General Engineering
+### Technology and General Engineering
 
 The last presentation section was no less exciting; the Tech(nology) section! This Tech field is very close to us, HMIF ITB students (and me). Etsy is the one still explaining. Roughly speaking, this Tech field is divided into 5 fields:
 
@@ -150,7 +151,7 @@ OVO uses the Continuous Integration and Continuous Delivery (CI/CD) principle in
 
 Last but not least, there is the DBA/Database Admin. The job is to take care of the database, in short. They use PostgreSQL, MySQL, and MariaDB. They work to maintain reliability for their database and may improve on existing databases.
 
-# Conclusion
+## Conclusion
 
 More or less, that was the whole presentation. One more important thing they said was that we must be able to improve our soft skills such as communication, and we must understand our own value in the eyes of the company.
 
@@ -163,7 +164,7 @@ Another fun detail; if you successfully answer questions from them, you will be 
   <figcaption>Xiaomi powerbank that my friend got.</figcaption>
 </figure>
 
-# Extra Photos!
+## Extra Photos!
 
 Bonus section showing the pictures I got.
 

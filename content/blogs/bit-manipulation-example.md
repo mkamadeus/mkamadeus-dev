@@ -7,15 +7,16 @@ date: 2019-06-17
 duration: 7
 ---
 
-[[toc]]
+::TableOfContents
+::
 
-# Background
+## Background
 
 I (in)frequently check on sites like Codeforces and Kattis to improve my programming logic and skills. One day, I stumbled upon an interesting problem to me. At first, this problem looked quite challenging, so I tried to solve it (problem will be explained in later sections). At first, I couldn’t solve it — I couldn’t find any patterns relating to the problem. I wasn’t in such a rush, so I left the problem as it’s already midnight.
 
 Once I was doing nothing at the shopping mall. I went to look back at the problem, and I got an idea on how to do it - which is by using _bit manipulation_!
 
-# What are Bitmasks?
+## What are Bitmasks?
 
 In order to understand bit manipulation, firstly we need to understand bitmasks since it is used in bit manipulation operations.
 A bit is short of _"binary digits"_ - digits which contains zeros and ones. 
@@ -27,7 +28,7 @@ Summing up:
 
 > Bitmasks take advantage of how an integer be represented in its binary form, meaning that it can be used as a compact set of booleans.
 
-# Bitwise Operators
+## Bitwise Operators
 
 Bit manipulation is a technique that is used to, well, manipulate the bits that represents an integer. 
 I’m going to show you some commonly used bitwise operators in C++.
@@ -57,7 +58,7 @@ x=5;
 x=x>>2; //10100 = 20 in decimal
 ```
 
-## Bitwise OR (`|`)
+### Bitwise OR (`|`)
 
 Does OR operation on the binary form of two integers bit by bit.
 
@@ -75,7 +76,7 @@ z = 1101 = 13 in decimal
 */
 ```
 
-## Bitwise AND (`&`)
+### Bitwise AND (`&`)
 
 Does an AND operation on the binary form of two integers bit by bit.
 
@@ -92,14 +93,14 @@ z = 0001 = 1 in decimal
 */
 ```
 
-## Bitwise NOT (`~`)
+### Bitwise NOT (`~`)
 
 This operator inverts the bits of the binary form of an integer.
 This operation is usually used in conjunction of other operators; for example to make an NAND or NOR operations.
 
 > No examples provided here since it depends on the data type.
 
-## Bitwise XOR (`^`)
+### Bitwise XOR (`^`)
 
 Applies the XOR operation of the binary form of two integers bit by bit.
 Useful to toggle bits; see example below.
@@ -129,11 +130,11 @@ b=a^b; // a=6, b=3
 a=a^b; // a=5, b=3
 ```
 
-# A Sample Problem
+## A Sample Problem
 
 > Refer to this [Kattis problem](https://open.kattis.com/problems/rationalsequence2).
 
-## Problem Statement
+### Problem Statement
 
 **Abridged problem statement**: Given an infinite binary tree; each node consists of a fraction with numerator $p$ and a denominator $q$. The left child node is equal to $\frac{p}{p+q}$, and the right child node is equal to $\frac{p+q}{q}$. A function $F(n)$ is defined such that it will return the fraction from the respecting node. The nodes is numbered as depicted in the illustration taken from the problem below:
 
@@ -146,7 +147,7 @@ In the illustration above, the root node starts from the value of $p=1$ and $q=1
 
 At a glance, this problem may not represent anything related to bit manipulation. If you look closer, it actually has two states - going to the left or right node (because of binary tree)! Before I give you my perspective on this problem, you may want to try and solve it for yourself 😀
 
-## Insights
+### Insights
 
 The problem may suggest you to use breadth first search (BFS) method, by using a queue. 
 For a fraction that lies in a small N, this would be viable. 
@@ -163,7 +164,7 @@ So, how can we solve the problem? Here’s my thought process:
 Well, let’s take the first, second, and third node in their binary form (`1`, `10`, `11`). Analyzing the pattern, we can first assume that in the left nodes we append a `0` from the first node, and in the right nodes we append a `1` from the first node.
 
 <figure >
-  <img src="/static/bit-manip-kattis-explained.webp" alt="Figure" lazy="true" width="571" height="279">
+  <img src="/images/bit-manip-kattis/bit-manip-kattis-explained.webp" alt="Figure" lazy="true" width="571" height="279">
   <figcaption>Kattis Problem Illustration. (Source: <a href="https://open.kattis.com/problems/rationalsequence2">Kattis Rational Sequence 2</a>)</figcaption>
 </figure>
 
@@ -234,7 +235,7 @@ Note that because we start from the index of one, we append another 1 after we r
 
 This solution, because we traverse up a binary tree, it makes the time complexity of the program of $O(\log{n})$.
 
-# Conclusion
+## Conclusion
 
 This problem sample is just one of the usage of bit manipulation. 
 Some other applications are also interesting in programming includes:

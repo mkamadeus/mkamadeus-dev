@@ -17,8 +17,28 @@ export default defineConfig({
     presetTypography(),
     presetWebFonts({
       fonts: {
-        sans: "Plus Jakarta Sans",
-        body: "Inter",
+        sans: [
+          {
+            name: "Plus Jakarta Sans",
+            weights: [400, 500, 600, 700, 800, 900],
+            italic: true
+          },
+          {
+            name: 'Noto Fonts',
+            weights: [100, 200, 300, 400, 500, 600, 700, 800]
+          }
+        ],
+        body: [
+          {
+          name: "Inter",
+          weights: [300, 400, 500, 600, 700, 800],
+          italic: true
+          },
+          {
+            name: 'Noto Fonts',
+            weights: [100, 200, 300, 400, 500, 600, 700, 800]
+          }
+        ],
         mono: "Ubuntu Mono",
       }
     }),
