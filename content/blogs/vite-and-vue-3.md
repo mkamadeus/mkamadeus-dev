@@ -59,9 +59,9 @@ It was used pre-React 18, now it's recommended to let Typescript infer the type 
 Then again, it's recommended in general to let Typescript infer the types for you, so I don't see why this was introduced in the first place.
 Some instances of people can't agree on what should how we use props and define the typings that I can find are:
 
-- https://www.reddit.com/r/reactjs/comments/wjq51d/is_reactfc_not_recommended_what_are_other/
-- https://www.reddit.com/r/reactjs/comments/vx5qpa/is_fc_still_discouraged/
-- https://www.reddit.com/r/reactjs/comments/ys70t9/is_is_still_problematic_to_use_reactfc_if_our/
+- [Evidence 1](https://www.reddit.com/r/reactjs/comments/wjq51d/is_reactfc_not_recommended_what_are_other/)
+- [Evidence 2](https://www.reddit.com/r/reactjs/comments/vx5qpa/is_fc_still_discouraged/)
+- [Evidence 3](https://www.reddit.com/r/reactjs/comments/ys70t9/is_is_still_problematic_to_use_reactfc_if_our/)
 
 > Side note: some of this are just the poster's preference; I don't like how React don't document this clearly.
 

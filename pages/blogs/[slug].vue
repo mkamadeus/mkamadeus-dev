@@ -21,6 +21,15 @@ const dateFormat = computed(() => {
       return 'D MMMM YYYY'
   }
 })
+
+
+type GithubUserResponse = {
+  login: string
+  avatar_url: string
+  html_url: string
+  bio: string
+}
+const { data: author, pending } = useFetch<GithubUserResponse>(`https://api.github.com/users/${data.value!.author || 'mkamadeus'}`)
 </script>
 
 <template>
@@ -47,30 +56,13 @@ const dateFormat = computed(() => {
             <span> {{ (data!.duration as string) || "??" }} minutes </span>
           </div>
         </div>
-        <div flex space="x-3 lg:x-6" text="#aaa">
-          <div inline-flex space-x-1 items-center p-3 border="~ #aaa">
-            <span>
-              <div class="i-carbon-link" />
-            </span>
-            <span>Share</span>
+        <div v-if="!pending" flex items-center space="x-3 lg:x-6" text="#aaa">
+          <div>
+            <img w-10 h-10 rounded-full shadow :src="author?.avatar_url" />
           </div>
-          <div inline-flex space-x-1 items-center p-3 border="~ #aaa">
-            <span>
-              <div class="i-carbon-logo-twitter" />
-            </span>
-            <span>Share</span>
-          </div>
-          <div inline-flex space-x-1 items-center p-3 border="~ #aaa">
-            <span>
-              <div class="i-carbon-link" />
-            </span>
-            <span>Share</span>
-          </div>
-          <div inline-flex space-x-1 items-center p-3 border="~ #aaa">
-            <span>
-              <div class="i-carbon-link" />
-            </span>
-            <span>Share</span>
+          <div font-mono>
+            <a :href="author?.html_url" class="underline text-dotted" target="_blank">@{{ author?.login }}</a>
+            <div>{{ author?.bio }}</div>
           </div>
         </div>
       </div>
