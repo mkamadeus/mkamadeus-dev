@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import dayjs from 'dayjs';
+import { breakpointsTailwind } from '@vueuse/core'
+
 
 definePageMeta({
   layout: 'blog'
 })
 const route = useRoute()
-const { data } = await useAsyncData(`blog-${route.params.slug}`, () => { return queryContent().where({ _path: `/blogs/${route.params.slug}` }).findOne() })
+console.log(route.params.slug)
+const { data } = await useAsyncData(`blog-${route.params.slug}`, () => { return queryContent().where({ _path: `/blogs/en/${route.params.slug}` }).findOne() })
+console.log(data.value)
 const { locale } = useI18n();
 const dateFormat = computed(() => {
   switch (locale.value) {
@@ -22,6 +26,7 @@ const dateFormat = computed(() => {
   }
 })
 
+const bp = useBreakpoints(breakpointsTailwind)
 
 type GithubUserResponse = {
   login: string
@@ -57,10 +62,10 @@ const { data: author, pending } = useFetch<GithubUserResponse>(`https://api.gith
           </div>
         </div>
         <div v-if="!pending" flex items-center space="x-3 lg:x-6" text="#aaa">
-          <div>
+          <div w-10 h-10>
             <img w-10 h-10 rounded-full shadow :src="author?.avatar_url" />
           </div>
-          <div font-mono>
+          <div font-mono w-full>
             <a :href="author?.html_url" class="underline text-dotted" target="_blank">@{{ author?.login }}</a>
             <div>{{ author?.bio }}</div>
           </div>
@@ -69,6 +74,6 @@ const { data: author, pending } = useFetch<GithubUserResponse>(`https://api.gith
     </div>
   </section>
   <div class="prose" w="full" max-w="75ch" mx-auto p="3vh" min-h="90vh">
-    <ContentDoc :path="`/blogs/${route.params.slug}`" />
+    <ContentDoc :path="`/blogs/en/${route.params.slug}`" />
   </div>
 </template>

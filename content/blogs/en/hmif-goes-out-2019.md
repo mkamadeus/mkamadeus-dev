@@ -20,17 +20,13 @@ We, some of the HMIF (Bit, Unix, and Decrypt) crowd went to visit the OVO office
 
 We took the elevator to the 18th floor; one of the floors of the OVO office to enter this particular room prepared for us.
 
-<figure >
-  <img src="/static/hmif-goes-out-01-room.jpeg" alt="Figure" lazy="true" width="400" height="300">
-  <figcaption>The presentation room.</figcaption>
-</figure>
+::MarkdownFigure{src="/images/hmif-goes-out-2019/01-room.jpeg", alt="Figure", width="400", height="300", caption="The presentation room."}
+::
 
 The building also requires a keycard to enter and exit, so we were given a keycard before entering the office.
 
-<figure >
-  <img src="/static/hmif-goes-out-02-card.jpeg" alt="Figure" lazy="true" width="300" height="400">
-  <figcaption>The keycard we use to enter the office 🙂</figcaption>
-</figure>
+::MarkdownFigure{src="/images/hmig-goes-out-2019/02-card.jpeg", alt="Figure", width="300", height="400", caption="The keycard we use to enter the office 🙂"}
+::
 
 We were also given a sticky note containing the wifi password, while waiting for them to prepare a presentation about OVO! I couldn't connect though, I don't know why.
 

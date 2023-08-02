@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
-const { data } = await useAsyncData(`blog-${route.params.slug}`, () => { return queryContent().where({ _path: `/blogs/${route.params.slug}` }).findOne() })
+const { data } = await useAsyncData(`blog-${route.params.slug}`, () => { return queryContent().where({ _path: `/blogs/en/${route.params.slug}` }).findOne() })
 const toc = computed(() => data.value!.body.toc)
 </script>
 

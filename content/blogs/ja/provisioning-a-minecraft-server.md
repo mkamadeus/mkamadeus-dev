@@ -10,34 +10,34 @@ duration: 5
 ::TableOfContents
 ::
 
-## Introduction
+## 序章
 
-As an avid computer enjoyer, I enjoy playing Minecraft from time to time.
-Minecraft is an open game; not just in what can you do in game, it's also on how you want to play the game.
-In this short writing, it's on how to provision the server quickly so that I can play with friends or alone in my server (sounds dumb though).
+熱心なコンピューター愛好家として、私は時々 Minecraft を楽しんでいます。
+Minecraft はオープンなゲームです。 ゲーム内で何ができるかだけでなく、ゲームをどのようにプレイしたいかにも関係します。
+この短い記事では、サーバー内で友達と、または一人でプレイできるようにサーバーを迅速にプロビジョニングする方法について説明します (馬鹿げているように聞こえますが)。
 
-Back in the days where my knowledge on containers and VMs (also my resources) are limited, I used Minecraft official JARs to create a server.
-It's working fine, but it's really a pain to customize.
-Not to mention not having a personal VM would be a pain for me and others to join.
+コンテナと VM (リソースも) に関する私の知識が限られていた頃、私は Minecraft 公式 JAR を使用してサーバーを作成しました。
+問題なく動作していますが、カスタマイズするのは本当に面倒です。
+言うまでもなく、個人用 VM がないことは、私や他の人にとって参加するのに苦痛です。
 
-> This was back when I was on middle school (no money), don't judge me 😜
+> これは私が中学生の頃の話です（お金がありませんでした）、私を判断しないでください 😜
 
-I learned a lot during my years in university and work, especially on programming and scripting.
-Why don't I automate the process of provisioning a Minecraft server with configurations I commonly use?
-So I've implemented things that I commonly used and automated them.
-The development process, however, was not as smooth as I thought (skill issue).
+私は大学と仕事で、特にプログラミングとスクリプトについて多くのことを学びました。
+私がよく使用する構成で Minecraft サーバーをプロビジョニングするプロセスを自動化してみませんか?
+そこで、よく使うものを実装して自動化しました。
+しかし、開発プロセスは思ったほどスムーズではありませんでした（スキルの問題）。
 
-> Check out the repository [here](https://github.com/mkamadeus/minecraft-server)!
+> リポジトリは[こちら](https://github.com/mkamadeus/minecraft-server)をチェックしてください。
 
-## Implementation Process
+## 実装プロセス
 
-### Initial Implementation
+### 初期実装
 
-> See [this](https://github.com/mkamadeus/minecraft-server/tree/v0.2.0-1.18.2) for more context. This refers to what the project used to look like.
+> 詳細については、[こちら](https://github.com/mkamadeus/minecraft-server/tree/v0.2.0-1.18.2) を参照してください。 これは、プロジェクトがかつてどのようなものであったかを指します。
 
-In the early days of using Docker, I stumbled upon [itzg's Dockerized Minecraft Server](https://github.com/itzg/docker-minecraft-server).
-It's filled with features and wrapped in a way that's easy to use.
-Being a Docker/containerization fanboy back then, I'm the image for my project and I didn't regret my choice.
+Docker を使い始めたばかりの頃、私は [itzg の Dockerized Minecraft Server](https://github.com/itzg/docker-minecraft-server) に出会いました。
+機能が満載で、使いやすいようにまとめられています。
+当時、Docker/コンテナ化のファンだった私は、自分のプロジェクトのイメージそのものであり、自分の選択を後悔していませんでした。
 
 ```yml
 version: "3.7"

@@ -1,7 +1,7 @@
 <template>
   <main font="antialiased 300" min-h="screen" pos="relative" class="not-prose" text="white">
 
-    <nav-header />
+    <nav-header z-10 />
     <div container mx-auto>
       <div flex="~" justify-center items-center p="3vh lg:6vh">
         <slot />

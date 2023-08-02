@@ -1,62 +1,81 @@
 <script setup lang="ts">
 import { ParsedContent } from "@nuxt/content/dist/runtime/types";
-import { BlogPost } from "@prisma/client";
 import dayjs from "dayjs";
-import superjson from "superjson";
 
 const { t } = useI18n();
 const router = useRouter();
 
-type Result = {
-	years: string[],
-	posts: Record<string, ParsedContent[]>
+const { data } = await useAsyncData('blogs', () => queryContent('/blogs/en').find())
+
+console.log(data.value)
+
+type BlogPost = {
+	id: string,
+	title: string,
+	description: string,
+	path: string,
+	date: string,
+	duration: number,
+	lang: string,
 }
-// const blogs = reactive<Result>({
-// 	years: [] as string[],
-// 	posts: {} as Record<string, BlogPost[]>
-// })
-
-const { data } = await useAsyncData('blogs', () => queryContent('/').find())
-
 
 const blogs = computed(() => {
 	const pages = data.value || []
-	const posts: Record<string, ParsedContent[]> = {}
+	const parsedContent: Record<string, ParsedContent[]> = {}
+	const posts: Record<string, BlogPost[]> = {}
 
 	// group by year
 	pages.forEach((page) => {
-		const createdAt = dayjs(page.date)
-		const year = createdAt.year().toString();
-		if (!posts[year]) posts[year] = [];
-		posts[year].push(page);
+		const date = dayjs(page.date)
+		const year = date.year().toString();
+		if (!parsedContent[year]) parsedContent[year] = [];
+		parsedContent[year].push(page);
 	});
 
 	// get list of years
-	const years = Object.keys(posts).sort((y1, y2) => {
+	const years = Object.keys(parsedContent).sort((y1, y2) => {
 		const diff = parseInt(y1) - parseInt(y2);
 		if (diff > 0) return -1;
 		if (diff < 0) return 1;
 		return 0;
 	});
 
-	// sort blogs
-	Object.keys(posts).forEach((year) => {
-		posts[year].sort((b1, b2) => {
-			const d1 = dayjs(b1.createdAt)
-			const d2 = dayjs(b2.createdAt)
+	// for each year listed
+	Object.keys(parsedContent).forEach((year) => {
+		// sort blogs
+		parsedContent[year].sort((b1, b2) => {
+			const d1 = dayjs(b1.date)
+			const d2 = dayjs(b2.date)
 			const diff = d1.diff(d2);
 			if (diff > 0) return -1;
 			if (diff < 0) return 1;
 			return 0;
 		});
+
+		// map blogs to simplified format
+		posts[year] = parsedContent[year].map((v) => {
+			const parsed = v._path!.split('/')
+			const id = parsed.pop() || '';
+			let lang = parsed.pop() || 'en';
+			if (lang === 'blogs') lang = 'en';
+
+			const bp: BlogPost = {
+				title: v.title!,
+				description: v.description,
+				path: v._path!,
+				date: v.date,
+				duration: v.duration,
+				lang,
+				id,
+			}
+			return bp
+		})
 	});
 
 	return {
 		years,
 		posts
 	}
-	// blogs.years = years;
-	// blogs.posts = posts;
 })
 
 const listItems = ref<HTMLLIElement[]>([]);
@@ -77,8 +96,8 @@ onMounted(() => {
 					animated="~ fade-in-up ease-in-out" :style="`animation-delay: ${1300 + 300 * i}ms`">
 					<div text="3xl lg:5xl" font="sans 700" mb-4>{{ y }}</div>
 					<div flex="~ col" space-y-2>
-						<div v-for="blog in blogs.posts[y]" :key="`blog-page-${blog.title}`" class="group" p="" cursor="pointer"
-							text="#aaa" @click="router.push(`${blog._path}`)">
+						<div v-for="blog in blogs.posts[y]" :key="`blog-page-${blog.id}`" class="group" p="" cursor="pointer"
+							text="#aaa" @click="router.push(`/blogs/${blog.id}`)">
 							<div font="500" text="lg" group-hover:text="#ddd" transition="all duration-150">
 								{{ blog.title }}
 							</div>
