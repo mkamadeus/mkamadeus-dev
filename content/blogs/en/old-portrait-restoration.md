@@ -4,7 +4,7 @@ title: "Restoring my Old Portrait"
 description: My process of restoring my old portrait using image processing and machine learning.
 author: mkamadeus
 date: 2023-07-29
-duration: 8
+duration: 6
 ---
 
 ::TableOfContents
