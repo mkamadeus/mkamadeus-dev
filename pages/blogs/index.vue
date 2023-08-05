@@ -7,8 +7,6 @@ const router = useRouter();
 
 const { data } = await useAsyncData('blogs', () => queryContent('/blogs/en').find())
 
-console.log(data.value)
-
 type BlogPost = {
 	id: string,
 	title: string,

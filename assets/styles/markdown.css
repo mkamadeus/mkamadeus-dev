@@ -1,41 +1,41 @@
 .prose h1,h2,h3 {
-	font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   scroll-behavior: smooth;
 }
 
 .prose h1 a, .prose h2 a {
   color: #ddd;
-	margin: 1.0em 0 0.5em;
-	font-weight: 800;
-	font-size: 1em;
+  margin: 1.0em 0 0.5em;
+  font-weight: 800;
+  font-size: 1em;
   scroll-behavior: smooth;
 }
 
 .prose h3 a {
   color: #ddd;
-	font-weight: 600;
-	font-size: 0.9em;
-	margin: 0 0 0.5em;
+  font-weight: 600;
+  font-size: 0.9em;
+  margin: 0 0 0.5em;
   scroll-behavior: smooth;
 }
 
 .prose p {
-	font-family: 'Inter', sans-serif;
-	color: #bbb;
-	line-height: 1.75;
-	margin: 0 0 1em;
+  font-family: 'Inter', sans-serif;
+  color: #bbb;
+  line-height: 1.75;
+  margin: 0 0 1em;
 }
 
 .prose code {
-	font-family: 'Ubuntu Mono', monospace;
-	margin-bottom: 2em;
+  font-family: 'Ubuntu Mono', monospace;
+  margin-bottom: 2em;
 }
 
 .prose blockquote {
-	font-style: normal;
-	color: #bbb;
-	border-left: 0.25em solid #7d7d7d4d;
-	padding: 0 0 0 1em;
+  font-style: normal;
+  color: #bbb;
+  border-left: 0.25em solid #7d7d7d4d;
+  padding: 0 0 0 1em;
 }
 
 .prose ul {

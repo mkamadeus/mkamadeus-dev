@@ -7,9 +7,7 @@ definePageMeta({
   layout: 'blog'
 })
 const route = useRoute()
-console.log(route.params.slug)
 const { data } = await useAsyncData(`blog-${route.params.slug}`, () => { return queryContent().where({ _path: `/blogs/en/${route.params.slug}` }).findOne() })
-console.log(data.value)
 const { locale } = useI18n();
 const dateFormat = computed(() => {
   switch (locale.value) {
@@ -61,11 +59,11 @@ const { data: author, pending } = useFetch<GithubUserResponse>(`https://api.gith
             <span> {{ (data!.duration as string) || "??" }} minutes </span>
           </div>
         </div>
-        <div v-if="!pending" flex items-center space="x-3 lg:x-6" text="#aaa">
-          <div w-10 h-10>
-            <img w-10 h-10 rounded-full shadow :src="author?.avatar_url" />
+        <div v-if="!pending" flex items-center text="#aaa">
+          <div w="10 lg:12" h="10 lg:12">
+            <img w-full h-full rounded-full shadow :src="author?.avatar_url" />
           </div>
-          <div font-mono w-full>
+          <div font-mono pl="3 lg:6">
             <a :href="author?.html_url" class="underline text-dotted" target="_blank">@{{ author?.login }}</a>
             <div>{{ author?.bio }}</div>
           </div>

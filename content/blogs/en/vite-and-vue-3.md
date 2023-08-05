@@ -94,41 +94,41 @@ Some of React patterns that I dislike including ones outside of `useEffect()`:
 
 ```jsx
 const MyComponent = () => {
-	if(condition1) {
-		return <div>A</div>
-	}
+  if(condition1) {
+    return <div>A</div>
+  }
 
-	if(condition2) {
-		return <div>B</div>
-	}
+  if(condition2) {
+    return <div>B</div>
+  }
 
-	// different approach if it's nested
-	return <div>
-		...
-		{
-			condition3
-				? <div>C</div>
-				: <div>D</div>
-		}
-	</div>
+  // different approach if it's nested
+  return <div>
+    ...
+    {
+      condition3
+        ? <div>C</div>
+        : <div>D</div>
+    }
+  </div>
 }
 ```
 
 ```jsx
 const MyComponent = () => {
-	useEffect(() => {
-		// do A
-	}, [depA])
+  useEffect(() => {
+    // do A
+  }, [depA])
 
-	useEffect(() => {
-		// do B, but this is async
-	}, [depB])
-	
-	useEffect(() => {
-		// do C, but this is async
-	}, [depC, depD])
+  useEffect(() => {
+    // do B, but this is async
+  }, [depB])
+  
+  useEffect(() => {
+    // do C, but this is async
+  }, [depC, depD])
 
-	...
+  ...
 }
 ```
 
@@ -164,7 +164,7 @@ This pattern works particularly well with Tailwind-like libraries.
 
 ```vue
 <div :class="{"class-name-1": isLoading, "class-name-2": !isLoading }">
-	stuff here...
+  stuff here...
 </div>
 ```
 
