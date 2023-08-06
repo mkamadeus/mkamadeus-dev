@@ -2,6 +2,7 @@ name: Lint
 on:
   push:
     branches:
+      - staging
       - main
 
 jobs:
