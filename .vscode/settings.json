@@ -1,6 +1,22 @@
 {
-	"i18n-ally.localesPaths": [
-		"locales"
-	],
-	"i18n-ally.sourceLanguage": "en"
+  "i18n-ally.localesPaths": [
+    "locales"
+  ],
+  "i18n-ally.sourceLanguage": "en",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+  },
+  "[vue]": {
+    "editor.formatOnSave": false
+  },
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
 }

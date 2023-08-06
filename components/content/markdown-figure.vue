@@ -6,12 +6,14 @@ type Props = {
   height: number
   caption: string
 }
-defineProps<Props>();
+defineProps<Props>()
 </script>
 
 <template>
   <figure>
-    <img :src="src" :alt="alt" lazy="true" :width="width" :height="height" />
-    <figcaption text-center>{{ caption }}</figcaption>
+    <NuxtImg :src="src" :alt="alt" lazy="true" :width="width" :height="height" />
+    <figcaption text-center>
+      {{ caption }}
+    </figcaption>
   </figure>
 </template>

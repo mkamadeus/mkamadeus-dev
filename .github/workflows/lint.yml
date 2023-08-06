@@ -1,0 +1,27 @@
+name: Lint
+on:
+  push:
+    branches:
+      - staging
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20
+      
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        run_install: | 
+          recursive: true
+          args: [--frozen-lockfile, --strict-peer-dependencies]
+    
+    - name: Lint project
+      run: pnpm run lint

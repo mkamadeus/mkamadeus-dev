@@ -8,20 +8,19 @@ type Props = {
   isPrivate?: boolean;
 };
 
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 const url = computed(() => {
-  let result: string[];
+  let result: string[]
   if (props.url) {
-    if (typeof props.url === "string") {
-      result = [props.url];
+    if (typeof props.url === 'string') {
+      result = [props.url]
     } else {
-      result = props.url;
+      result = props.url
     }
-    return result;
+    return result
   }
-  return [];
-});
-let urlList = props.url ?? [];
+  return []
+})
 </script>
 
 <template>
@@ -30,7 +29,7 @@ let urlList = props.url ?? [];
       <span :class="icon" />
       <span font="600 sans">{{ title }}</span>
     </div>
-    <span v-if="!isPrivate && url" col-span-2 flex space-x-2 justify-end>
+    <span v-if="!isPrivate && url" col-span-2 flex justify-end space-x-2>
       <template v-for="(u, i) in url" :key="`project-card-${i}`">
         <a
           display="block"
@@ -46,14 +45,14 @@ let urlList = props.url ?? [];
         />
       </template>
     </span>
-    <div font-300 col-span-4 text="#bbb">
+    <div col-span-4 font-300 text="#bbb">
       {{ description }}
     </div>
     <div flex="~ wrap" justify="start" col-span-5>
       <div
         v-for="s in stacks"
         :key="title + s"
-        class="link text-xs"
+        class="text-xs link"
         font-300
         m="r-2"
       >
