@@ -1,28 +1,22 @@
-import { dirname, resolve } from "path";
-import { fileURLToPath } from "url";
-// import shiki from 'shiki';
-
-// const highlighter = await shiki.getHighlighter({theme: 'github-dark'})
-
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: [
-    '@unocss/reset/tailwind.css',
-    '~/assets/styles/katex.css',
-    '~/assets/styles/main.css',
-    '~/assets/styles/markdown.css',
-  ],
-  modules:[
+  modules: [
     '@nuxt/content',
     '@nuxt/devtools',
     '@nuxtjs/i18n',
     '@nuxt/image',
     '@vueuse/nuxt',
     '@unocss/nuxt',
-    '@vite-pwa/nuxt'
+    '@vite-pwa/nuxt',
+    '@nuxtjs/eslint-module'
+  ],
+  css: [
+    '@unocss/reset/tailwind.css',
+    '~/assets/styles/katex.css',
+    '~/assets/styles/main.css',
+    '~/assets/styles/markdown.css'
   ],
   components: [
-    {path: '~/components', pathPrefix: false},
+    { path: '~/components', pathPrefix: false }
   ],
   devServerHandlers: [],
   app: {
@@ -39,8 +33,8 @@ export default defineNuxtConfig({
         { property: 'og:description', content: 'mkamadeus\' personal website.' },
         { property: 'og:title', content: 'mkamadeus.dev' },
         { property: 'og:url', content: 'https://mkamadeus.dev' },
-        { property: 'og:locale', content: 'en_US' },
-      ]   
+        { property: 'og:locale', content: 'en_US' }
+      ]
     }
   },
   i18n: {
@@ -50,30 +44,30 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: 'i18n_lang',
+      cookieKey: 'i18n_lang'
     },
     locales: [
       {
         code: 'en',
         name: 'English',
-        file: 'en.yaml',
+        file: 'en.yaml'
       },
       {
         code: 'id',
         name: 'Bahasa Indonesia',
-        file: 'id.yaml',
+        file: 'id.yaml'
       },
       {
         code: 'ja',
         name: '日本',
-        file: 'ja.yaml',
+        file: 'ja.yaml'
       },
       {
         code: 'ko',
         name: '한국어',
-        file: 'ko.yaml',
-      },
-    ],
+        file: 'ko.yaml'
+      }
+    ]
   },
   content: {
     markdown: {
@@ -92,6 +86,6 @@ export default defineNuxtConfig({
     }
   },
   devtools: {
-    enabled: true,
-  },
+    enabled: true
+  }
 })

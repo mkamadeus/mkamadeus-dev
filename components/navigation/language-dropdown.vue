@@ -1,44 +1,55 @@
 <script setup lang="ts">
-// type Props = {
-//   options: [string, string][]
-//   initial?: string
-// }
-
-// type Emits = {
-//   (event: 'input', value: string): void
-// }
-
-// const { initial, options } = defineProps<Props>()
-// const emit = defineEmits<Emits>()
-
-const { t, locale, locales, setLocale } = useI18n();
+const { locale, locales, setLocale } = useI18n()
 
 // @ts-ignore
-const localeOptions = locales.value.map((l) => [l.name, l.code]) as [string, string][]
-
+const localeOptions = locales.value.map(l => [l.name, l.code]) as [string, string][]
 
 const tabindex = ref(0)
 const open = ref(false)
-const selected = ref('')
-
-const onOption = (value: string) => {
-  setLocale(value);
-  open.value = false;
-}
-
 </script>
 
 <template>
-  <div rounded text="#888" relative cursor-pointer :tabindex="tabindex" @blur="open = false">
-    <div inline-flex space-x-1 items-center rounded p-1 :class="{ 'text-white': open }" @click="open = !open">
+  <div
+    text="#888"
+    relative
+    cursor-pointer
+    rounded
+    :tabindex="tabindex"
+    @blur="open = false"
+  >
+    <div
+      inline-flex
+      items-center
+      rounded
+      p-1
+      space-x-1
+      :class="{ 'text-white': open }"
+      @click="open = !open"
+    >
       <span>{{ locale.toUpperCase() }}</span>
       <span>
         <div class="i-carbon-chevron-down" :class="{ 'rotate-180': open }" transition="~ duration-300" />
       </span>
     </div>
-    <div absolute flex="col" bg="#222" w="40" p-1 top-10 right-0 z-50 :class="{ 'hidden': !open, 'flex': open }">
-      <a v-for="(option, i) of localeOptions" :key="i" p-1 cursor-pointer bg="hover:#333"
-        @click.prevent.stop="setLocale(option[1]); open = false;">
+    <div
+      flex="col"
+      bg="#222"
+      w="40"
+      absolute
+      right-0
+      top-10
+      z-50
+      p-1
+      :class="{ 'hidden': !open, 'flex': open }"
+    >
+      <a
+        v-for="(option, i) of localeOptions"
+        :key="i"
+        cursor-pointer
+        p-1
+        bg="hover:#333"
+        @click.prevent.stop="setLocale(option[1]); open = false;"
+      >
         {{ option[0] }}
       </a>
     </div>
