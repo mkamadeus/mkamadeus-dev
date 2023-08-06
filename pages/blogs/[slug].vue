@@ -2,12 +2,18 @@
 import dayjs from 'dayjs';
 import { breakpointsTailwind } from '@vueuse/core'
 
-
+// set blog layout
 definePageMeta({
   layout: 'blog'
 })
+
+// get blog data
 const route = useRoute()
-const { data } = await useAsyncData(`blog-${route.params.slug}`, () => { return queryContent().where({ _path: `/blogs/en/${route.params.slug}` }).findOne() })
+const { data, pending } = await useAsyncData(`blog-${route.params.slug}`, () => { return queryContent().where({ _path: `/blogs/en/${route.params.slug}` }).findOne() })
+if (!pending.value && !data.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Page not found.' })
+}
+
 const { locale } = useI18n();
 const dateFormat = computed(() => {
   switch (locale.value) {
@@ -24,7 +30,7 @@ const dateFormat = computed(() => {
   }
 })
 
-const bp = useBreakpoints(breakpointsTailwind)
+useBreakpoints(breakpointsTailwind)
 
 type GithubUserResponse = {
   login: string
@@ -32,7 +38,17 @@ type GithubUserResponse = {
   html_url: string
   bio: string
 }
-const { data: author, pending } = useFetch<GithubUserResponse>(`https://api.github.com/users/${data.value!.author || 'mkamadeus'}`)
+const { data: author, pending: authorPending } = useFetch<GithubUserResponse>(`https://api.github.com/users/${data.value!.author || 'mkamadeus'}`)
+if (!authorPending.value && !author.value) {
+  throw createError({ statusCode: 400, statusMessage: 'Author not found.' })
+}
+
+useHead({
+  title: data.value?.title,
+  meta: [
+    { property: 'og:title', content: 'mkamadeus.dev' },
+  ]
+})
 </script>
 
 <template>
@@ -40,7 +56,7 @@ const { data: author, pending } = useFetch<GithubUserResponse>(`https://api.gith
     <div flex="~ col" items-center justify-center mx-auto px="6vh lg:16vh" w-full h-screen>
       <div>
         <div font="sans 900" text="4xl lg:8xl #ddd" mb="4 lg:8" grid-col-span-2>
-          {{ data!.title }}
+          {{ data?.title }}
         </div>
         <div flex space-x-2 font-mono text="lg:xl #aaa" mb="8 lg:12">
           <div inline-flex items-center space-x-1>
@@ -48,7 +64,7 @@ const { data: author, pending } = useFetch<GithubUserResponse>(`https://api.gith
               <div class="i-carbon-calendar" />
             </span>
             <span>{{
-              dayjs(data!.date as string).format(dateFormat) || "??"
+              dayjs(data?.date as string).format(dateFormat) || "??"
             }}</span>
           </div>
           <div>•</div>
@@ -59,7 +75,7 @@ const { data: author, pending } = useFetch<GithubUserResponse>(`https://api.gith
             <span> {{ (data!.duration as string) || "??" }} minutes </span>
           </div>
         </div>
-        <div v-if="!pending" flex items-center text="#aaa">
+        <div v-if="!authorPending" flex items-center text="#aaa">
           <div w="10 lg:12" h="10 lg:12">
             <img w-full h-full rounded-full shadow :src="author?.avatar_url" />
           </div>

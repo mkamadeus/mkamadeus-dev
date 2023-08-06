@@ -28,15 +28,16 @@ export default defineNuxtConfig({
   app: {
     layoutTransition: { name: 'layout', mode: 'out-in' },
     head: {
+      title: 'mkamadeus.dev',
       viewport: 'width=device-width,initial-scale=1',
       link: [{ rel: 'canonical', href: 'https://mkamadeus.dev/' }],
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
-        { property: 'og:title', content: 'mkamadeus.dev' },
-        { property: 'og:description', content: 'mkamadeus\' personal website.' },
         { property: 'og:type', content: 'website' },
+        { property: 'og:description', content: 'mkamadeus\' personal website.' },
+        { property: 'og:title', content: 'mkamadeus.dev' },
         { property: 'og:url', content: 'https://mkamadeus.dev' },
         { property: 'og:locale', content: 'en_US' },
       ]   
