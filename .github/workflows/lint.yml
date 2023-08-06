@@ -11,13 +11,17 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install bun
-      uses: oven-sh/setup-bun@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v3
       with:
-        bun-version: latest
+        node-version: 20
+      
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        run_install: | 
+          recursive: true
+          args: [--frozen-lockfile, --strict-peer-dependencies]
     
-    - name: Instal dependencies
-      run: bun install
-
     - name: Lint project
-      run: bun lint
+      run: pnpm run lint
