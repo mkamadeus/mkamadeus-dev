@@ -20,4 +20,4 @@ jobs:
       run: bun install
 
     - name: Lint project
-      run: bun run lint
+      run: bun lint
