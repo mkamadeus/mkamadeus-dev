@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@vite-pwa/nuxt',
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    'nuxt-og-image'
   ],
   css: [
     '@unocss/reset/tailwind.css',
@@ -87,5 +88,12 @@ export default defineNuxtConfig({
   },
   devtools: {
     enabled: true
+  },
+  ogImage: {
+    componentDirs: ['og-image']
+  },
+  site: {
+    url: 'https://mkamadeus.dev'
   }
+
 })
