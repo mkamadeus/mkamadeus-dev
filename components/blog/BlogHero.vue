@@ -24,16 +24,7 @@ const dateFormat = computed(() => {
   }
 })
 
-type GithubUserResponse = {
-  login: string
-  avatar_url: string
-  html_url: string
-  bio: string
-}
-const { data: author, pending: authorPending } = useFetch<GithubUserResponse>(`https://api.github.com/users/${data.value!.author || 'mkamadeus'}`)
-if (!authorPending.value && !author.value) {
-  throw createError({ statusCode: 400, statusMessage: 'Author not found.' })
-}
+const { author, isPending: authorPending } = await useGithubUsername(data.value?.author || 'mkamadeus')
 
 useHead({
   meta: [

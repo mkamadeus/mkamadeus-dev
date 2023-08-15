@@ -20,20 +20,39 @@ We, some of the HMIF (Bit, Unix, and Decrypt) crowd went to visit the OVO office
 
 We took the elevator to the 18th floor; one of the floors of the OVO office to enter this particular room prepared for us.
 
-::MarkdownFigure{src="/images/hmif-goes-out-2019/01-room.jpeg", alt="Figure", width="400", height="300", caption="The presentation room."}
+::MarkdownFigure
+---
+src: "/images/hmif-goes-out-2019/01-room.jpeg"
+alt: "Figure"
+width: "400"
+height: "300"
+caption: "The presentation room."
+---
 ::
 
 The building also requires a keycard to enter and exit, so we were given a keycard before entering the office.
 
-::MarkdownFigure{src="/images/hmig-goes-out-2019/02-card.jpeg", alt="Figure", width="300", height="400", caption="The keycard we use to enter the office 🙂"}
+::MarkdownFigure
+---
+src: "/images/hmif-goes-out-2019/02-card.jpeg"
+alt: "Figure"
+width: "300"
+height: "400"
+caption: "The keycard we use to enter the office 🙂"
+---
 ::
 
 We were also given a sticky note containing the wifi password, while waiting for them to prepare a presentation about OVO! I couldn't connect though, I don't know why.
 
-<figure >
-  <img src="/static/hmif-goes-out-03-pass.jpeg" alt="Figure" lazy="true" style="object-fit: cover;width: 500px; height: 500px" width="500" height="500">
-  <figcaption>The sticky note.</figcaption>
-</figure>
+::MarkdownFigure
+---
+src: "/images/hmif-goes-out-2019/03-pass.jpeg"
+alt: "Figure"
+width: "500"
+height: "500"
+caption: "The sticky note."
+---
+::
 
 ## Presentation
 
@@ -64,10 +83,15 @@ OVO itself has 3 types of customers; not only us as users because OVO is an inte
 
 Here comes the more technical side of the presentation (which is the interesting bit 😀)! First up were two people who are Product Managers; different from PM/Project Managers. They are ITB alumni named Bryan from Mechanical Engineering and Arya from Systems and Information Technology (STI)!
 
-<figure >
-  <img src="/static/hmif-goes-out-04-product.jpeg" alt="Figure" lazy="true" style="object-fit: cover;width: 500px; height: 500px" width="500" height="500">
-  <figcaption>Representatives for product managers.</figcaption>
-</figure>
+::MarkdownFigure
+---
+src: "/images/hmif-goes-out-2019/04-product.jpeg"
+alt: "Figure"
+width: "500"
+height: "500"
+caption: "Representatives for product managers."
+---
+::
 
 Product Manager is simply bringing together the relevant fields to create a product, such as UX, Tech, and Business. His job is to take care of documents and meetings to unite the minds of the 3 fields. Sometimes it's difficult to unite the wishes of 3 fields; there must be a clash. This Product Manager's job is to embrace the 3 fields, so that all their expectations are met.
 
@@ -86,10 +110,15 @@ The features they work on are as follows:
 
 ### Data Engineering
 
-<figure >
-  <img src="/static/hmif-goes-out-05-data-tech.jpeg" alt="Figure" lazy="true" style="object-fit: cover;width: 500px; height: 500px" width="500" height="500">
-  <figcaption>Engineer representative from OVO 🤖</figcaption>
-</figure>
+::MarkdownFigure
+---
+src: "/images/hmif-goes-out-2019/05-data-tech.jpeg"
+alt: "Figure"
+width: "500"
+height: "500"
+caption: "Engineer representative from OVO 🤖"
+---
+::
 
 Next, there was a presentation from a Big Data representative, Etsy, an ITB alumni majoring in Informatics Engineering (same major as mine!). She talked about what kind of jobs are done by someone who works in the Big Data field.
 
@@ -155,27 +184,47 @@ It was a really eye-opening experience to learn this back in the day, since I le
 
 Another fun detail; if you successfully answer questions from them, you will be given a Xiaomi powerbank like this one.
 
-<figure >
-  <img src="/static/hmif-goes-out-06-powerbank.jpeg" alt="Figure" lazy="true" style="object-fit: cover;width: 500px; height: 500px" width="500" height="500">
-  <figcaption>Xiaomi powerbank that my friend got.</figcaption>
-</figure>
+::MarkdownFigure
+---
+src: "/images/hmif-goes-out-2019/06-powerbank.jpeg"
+alt: "Figure"
+width: "500"
+height: "500"
+caption: "Xiaomi powerbank that my friend got."
+---
+::
 
 ## Extra Photos!
 
 Bonus section showing the pictures I got.
 
-<figure >
-  <img src="/static/hmif-goes-out-07-wait.jpeg" alt="Figure" lazy="true" style="object-fit: cover;width: 500px; height: 500px" width="500" height="500">
-  <figcaption>Waiting time in the presentation room.</figcaption>
-</figure>
+::MarkdownFigure
+---
+src: "/images/hmif-goes-out-2019/07-wait.jpeg"
+alt: "Figure"
+width: "500"
+height: "500"
+caption: "Waiting time in the presentation room."
+---
+::
 
-<figure >
-  <img src="/static/hmif-goes-out-08-bag.jpeg" alt="Figure" lazy="true" style="object-fit: cover;width: 500px; height: 500px" width="500" height="500">
-  <figcaption>This small bag contains SWAG from OVO!</figcaption>
-</figure>
+::MarkdownFigure
+---
+src: "/images/hmif-goes-out-2019/08-bag.jpeg"
+alt: "Figure"
+width: "500"
+height: "500"
+caption: "This small bag contains SWAG from OVO!"
+---
+::
 
-<figure >
-  <img src="/static/hmif-goes-out-09-office.jpeg" alt="Figure" lazy="true" style="object-fit: cover;width: 500px; height: 500px" width="500" height="500">
-  <figcaption>OVO's front office.</figcaption>
-</figure>
+::MarkdownFigure
+---
+src: "/images/hmif-goes-out-2019/09-office.jpeg"
+alt: "Figure"
+width: "500"
+height: "500"
+caption: "OVO's front office."
+---
+::
 

@@ -12,12 +12,9 @@ export default defineNuxtConfig({
   ],
   css: [
     '@unocss/reset/tailwind.css',
-    '~/assets/styles/katex.css',
+    // '~/assets/styles/katex.css',
     '~/assets/styles/main.css',
     '~/assets/styles/markdown.css'
-  ],
-  components: [
-    { path: '~/components', pathPrefix: false }
   ],
   devServerHandlers: [],
   app: {
@@ -93,7 +90,7 @@ export default defineNuxtConfig({
     componentDirs: ['og-image']
   },
   site: {
-    url: 'https://mkamadeus.dev'
+    url: '/'
   }
 
 })

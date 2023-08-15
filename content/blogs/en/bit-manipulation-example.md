@@ -138,10 +138,16 @@ a=a^b; // a=5, b=3
 
 **Abridged problem statement**: Given an infinite binary tree; each node consists of a fraction with numerator $p$ and a denominator $q$. The left child node is equal to $\frac{p}{p+q}$, and the right child node is equal to $\frac{p+q}{q}$. A function $F(n)$ is defined such that it will return the fraction from the respecting node. The nodes is numbered as depicted in the illustration taken from the problem below:
 
-<figure>
-  <img src="/images/bit-manip-kattis/bit-manip-kattis.png" alt="Figure" lazy="true" width="571" height="279">
-  <figcaption>Kattis Problem Illustration. (Source: <a href="https://open.kattis.com/problems/rationalsequence2">Kattis Rational Sequence 2</a>)</figcaption>
-</figure>
+::MarkdownFigure
+---
+src: "/images/bit-manip-kattis/bit-manip-kattis.png"
+alt: "Figure"
+width: "571"
+height: "279"
+caption: "Kattis Problem Illustration."
+---
+::
+<!-- (Source: <a href="https://open.kattis.com/problems/rationalsequence2">Kattis Rational Sequence 2 -->
 
 In the illustration above, the root node starts from the value of $p=1$ and $q=1$. This means that $F(1)=\frac{1}{1}$, $F(2)=\frac{1}{2}$, $F(3)=\frac{2}{1}$, etc. Given $p$ and $q$, we are required to return the value of $N$ of which $F(n)$ corresponds to $\frac{p}{q}$.
 
@@ -163,10 +169,15 @@ So, how can we solve the problem? Here’s my thought process:
 
 Well, let’s take the first, second, and third node in their binary form (`1`, `10`, `11`). Analyzing the pattern, we can first assume that in the left nodes we append a `0` from the first node, and in the right nodes we append a `1` from the first node.
 
-<figure >
-  <img src="/images/bit-manip-kattis/bit-manip-kattis-explained.webp" alt="Figure" lazy="true" width="571" height="279">
-  <figcaption>Kattis Problem Illustration. (Source: <a href="https://open.kattis.com/problems/rationalsequence2">Kattis Rational Sequence 2</a>)</figcaption>
-</figure>
+::MarkdownFigure
+---
+src: "/images/bit-manip-kattis/bit-manip-kattis-explained.webp"
+alt: "Figure"
+width: "571"
+height: "279"
+caption: "Illustrating the explanation."
+---
+::
 
 > **Q**: Why does it work?
 

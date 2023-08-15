@@ -44,8 +44,14 @@ const socialMedias = [
 </script>
 
 <template>
-  <header p="3vh lg:6vh" w-full>
-    <nav flex="~" items-center justify-end space-x-4 w="full">
+  <header p="3vh lg:6vh" z-10 w-full>
+    <nav
+      flex="~"
+      items-center
+      justify-end
+      space-x-4
+      w="full"
+    >
       <!-- SM NAV -->
       <template v-for="l in routes" :key="l.url">
         <a
@@ -79,7 +85,7 @@ const socialMedias = [
           :href="l.url"
         />
       </template>
-      <LanguageDropdown />
+      <NavigationLanguageDropdown />
     </nav>
   </header>
 </template>
