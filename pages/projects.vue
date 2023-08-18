@@ -106,7 +106,7 @@ const projects = [
 </script>
 
 <template>
-  <div flex="~ col" w-full justify-center m="lg:x-8">
+  <div flex="~ col" w-full justify-center m="lg:x-8" px="3vh lg:6vh">
     <div m="b-8 lg:b-16">
       <h1 class="header" mb="2 lg:4" font="800" animated="~ fade-in-up ease-in-out delay-500">
         {{ t('projects.title') }}
@@ -115,7 +115,7 @@ const projects = [
         <span animated="~ fade-in-up ease-in-out delay-1000">
           {{ $t('projects.subtitle') }}
         </span>
-        <NuxtLink class="text-#ddd link" animated="~ fade-in-up ease-in-out delay-1500" href="/contact">
+        <NuxtLink class="text-#ddd link" animated="~ fade-in-up ease-in-out delay-1500" href="/contacts">
           {{
             $t('projects.contact_me') }}
         </NuxtLink>

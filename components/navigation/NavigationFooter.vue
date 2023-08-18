@@ -9,8 +9,8 @@ const year = dayjs().year()
     flex="~ col"
     items-center
     justify-center
-    h="10vh"
     w="full"
+    p="3vh lg:6vh"
     text="#888"
   >
     CC BY-NC-SA 4.0 {{ year }}

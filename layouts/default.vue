@@ -1,8 +1,8 @@
 <template>
   <main font="antialiased" min-h="screen" pos="relative" text="white">
-    <NavigationHeader />
+    <NavigationHeader z-10 />
     <div mx-auto container>
-      <div flex="~" items-center justify-center p="3vh lg:6vh">
+      <div flex="~" items-center justify-center>
         <slot />
       </div>
     </div>

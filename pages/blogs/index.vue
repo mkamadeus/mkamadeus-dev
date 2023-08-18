@@ -89,7 +89,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div container="~" mx-auto>
+  <div container="~" mx-auto px="3vh lg:6vh">
     <h1 class="header" mb="2 lg:4" font-800 animated="~ fade-in-up ease-in-out delay-500">
       {{ t('blogs.title') }}
     </h1>

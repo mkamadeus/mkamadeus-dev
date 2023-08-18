@@ -23,9 +23,10 @@ const socialMedias = [
     flex="~ col"
     justify="center"
     items-center
-    h="78vh lg:66vh"
+    h="80vh lg:70vh"
     w="full"
     text="gray-100 sm lg:lg"
+    p="3vh lg:6vh"
   >
     <div m="b-6">
       <h1

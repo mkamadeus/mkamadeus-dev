@@ -19,7 +19,7 @@ const contacts = [
 </script>
 
 <template>
-  <div flex="~ col" justify="center" items-center h="78vh lg:66vh" w="full">
+  <div flex="~ col" justify="center" items-center h="80vh lg:70vh" w="full">
     <h1 class="header" mb-4 animated="~ fade-in-up ease-in-out delay-500">
       {{ $t("contacts.title") }}
     </h1>
