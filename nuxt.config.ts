@@ -7,16 +7,14 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@vite-pwa/nuxt',
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    'nuxt-og-image'
   ],
   css: [
     '@unocss/reset/tailwind.css',
-    '~/assets/styles/katex.css',
+    // '~/assets/styles/katex.css',
     '~/assets/styles/main.css',
     '~/assets/styles/markdown.css'
-  ],
-  components: [
-    { path: '~/components', pathPrefix: false }
   ],
   devServerHandlers: [],
   app: {
@@ -87,5 +85,12 @@ export default defineNuxtConfig({
   },
   devtools: {
     enabled: true
+  },
+  ogImage: {
+    componentDirs: ['og-image']
+  },
+  site: {
+    url: '/'
   }
+
 })

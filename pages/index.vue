@@ -23,9 +23,10 @@ const socialMedias = [
     flex="~ col"
     justify="center"
     items-center
-    h="78vh lg:66vh"
+    h="80vh lg:70vh"
     w="full"
     text="gray-100 sm lg:lg"
+    p="3vh lg:6vh"
   >
     <div m="b-6">
       <h1
@@ -45,11 +46,15 @@ const socialMedias = [
       </h1>
       <div text="center sm lg:lg #888" animated="~ fade-in-up ease-in-out delay-1000">
         {{ $t('home.job_title') }}
-        <a class="link" href="https://www.linkedin.com/company/xendit/">@Xendit</a>
+        <NuxtLink class="link" href="https://www.linkedin.com/company/xendit/">
+          @Xendit
+        </NuxtLink>
       </div>
       <div text="center sm lg:lg #888" animated="~ fade-in-up ease-in-out delay-1300">
         {{ $t('home.school_title') }}
-        <a class="link" href="https://itb.ac.id/">@ITB</a>
+        <NuxtLink class="link" href="https://itb.ac.id/">
+          @ITB
+        </NuxtLink>
       </div>
       <div
         mt-2
@@ -61,7 +66,7 @@ const socialMedias = [
         animated="~ fade-in-up ease-in-out delay-1600"
       >
         <template v-for="l in socialMedias" :key="l.url">
-          <a
+          <NuxtLink
             :aria-label="l.title"
             class="text-2xl text-#888 hover:text-#fff"
             :class="l.icon"

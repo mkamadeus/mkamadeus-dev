@@ -3,24 +3,13 @@ import { ParsedContent } from '@nuxt/content/dist/runtime/types'
 import dayjs from 'dayjs'
 
 const { t } = useI18n()
-const router = useRouter()
-
 const { data } = await useAsyncData('blogs', () => queryContent('/blogs/en').find())
-
-type BlogPost = {
-  id: string,
-  title: string,
-  description: string,
-  path: string,
-  date: string,
-  duration: number,
-  lang: string,
-}
 
 const blogs = computed(() => {
   const pages = data.value || []
   const parsedContent: Record<string, ParsedContent[]> = {}
-  const posts: Record<string, BlogPost[]> = {}
+  const postsByYear: Record<string, BlogPost[]> = {}
+  const posts: BlogPost[] = []
 
   // group by year
   pages.forEach((page) => {
@@ -51,7 +40,7 @@ const blogs = computed(() => {
     })
 
     // map blogs to simplified format
-    posts[year] = parsedContent[year].map((v) => {
+    postsByYear[year] = parsedContent[year].map((v) => {
       const parsed = v._path!.split('/')
       const id = parsed.pop() || ''
       let lang = parsed.pop() || 'en'
@@ -59,6 +48,7 @@ const blogs = computed(() => {
 
       const bp: BlogPost = {
         title: v.title!,
+        author: v.author,
         description: v.description,
         path: v._path!,
         date: v.date,
@@ -70,8 +60,22 @@ const blogs = computed(() => {
     })
   })
 
+  Object.keys(postsByYear).forEach((year) => {
+    posts.push(...postsByYear[year])
+  })
+
+  posts.sort((b1, b2) => {
+    const d1 = dayjs(b1.date)
+    const d2 = dayjs(b2.date)
+    const diff = d1.diff(d2)
+    if (diff > 0) { return -1 }
+    if (diff < 0) { return 1 }
+    return 0
+  })
+
   return {
     years,
+    postsByYear,
     posts
   }
 })
@@ -85,7 +89,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div container="~" mx-auto>
+  <div container="~" mx-auto px="3vh lg:6vh">
     <h1 class="header" mb="2 lg:4" font-800 animated="~ fade-in-up ease-in-out delay-500">
       {{ t('blogs.title') }}
     </h1>
@@ -93,54 +97,11 @@ onMounted(() => {
       {{ t('blogs.subtitle') }}
     </div>
     <div flex="~ col" space="y-2" container="~" m="t-8 x-auto">
-      <ul>
-        <li
-          v-for="(y, i) in blogs.years"
-          :ref="(el) => listItems.push(el as HTMLLIElement)"
-          :key="`blog-${y}`"
-          pb-8
-          animated="~ fade-in-up ease-in-out"
-          :style="`animation-delay: ${1300 + 300 * i}ms`"
-        >
-          <div text="3xl lg:5xl" font="sans 700" mb-4>
-            {{ y }}
-          </div>
-          <div flex="~ col" space-y-2>
-            <div
-              v-for="blog in blogs.posts[y]"
-              :key="`blog-page-${blog.id}`"
-              class="group"
-              p=""
-              cursor="pointer"
-              text="#aaa"
-              @click="router.push(`/blogs/${blog.id}`)"
-            >
-              <div font="500" text="lg" group-hover:text="#ddd" transition="all duration-150">
-                {{ blog.title }}
-              </div>
-              <div
-                inline-flex
-                items-center
-                space-x-1
-                font="300 mono"
-                text="sm"
-                group-hover:text="#ddd"
-                transition="all duration-150"
-              >
-                <div class="i-carbon-calendar" text-lg />
-                <div>
-                  {{ dayjs(blog.date).format("D MMM YYYY") || "??" }}
-                </div>
-                <div>
-                  •
-                </div>
-                <div inline-flex class="i-carbon-timer" text-lg />
-                <div>{{ blog.duration || "??" }} minute{{ blog.duration > 1 ? 's' : '' }}</div>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
+      <div grid="~ gap-3vh cols-[repeat(auto-fit,minmax(18.75rem,1fr))]">
+        <template v-for="(post,i) in blogs.posts" :key="post.id">
+          <BlogEntry v-bind="post" animated="~ fade-in-up ease-in-out" :style="`animation-delay: ${1000+200*i}ms`" />
+        </template>
+      </div>
     </div>
   </div>
 </template>

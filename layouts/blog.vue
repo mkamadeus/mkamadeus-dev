@@ -1,7 +1,7 @@
 <template>
   <main font="body antialiased" min-h="screen" pos="relative">
-    <nav-header pos="absolute" z-10 />
+    <NavigationHeader pos="absolute" />
     <slot />
-    <nav-footer />
+    <NavigationFooter />
   </main>
 </template>
