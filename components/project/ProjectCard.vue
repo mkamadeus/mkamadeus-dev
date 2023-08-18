@@ -26,8 +26,8 @@ const url = computed(() => {
 <template>
   <div inline-grid="~" w="full">
     <div col-span-3 inline-flex items-center space="x-2" text="lg lg:2xl #ddd">
-      <span :class="icon" />
-      <span font="600 sans">{{ title }}</span>
+      <span :class="icon" text-teal-400 />
+      <span font="600" font-sans>{{ title }}</span>
     </div>
     <span v-if="!isPrivate && url" col-span-2 flex justify-end space-x-2>
       <template v-for="(u, i) in url" :key="`project-card-${i}`">
