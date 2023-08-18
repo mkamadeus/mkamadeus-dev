@@ -72,8 +72,10 @@ useHead({
             <img h-full w-full rounded-full shadow :src="author?.avatar_url">
           </div>
           <div font-mono pl="3 lg:6">
-            <a :href="author?.html_url" class="text-dotted underline" target="_blank">@{{ author?.login }}</a>
-            <div>{{ author?.bio }}</div>
+            <NuxtLink :to="author?.html_url" class="text-dotted underline" target="_blank">
+              @{{ author?.login }}
+              <div>{{ author?.bio }}</div>
+            </NuxtLink>
           </div>
         </div>
       </div>

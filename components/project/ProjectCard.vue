@@ -31,7 +31,7 @@ const url = computed(() => {
     </div>
     <span v-if="!isPrivate && url" col-span-2 flex justify-end space-x-2>
       <template v-for="(u, i) in url" :key="`project-card-${i}`">
-        <a
+        <NuxtLink
           display="block"
           class="i-carbon-launch text-lg text-#bbb link"
           justify-center

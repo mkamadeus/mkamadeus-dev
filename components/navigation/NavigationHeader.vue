@@ -54,27 +54,27 @@ const socialMedias = [
     >
       <!-- SM NAV -->
       <template v-for="l in routes" :key="l.url">
-        <a
+        <NuxtLink
           :class="l.icon"
           :aria-label="l.title"
           class="p-1 text-2xl text-#888 hover:text-#fff"
           md:hidden
           transition="all duration-150"
-          :href="l.path"
+          :to="l.path"
         />
-        <a
+        <NuxtLink
           :aria-label="l.title"
           class="text-#888 hover:text-#fff"
           transition="all duration-150"
           p-1
           lt-md:hidden
-          :href="l.path"
+          :to="l.path"
         >
           {{ l.title }}
-        </a>
+        </NuxtLink>
       </template>
       <template v-for="l in socialMedias" :key="l.url">
-        <a
+        <NuxtLink
           :aria-label="l.title"
           class="text-2xl text-#888 hover:text-#fff"
           :class="l.icon"
@@ -82,7 +82,7 @@ const socialMedias = [
           p-1
           lt-md:hidden
           target="_blank"
-          :href="l.url"
+          :to="l.url"
         />
       </template>
       <NavigationLanguageDropdown />

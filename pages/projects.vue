@@ -115,8 +115,10 @@ const projects = [
         <span animated="~ fade-in-up ease-in-out delay-1000">
           {{ $t('projects.subtitle') }}
         </span>
-        <a class="text-#ddd link" animated="~ fade-in-up ease-in-out delay-1500" href="/contact">{{
-          $t('projects.contact_me') }}</a>
+        <NuxtLink class="text-#ddd link" animated="~ fade-in-up ease-in-out delay-1500" href="/contact">
+          {{
+            $t('projects.contact_me') }}
+        </NuxtLink>
       </div>
     </div>
     <div flex="~ col" space="y-8 lg:y-10" container="~" m="x-auto">

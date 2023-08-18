@@ -82,7 +82,9 @@ const { author: authorInfo, isPending: authorPending } = await useGithubUsername
         <div w="5 lg:6" h="5 lg:6">
           <img h-full w-full rounded-full shadow :src="authorInfo?.avatar_url">
         </div>
-        <a :href="authorInfo?.html_url" font-mono underline="~ dotted" target="_blank">@{{ authorInfo?.login }}</a>
+        <NuxtLink :to="authorInfo?.html_url" font-mono underline="~ dotted" target="_blank">
+          @{{ authorInfo?.login }}<NuxtLink />
+        </nuxtlink>
       </div>
     </div>
   </div>

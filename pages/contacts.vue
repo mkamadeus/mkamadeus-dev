@@ -25,7 +25,7 @@ const contacts = [
     </h1>
     <div flex="~ col" items-center>
       <div v-for="(c, i) in contacts" :key="`contact-${i}`" flex="~" space="x-2">
-        <a
+        <NuxtLink
           class="link"
           :href="c.href"
           inline-flex
@@ -37,7 +37,7 @@ const contacts = [
         >
           <div :class="c.icon" inline-block />
           <span>{{ c.contact }}</span>
-        </a>
+        </NuxtLink>
       </div>
     </div>
   </div>
