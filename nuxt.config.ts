@@ -80,7 +80,7 @@ export default defineNuxtConfig({
       }
     },
     highlight: {
-      theme: 'github-dark'
+      theme: 'github-dark-dimmed'
     }
   },
   devtools: {
