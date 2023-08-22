@@ -4,7 +4,7 @@ title: Setup Control Plane in AWS EC2 Instance
 description: Setting up the control plane using kubeadm following LFS258 course and related documentations.
 author: mkamadeus
 date: 2023-08-21
-duration: 1
+duration: 6
 ---
 
 :TableOfContents
