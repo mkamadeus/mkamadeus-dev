@@ -79,6 +79,15 @@
   content: none
 }
 
+.prose ul code {
+  background-color: #1a1a1a;
+  padding: 0.25em;
+  border-radius: 0.25em;
+}
+.prose ul code:before, .prose ul code:after {
+  content: none
+}
+
 .prose h1 code {
   background-color: #1a1a1a;
   padding: 0.25em;

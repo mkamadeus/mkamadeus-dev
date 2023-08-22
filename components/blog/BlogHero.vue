@@ -64,7 +64,7 @@ useHead({
             <span>
               <div class="i-carbon-timer" />
             </span>
-            <span> {{ (data!.duration as string) || "??" }} minutes </span>
+            <span> {{ (data!.duration as string) || "??" }} minute{{ data!.duration > 1 ? 's' : '' }} </span>
           </div>
         </div>
         <div v-if="!authorPending" flex items-center text="#aaa">
