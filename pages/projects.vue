@@ -103,6 +103,8 @@ const projects = [
     ]
   }
 ]
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -115,7 +117,7 @@ const projects = [
         <span animated="~ fade-in-up ease-in-out delay-1000">
           {{ $t('projects.subtitle') }}
         </span>
-        <NuxtLink class="text-#ddd link" animated="~ fade-in-up ease-in-out delay-1500" href="/contacts">
+        <NuxtLink class="text-#ddd link" animated="~ fade-in-up ease-in-out delay-1500" :to="localePath('/contacts')">
           {{
             $t('projects.contact_me') }}
         </NuxtLink>

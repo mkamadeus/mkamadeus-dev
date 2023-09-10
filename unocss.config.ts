@@ -38,7 +38,12 @@ export default defineConfig({
             weights: [100, 200, 300, 400, 500, 600, 700, 800]
           }
         ],
-        mono: 'Ubuntu Mono'
+        mono: [
+          {
+            name: 'Fira Code',
+            weights: [300, 400, 500, 600, 700, 800]
+          }
+        ]
       }
     }),
     animatedUno()

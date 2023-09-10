@@ -41,6 +41,8 @@ const socialMedias = [
     url: 'https://www.instagram.com/mk.amadeus/'
   }
 ]
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -58,9 +60,9 @@ const socialMedias = [
           :class="l.icon"
           :aria-label="l.title"
           class="p-1 text-2xl text-#888 hover:text-#fff"
-          md:hidden
           transition="all duration-150"
-          :to="l.path"
+          :to="localePath(l.path)"
+          md:hidden
         />
         <NuxtLink
           :aria-label="l.title"
@@ -68,7 +70,7 @@ const socialMedias = [
           transition="all duration-150"
           p-1
           lt-md:hidden
-          :to="l.path"
+          :to="localePath(l.path)"
         >
           {{ l.title }}
         </NuxtLink>

@@ -12,7 +12,6 @@ export default defineNuxtConfig({
   ],
   css: [
     '@unocss/reset/tailwind.css',
-    // '~/assets/styles/katex.css',
     '~/assets/styles/main.css',
     '~/assets/styles/markdown.css'
   ],
@@ -36,14 +35,9 @@ export default defineNuxtConfig({
     }
   },
   i18n: {
-    langDir: './locales',
     lazy: true,
-    strategy: 'no_prefix',
+    langDir: './locales',
     defaultLocale: 'en',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_lang'
-    },
     locales: [
       {
         code: 'en',
@@ -70,8 +64,7 @@ export default defineNuxtConfig({
   content: {
     markdown: {
       remarkPlugins: [
-        'remark-math',
-        'remark-toc'
+        'remark-math'
       ],
       rehypePlugins: {
         'rehype-katex': {
@@ -91,6 +84,8 @@ export default defineNuxtConfig({
   },
   site: {
     url: '/'
+  },
+  eslint: {
+    lintOnStart: false
   }
-
 })
