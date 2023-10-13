@@ -18,7 +18,7 @@
     "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/eslint-module": "^4.1.0",
-    "@nuxtjs/i18n": "8.0.0-rc.3",
+    "@nuxtjs/i18n": "8.0.0-rc.5",
     "@total-typescript/ts-reset": "^0.5.1",
     "@types/node": "^20.8.5",
     "@unocss/eslint-config": "^0.56.5",
