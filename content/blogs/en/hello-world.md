@@ -21,7 +21,7 @@ Asking the real questions here:
 
 A simple code-block:
 
-```cpp
+```c++
 #include<bits/stdc++.h>
 
 int main() {

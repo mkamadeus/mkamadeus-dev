@@ -42,7 +42,7 @@ This operation shifts the binary form of an integer to left/right given the valu
 Note that shift left is equivalent to multiplying by 2, and shift right is dividing by 2 and rounding it. It’s generally faster than usual dividing operations altough the compiler may already compiled it to use shift operations.
 
 
-```cpp
+```c++
 int x=5; // 101 in binary
 
 x=5;
@@ -63,7 +63,7 @@ x=x>>2; //10100 = 20 in decimal
 Does OR operation on the binary form of two integers bit by bit.
 
 
-```cpp
+```c++
 int x=5; // 101 in binary
 int y=9; // 1001 in binary
 int z=x|y;
@@ -80,7 +80,7 @@ z = 1101 = 13 in decimal
 
 Does an AND operation on the binary form of two integers bit by bit.
 
-```cpp
+```c++
 int x=5; // 101 in binary
 int y=9; // 1001 in binary
 int z=x&y;
@@ -105,7 +105,7 @@ This operation is usually used in conjunction of other operators; for example to
 Applies the XOR operation of the binary form of two integers bit by bit.
 Useful to toggle bits; see example below.
 
-```cpp
+```c++
 int x=5; // 101 in binary
 int y=9; // 1001 in binary
 int z=x^y;
@@ -121,7 +121,7 @@ z = 1100 = 12 in decimal
 You may seen a neat trick to swap two integers using XOR.
 It uses XOR's property to achieve so.
 
-```cpp
+```c++
 int a=3;
 int b=5;
 
@@ -185,7 +185,7 @@ caption: "Illustrating the explanation."
 
 Because we’re solving the problem from by top-down, we need to append digits (if left `0`, if right `1`) from the front. How do we achieve such result? We use the OR operator with the shift left operator to turn on a bit in specified location.
 
-```cpp
+```c++
 int result=0; // 000
 int pos=2;
 result|=(1<<pos); //turning on the 2nd bit from the right (0-based)
@@ -203,7 +203,7 @@ result = 000
 
 This is my solution written in C++:
 
-```cpp
+```c++
 #include<bits/stdc++.h>
 
 using namespace std;

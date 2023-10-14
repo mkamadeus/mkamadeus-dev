@@ -31,6 +31,8 @@ const { author: authorInfo, isPending: authorPending } = await useGithubUsername
         w-full
         object="cover"
         rounded="t-lg"
+        transition="~ duration-150"
+        filter="~ saturate-10 group-hover:saturate-70"
       />
     </div>
     <div p-3>
