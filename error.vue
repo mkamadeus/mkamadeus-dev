@@ -7,12 +7,13 @@ const error = useError()
   <NuxtLayout>
     <NuxtLoadingIndicator bg="green" />
     <div
-      font="body antialiased"
       flex="~ col"
-      h-screen
+      justify="center"
       items-center
-      justify-center
-      text-gray-100
+      h="80vh lg:70vh"
+      w="full"
+      text="gray-100 sm lg:lg"
+      p="3vh lg:6vh"
     >
       <div text="xl lg:4xl center" font="sans bold" mb-2>
         Whoops.
