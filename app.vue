@@ -4,15 +4,6 @@ const { finalizePendingLocaleChange } = useI18n()
 const onBeforeEnter = async () => {
   await finalizePendingLocaleChange()
 }
-
-useHead({
-  link: [
-    {
-      rel: 'stylesheet',
-      href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css'
-    }
-  ]
-})
 </script>
 
 <template>
