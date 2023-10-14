@@ -16,6 +16,10 @@ const socialMedias = [
     url: 'https://www.instagram.com/mk.amadeus/'
   }
 ]
+
+defineOgImage({
+  component: 'Default'
+})
 </script>
 
 <template>

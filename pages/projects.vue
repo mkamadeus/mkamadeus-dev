@@ -105,6 +105,10 @@ const projects = [
 ]
 
 const localePath = useLocalePath()
+
+defineOgImage({
+  component: 'Default'
+})
 </script>
 
 <template>

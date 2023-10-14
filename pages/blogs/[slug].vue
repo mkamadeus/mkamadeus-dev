@@ -20,8 +20,7 @@ useHead({
 })
 
 defineOgImage({
-  component: 'default'
-  // title: data.value?.title
+  component: 'Blog'
 })
 
 </script>
