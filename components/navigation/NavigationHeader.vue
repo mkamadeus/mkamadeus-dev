@@ -43,6 +43,49 @@ const socialMedias = [
 ]
 
 const localePath = useLocalePath()
+const route = useRoute()
+
+const navigationDots = ref<HTMLDivElement[]>([])
+
+const { $gsap } = useNuxtApp()
+
+let ctx: gsap.Context
+const timelines: gsap.core.Tween[] = []
+
+onMounted(() => {
+  ctx = $gsap.context(() => {
+    for (let i = 0; i < navigationDots.value.length; i++) {
+      const dot = navigationDots.value[i]
+      // const dotTimeline = $gsap.timeline({ defaults: { ease: 'power3.inOut' } })
+      $gsap.set(dot, { autoAlpha: 0 })
+      const dotTween = $gsap.fromTo(dot, { yPercent: 0, scale: 0, opacity: 0 }, { yPercent: 80, duration: 0.75, autoAlpha: 1, opacity: 1, scale: 1, paused: true, ease: 'elastic.inOut(0.5, 0.15)' })
+      timelines.push(dotTween)
+    }
+
+    const currentIndex = routes.value.findIndex(r => r.path === route.path)
+    if (currentIndex === -1) return
+
+    timelines[currentIndex].play()
+  })
+
+  onUnmounted(() => {
+    ctx.kill()
+  })
+
+  watch(() => route.path, (oldRoute, newRoute) => {
+    // TODO: fix on route not found
+    const oldIndex = routes.value.findIndex(r => r.path === oldRoute)
+    const newIndex = routes.value.findIndex(r => r.path === newRoute)
+
+    if (oldIndex === -1 || newIndex === -1) return
+
+    const oldTimeline = timelines[oldIndex]
+    const newTimeline = timelines[newIndex]
+    
+    oldTimeline.play()
+    newTimeline.reverse()
+  })
+})
 </script>
 
 <template>
@@ -51,29 +94,45 @@ const localePath = useLocalePath()
       flex="~"
       items-center
       justify-end
-      space-x-4
+      space-x="2 md:4"
       w="full"
     >
       <!-- SM NAV -->
       <template v-for="l in routes" :key="l.url">
-        <NuxtLink
-          :class="l.icon"
-          :aria-label="l.title"
-          class="p-1 text-2xl text-#888 hover:text-#fff"
-          transition="all duration-150"
-          :to="localePath(l.path)"
-          md:hidden
-        />
-        <NuxtLink
-          :aria-label="l.title"
-          class="text-#888 hover:text-#fff"
-          transition="all duration-150"
-          p-1
-          lt-md:hidden
-          :to="localePath(l.path)"
-        >
-          {{ l.title }}
-        </NuxtLink>
+        <div pos="relative" z-20>
+          <NuxtLink
+            :aria-label="l.title"
+            :class="[localePath(route.path) === localePath(l.path) ? 'text-#fff' : 'text-#888']"
+            class="hover:text-#fff"
+            transition="all duration-150"
+            pos="relative"
+            z="20"
+            p-1
+            :to="localePath(l.path)"
+          >
+            <div :class="l.icon" inline-block text-2xl md:hidden />
+            <span lt-md:hidden>{{ l.title }}</span>
+          </NuxtLink>
+          <div
+            ref="navigationDots"
+            pos="absolute left-0 right-0 bottom-0"
+            z="15"
+
+            h-full
+            w-full
+            flex
+            items-center
+            justify-center
+            opacity-0
+          >
+            <div
+              class="i-carbon-caret-up"
+              inline-block
+              text="#888 lg"
+              rounded-full
+            />
+          </div>
+        </div>
       </template>
       <template v-for="l in socialMedias" :key="l.url">
         <NuxtLink

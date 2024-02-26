@@ -1,6 +1,6 @@
 <template>
   <div pos-relative>
-    <pre :class="$props.class" text="base" font-400><slot /></pre>
+    <pre :class="$props.class" text="base gray-100" font-400><slot /></pre>
     <div flex="~ col items-end" space-y-2 pos="absolute top-3 right-3" text="xs #aaa">
       <button
         flex="inline items-center"

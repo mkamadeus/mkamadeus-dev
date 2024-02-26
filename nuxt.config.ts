@@ -1,7 +1,6 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
-    '@nuxt/devtools',
     '@nuxtjs/i18n',
     '@nuxt/image',
     '@vueuse/nuxt',
@@ -15,9 +14,9 @@ export default defineNuxtConfig({
     '~/assets/styles/main.css',
     '~/assets/styles/markdown.css'
   ],
-  devServerHandlers: [],
   app: {
     layoutTransition: { name: 'layout', mode: 'out-in' },
+    pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       title: 'mkamadeus.dev',
       viewport: 'width=device-width,initial-scale=1',
@@ -73,7 +72,8 @@ export default defineNuxtConfig({
       }
     },
     highlight: {
-      theme: 'github-dark-dimmed'
+      theme: 'github-dark',
+      preload: ['hcl', 'sh', 'bash', 'cpp', 'yaml', 'jsx', 'vue', 'json']
     }
   },
   devtools: {

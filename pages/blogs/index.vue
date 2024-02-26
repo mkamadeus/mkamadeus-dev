@@ -1,13 +1,43 @@
 <script setup lang="ts">
-import { ParsedContent } from '@nuxt/content/dist/runtime/types'
 import dayjs from 'dayjs'
+import gsap from 'gsap'
+
+const title = ref()
+const subtitle = ref()
+const listItems = ref()
+
+const { $gsap } = useNuxtApp()
+
+let ctx: gsap.Context
+onMounted(() => {
+  const items = listItems.value.map((item: { cardWrapper: HTMLDivElement; }) => item.cardWrapper)
+  ctx = $gsap.context(() => {
+    const tl = $gsap.timeline({ paused: true, defaults: { ease: 'power3.inOut' } })
+
+    tl.set(title.value, { autoAlpha: 0 })
+    tl.set(subtitle.value, { autoAlpha: 0 })
+    tl.set(items, { autoAlpha: 0 })
+
+    tl.fromTo(title.value, { yPercent: 105 }, { yPercent: 0, autoAlpha: 1, duration: 1 })
+    tl.fromTo(subtitle.value, { yPercent: 105 }, { yPercent: 0, autoAlpha: 1, duration: 0.3 })
+    tl.fromTo(items, { yPercent: 105 }, { yPercent: 0, autoAlpha: 1, duration: 1, stagger: 0.15 })
+
+    tl.play()
+  })
+})
+
+onUnmounted(() => {
+  ctx.kill()
+})
 
 const { t } = useI18n()
 const { data } = await useAsyncData('blogs', () => queryContent('/blogs/en').find())
 
+type ContentType = NonNullable<typeof data.value>
+
 const blogs = computed(() => {
   const pages = data.value || []
-  const parsedContent: Record<string, ParsedContent[]> = {}
+  const parsedContent: Record<string, ContentType> = {}
   const postsByYear: Record<string, BlogPost[]> = {}
   const posts: BlogPost[] = []
 
@@ -79,28 +109,23 @@ const blogs = computed(() => {
     posts
   }
 })
-
-const listItems = ref<HTMLLIElement[]>([])
-const listHeights = ref<number[]>([])
-
-onMounted(() => {
-  listHeights.value = listItems.value.map(el => el.clientHeight)
-})
 </script>
 
 <template>
-  <div container="~" mx-auto px="3vh lg:6vh">
-    <h1 class="header" mb="2 lg:4" font-800 animated="~ fade-in-up ease-in-out delay-500">
-      {{ t('blogs.title') }}
+  <div container="~" mx-auto px="3vh lg:6vh" min-h-screen>
+    <h1 class="header" pb="2 lg:4" overflow-hidden font-800>
+      <span ref="title" inline-block opacity-0>
+        {{ t('blogs.title') }}
+      </span>
     </h1>
-    <div text="#999" animated="~ fade-in-up ease-in-out delay-1000">
-      {{ t('blogs.subtitle') }}
+    <div text="#999">
+      <span ref="subtitle" inline-block opacity-0>
+        {{ t('blogs.subtitle') }}
+      </span>
     </div>
-    <div flex="~ col" space="y-2" container="~" m="t-8 x-auto">
-      <div grid="~ gap-3vh cols-[repeat(auto-fit,minmax(18.75rem,1fr))]">
-        <template v-for="(post,i) in blogs.posts" :key="post.id">
-          <BlogEntry v-bind="post" animated="~ fade-in-up ease-in-out" :style="`animation-delay: ${1000+200*i}ms`" />
-        </template>
+    <div mt="8 lg:16" container="~" grid="~ gap-4 cols-[repeat(1,1fr)] md:cols-[repeat(2,1fr)] lg:cols-[repeat(3,1fr)]">
+      <div v-for="post in blogs.posts" :key="post.id" inline-block overflow-hidden>
+        <BlogEntry ref="listItems" v-bind="post" opacity-0 />
       </div>
     </div>
   </div>
