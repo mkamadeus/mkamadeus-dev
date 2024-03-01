@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@vite-pwa/nuxt',
     '@nuxtjs/eslint-module',
-    'nuxt-og-image'
+    'radix-vue/nuxt'
   ],
   css: [
     '@unocss/reset/tailwind.css',
@@ -78,12 +78,6 @@ export default defineNuxtConfig({
   },
   devtools: {
     enabled: true
-  },
-  ogImage: {
-    componentDirs: ['og-image']
-  },
-  site: {
-    url: '/'
   },
   eslint: {
     lintOnStart: false

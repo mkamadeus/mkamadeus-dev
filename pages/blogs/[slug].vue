@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // set blog layout
 definePageMeta({
-  layout: 'blog'
+  layout: false
 })
 
 // get blog data
@@ -25,13 +25,13 @@ useHead({
   ]
 })
 
-defineOgImage({
-  component: 'Blog'
-})
+// defineOgImage({
+//   component: 'Blog'
+// })
 </script>
 
 <template>
-  <article>
+  <NuxtLayout name="blog">
     <BlogHero />
     <div
       class="prose"
@@ -43,5 +43,5 @@ defineOgImage({
     >
       <ContentDoc :path="`/blogs/en/${route.params.slug}`" />
     </div>
-  </article>
+  </NuxtLayout>
 </template>

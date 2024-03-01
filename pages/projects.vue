@@ -106,6 +106,8 @@ const projects = [
 
 const localePath = useLocalePath()
 const title = ref<HTMLElement>()
+const subtitle = ref<HTMLElement>()
+const subtitleContact = ref<HTMLElement>()
 
 const { $gsap } = useNuxtApp()
 
@@ -115,8 +117,12 @@ onMounted(() => {
     const tl = $gsap.timeline({ paused: true, defaults: { ease: 'power3.inOut' } })
 
     tl.set(title.value!, { autoAlpha: 1 })
+    tl.set(subtitle.value!, { autoAlpha: 1 })
+    tl.set(subtitleContact.value!, { autoAlpha: 1 })
 
     tl.fromTo(title.value!, { yPercent: 100 }, { yPercent: 0, autoAlpha: 1, duration: 1 })
+    tl.fromTo(subtitle.value!, { yPercent: 100 }, { yPercent: 0, autoAlpha: 1, duration: 0.3 })
+    tl.fromTo(subtitleContact.value!, { yPercent: 100 }, { yPercent: 0, autoAlpha: 1, duration: 0.3 })
 
     tl.play()
   })
@@ -126,27 +132,29 @@ onUnmounted(() => {
   ctx.kill()
 })
 
-defineOgImage({
-  component: 'Default'
-})
+// defineOgImage({
+//   component: 'Default'
+// })
 </script>
 
 <template>
   <div flex="~ col" w-full justify-center m="lg:x-8" px="3vh lg:6vh">
     <div m="b-8 lg:b-16">
-      <h1 class="header" mb="2 lg:4" font="800" overflow-hidden pb="2 lg:4">
+      <h1 class="header" font="800" overflow-hidden pb="2 lg:4">
         <span ref="title" inline-block opacity-0>
           {{ t('projects.title') }}
         </span>
       </h1>
-      <div flex space-x-1 text="#999">
-        <span animated="~ fade-in-up ease-in-out delay-1000">
+      <div text="#999" flex overflow-hidden space-x-1>
+        <span ref="subtitle">
           {{ $t('projects.subtitle') }}
         </span>
-        <NuxtLink class="text-#ddd link" animated="~ fade-in-up ease-in-out delay-1500" :to="localePath('/contacts')">
-          {{
-            $t('projects.contact_me') }}
-        </NuxtLink>
+        <span ref="subtitleContact">
+          <NuxtLink class="text-#ddd link" :to="localePath('/contacts')">
+            {{
+              $t('projects.contact_me') }}
+          </NuxtLink>
+        </span>
       </div>
     </div>
     <div flex="~ col" space="y-8 lg:y-10" container="~" m="x-auto">

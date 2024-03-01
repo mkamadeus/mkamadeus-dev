@@ -23,22 +23,25 @@ defineProps<Props>()
     ref="cardWrapper"
     class="group"
     text="#aaa"
-    rounded="lg"
+    rounded="3"
     flex="~ space-x-2"
     w="full"
     cursor-pointer
+    transition="colors duration-150"
+    bg="hover:#333/30"
+    p="2"
   >
     <NuxtImg
       :src="`https://avatar.vercel.sh/${id}.svg`"
-      h-72px
-      w-72px
+      h-18
+      w-18
       object="cover"
       transition="~ duration-150"
-      filter="~ saturate-0"
+      filter="~ saturate-25"
       group-hover:filter="~ saturate-100"
-      rounded-lg
+      rounded="1"
     />
-    <div h-18 max-w-65 flex-grow pl-4 text-wrap>
+    <div h-18 max-w-72 flex-grow pl-4 text-wrap>
       <div flex="~ justify-between" @click="$router.push(`/blogs/${id}`)">
         <div
           font="500 sans"

@@ -17,9 +17,9 @@ const contacts = [
   }
 ]
 
-defineOgImage({
-  component: 'Default'
-})
+// defineOgImage({
+//   component: 'Default'
+// })
 </script>
 
 <template>

@@ -14,7 +14,7 @@ const onBeforeEnter = async () => {
 </template>
 
 <style>
-.layout-enter-active,
+/* .layout-enter-active,
 .layout-leave-active {
   opacity: 1;;
   transition: all 0.4s;
@@ -23,7 +23,7 @@ const onBeforeEnter = async () => {
 .layout-enter-from,
 .layout-leave-to {
   opacity: 0;
-}
+} */
 
 .page-enter-active,
 .page-leave-active {

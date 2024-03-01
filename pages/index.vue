@@ -17,9 +17,9 @@ const socialMedias = [
   }
 ]
 
-defineOgImage({
-  component: 'Default'
-})
+// defineOgImage({
+//   component: 'Default'
+// })
 
 const wrapper = ref<HTMLDivElement>()
 const homeTitle = ref<HTMLDivElement>()

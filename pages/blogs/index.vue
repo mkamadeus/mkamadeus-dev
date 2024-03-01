@@ -123,7 +123,7 @@ const blogs = computed(() => {
         {{ t('blogs.subtitle') }}
       </span>
     </div>
-    <div mt="8 lg:16" container="~" grid="~ gap-4 cols-[repeat(1,1fr)] md:cols-[repeat(2,1fr)] lg:cols-[repeat(3,1fr)]">
+    <div mt="8 lg:16" container="~" grid="~ gap-2 cols-[repeat(1,1fr)] md:cols-[repeat(2,1fr)] lg:cols-[repeat(3,1fr)]">
       <div v-for="post in blogs.posts" :key="post.id" inline-block overflow-hidden>
         <BlogEntry ref="listItems" v-bind="post" opacity-0 />
       </div>

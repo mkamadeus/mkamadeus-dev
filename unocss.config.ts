@@ -6,7 +6,6 @@ import {
   presetUno,
   defineConfig
 } from 'unocss'
-import { animatedUno } from 'animated-unocss'
 
 export default defineConfig({
   presets: [
@@ -45,8 +44,7 @@ export default defineConfig({
           }
         ]
       }
-    }),
-    animatedUno()
+    })
   ],
   shortcuts: {
     link: 'text-#888 hover:text-#ddd transition-all transition-duration-150 underline underline-dotted',
@@ -56,18 +54,6 @@ export default defineConfig({
   theme: {
     colors: {
       black: '#0C0404'
-    },
-    animation: {
-      keyframes: {
-        wiggle: '{0%, 100% { transform: rotate(-2deg) } 50% { transform: rotate(2deg) }}',
-        slideIn: '{0% { transform: translateY(20px) } 100% { transform: translateY(0) }}'
-      },
-      duration: {
-        wiggle: '1s'
-      },
-      timingFns: {
-        wiggle: 'ease-in-out'
-      }
     }
   },
   content: {

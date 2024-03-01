@@ -63,7 +63,7 @@ onMounted(() => {
     }
 
     const currentIndex = routes.value.findIndex(r => r.path === route.path)
-    if (currentIndex === -1) return
+    if (currentIndex === -1) { return }
 
     timelines[currentIndex].play()
   })
@@ -77,29 +77,31 @@ onMounted(() => {
     const oldIndex = routes.value.findIndex(r => r.path === oldRoute)
     const newIndex = routes.value.findIndex(r => r.path === newRoute)
 
-    if (oldIndex === -1 || newIndex === -1) return
+    if (oldIndex !== -1) {
+      const oldTimeline = timelines[oldIndex]
+      oldTimeline.play()
+    }
 
-    const oldTimeline = timelines[oldIndex]
-    const newTimeline = timelines[newIndex]
-    
-    oldTimeline.play()
-    newTimeline.reverse()
+    if (newIndex !== -1) {
+      const newTimeline = timelines[newIndex]
+      newTimeline.reverse()
+    }
   })
 })
 </script>
 
 <template>
-  <header p="3vh lg:6vh" z-10 w-full>
-    <nav
+  <NavigationMenuRoot p="3vh lg:6vh" z-10 w-full>
+    <NavigationMenuList
       flex="~"
       items-center
       justify-end
-      space-x="2 md:4"
+      space-x="2 md:3"
       w="full"
     >
       <!-- SM NAV -->
-      <template v-for="l in routes" :key="l.url">
-        <div pos="relative" z-20>
+      <NavigationMenuItem v-for="l in routes" :key="l.path">
+        <NavigationMenuLink pos="relative" z-20>
           <NuxtLink
             :aria-label="l.title"
             :class="[localePath(route.path) === localePath(l.path) ? 'text-#fff' : 'text-#888']"
@@ -132,21 +134,26 @@ onMounted(() => {
               rounded-full
             />
           </div>
-        </div>
-      </template>
-      <template v-for="l in socialMedias" :key="l.url">
-        <NuxtLink
-          :aria-label="l.title"
-          class="text-2xl text-#888 hover:text-#fff"
-          :class="l.icon"
-          transition="all duration-150"
-          p-1
-          lt-md:hidden
-          target="_blank"
-          :to="l.url"
-        />
-      </template>
-      <NavigationLanguageDropdown />
-    </nav>
-  </header>
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+      <NavigationMenuItem v-for="l in socialMedias" :key="l.url" display="lt-md:hidden">
+        <NavigationMenuLink>
+          <NuxtLink
+            :aria-label="l.title"
+            class="text-2xl text-#888 hover:text-#fff"
+            transition="all duration-150"
+            block
+            p-1
+            target="_blank"
+            :to="l.url"
+          >
+            <div :class="l.icon" />
+          </NuxtLink>
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationLanguageDropdown />
+      </NavigationMenuItem>
+    </NavigationMenuList>
+  </NavigationMenuRoot>
 </template>
