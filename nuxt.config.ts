@@ -1,24 +1,22 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
-    '@nuxt/devtools',
     '@nuxtjs/i18n',
     '@nuxt/image',
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@vite-pwa/nuxt',
     '@nuxtjs/eslint-module',
-    'nuxt-og-image'
+    'radix-vue/nuxt'
   ],
   css: [
     '@unocss/reset/tailwind.css',
-    // '~/assets/styles/katex.css',
     '~/assets/styles/main.css',
     '~/assets/styles/markdown.css'
   ],
-  devServerHandlers: [],
   app: {
     layoutTransition: { name: 'layout', mode: 'out-in' },
+    pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       title: 'mkamadeus.dev',
       viewport: 'width=device-width,initial-scale=1',
@@ -36,14 +34,9 @@ export default defineNuxtConfig({
     }
   },
   i18n: {
-    langDir: './locales',
     lazy: true,
-    strategy: 'no_prefix',
+    langDir: './locales',
     defaultLocale: 'en',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_lang'
-    },
     locales: [
       {
         code: 'en',
@@ -70,8 +63,7 @@ export default defineNuxtConfig({
   content: {
     markdown: {
       remarkPlugins: [
-        'remark-math',
-        'remark-toc'
+        'remark-math'
       ],
       rehypePlugins: {
         'rehype-katex': {
@@ -80,17 +72,14 @@ export default defineNuxtConfig({
       }
     },
     highlight: {
-      theme: 'github-dark-dimmed'
+      theme: 'github-dark',
+      preload: ['hcl', 'sh', 'bash', 'cpp', 'yaml', 'jsx', 'vue', 'json']
     }
   },
   devtools: {
     enabled: true
   },
-  ogImage: {
-    componentDirs: ['og-image']
-  },
-  site: {
-    url: '/'
+  eslint: {
+    lintOnStart: false
   }
-
 })

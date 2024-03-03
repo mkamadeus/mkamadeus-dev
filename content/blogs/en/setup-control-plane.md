@@ -158,8 +158,8 @@ The YAML manifest is available on [`calico`'s GitHub](https://github.com/project
 
 ```sh
 wget https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
-
 ```
+
 After obtaining the YAML manifest, the next step is to check its contents to get the default IPv4 pool used by `calico`.
 You can search for it using `vim` or any text editor you are used to.
 You can find it in these lines:
@@ -194,8 +194,8 @@ kubernetesVersion: stable
 controlPlaneEndpoint: "k8scp:6443" # referring to self, resolved in `/etc/hosts`
 networking:
   podSubnet: 192.168.0.0/16 # match with calico's config
-
 ```
+
 This file is used by `kubeadm` to bootstrap the cluster.
 Ensure that `controlPlaneEndpoint` contains the hostname you wrote in `/etc/hosts`.
 Also, make sure the value of `networking.podSubnet` matches what you set for `calico`'s IPv4 pool if you changed it.
@@ -205,14 +205,14 @@ The `tee` command is used to pipe the output into a file for review if needed.
 
 ```sh
 kubeadm init --config=kubeadm-config.yaml --upload-certs | tee kubeadm-init.out
-
 ```
+
 Since we are done with administrative tasks, it's a good step to exit from the `root` user.
 
 ```sh
 exit
-
 ```
+
 ### Checking the Cluster
 
 After running the previous command, there should be some instructions printed out.

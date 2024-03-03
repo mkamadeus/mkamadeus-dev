@@ -4,15 +4,6 @@ const { finalizePendingLocaleChange } = useI18n()
 const onBeforeEnter = async () => {
   await finalizePendingLocaleChange()
 }
-
-useHead({
-  link: [
-    {
-      rel: 'stylesheet',
-      href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css'
-    }
-  ]
-})
 </script>
 
 <template>
@@ -23,13 +14,14 @@ useHead({
 </template>
 
 <style>
-.layout-enter-active,
-.layout-leave-active {
-  transition: all 0.4s;
+.page-enter-active,
+.page-leave-active {
+  opacity: 100;
+  transition: all 0.3s;
 }
-
-.layout-enter-from,
-.layout-leave-to {
+.page-enter-from,
+.page-leave-to {
   opacity: 0;
+  filter: blur(1rem);
 }
 </style>

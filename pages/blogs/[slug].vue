@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // set blog layout
 definePageMeta({
-  layout: 'blog'
+  layout: false
 })
 
 // get blog data
@@ -16,18 +16,22 @@ useHead({
   meta: [
     { property: 'og:title', content: data.value?.title },
     { property: 'og:type', content: 'article' }
+  ],
+  link: [
+    {
+      rel: 'stylesheet',
+      href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css'
+    }
   ]
 })
 
-defineOgImage({
-  component: 'default'
-  // title: data.value?.title
-})
-
+// defineOgImage({
+//   component: 'Blog'
+// })
 </script>
 
 <template>
-  <article>
+  <NuxtLayout name="blog">
     <BlogHero />
     <div
       class="prose"
@@ -39,5 +43,5 @@ defineOgImage({
     >
       <ContentDoc :path="`/blogs/en/${route.params.slug}`" />
     </div>
-  </article>
+  </NuxtLayout>
 </template>

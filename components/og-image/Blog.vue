@@ -14,7 +14,7 @@ defineProps<Props>()
 </script>
 
 <template>
-  <div class="h-full w-full flex flex-col items-start justify-center bg-black p-12 text-white font-sans">
+  <div class="h-full w-full flex flex-col items-start justify-center bg-black p-12 text-white">
     <h1 class="my-0 mb-2 text-8xl">
       {{ title }}
     </h1>

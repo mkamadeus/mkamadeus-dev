@@ -12,6 +12,7 @@ const year = dayjs().year()
     w="full"
     p="3vh lg:6vh"
     text="#888"
+    font-mono
   >
     CC BY-NC-SA 4.0 {{ year }}
   </footer>

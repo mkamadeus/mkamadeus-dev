@@ -1,5 +1,5 @@
 <template>
-  <main font="antialiased" min-h="screen" pos="relative" text="white">
+  <main font="body antialiased" min-h="screen" pos="relative" text="white">
     <NavigationHeader z-10 />
     <div mx-auto container>
       <div flex="~" items-center justify-center>

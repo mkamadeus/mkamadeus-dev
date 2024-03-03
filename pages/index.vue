@@ -16,10 +16,44 @@ const socialMedias = [
     url: 'https://www.instagram.com/mk.amadeus/'
   }
 ]
+
+// defineOgImage({
+//   component: 'Default'
+// })
+
+const wrapper = ref<HTMLDivElement>()
+const homeTitle = ref<HTMLDivElement>()
+const jobSubtitle = ref<HTMLDivElement>()
+const schoolSubtitle = ref<HTMLDivElement>()
+const socialMediaIcons = ref<HTMLDivElement>()
+
+const { $gsap } = useNuxtApp()
+
+let ctx: gsap.Context
+onMounted(() => {
+  ctx = $gsap.context(() => {
+    const tl = $gsap.timeline({ paused: true, defaults: { ease: 'power3.inOut' } })
+
+    tl.set(homeTitle.value!, { autoAlpha: 1 })
+    tl.set(jobSubtitle.value!, { autoAlpha: 1 })
+    tl.set(schoolSubtitle.value!, { autoAlpha: 1 })
+
+    tl.fromTo(homeTitle.value!, { yPercent: 100 }, { yPercent: 0, autoAlpha: 1, duration: 1 })
+    tl.fromTo(jobSubtitle.value!.querySelectorAll('span, a'), { yPercent: 100 }, { yPercent: 0, autoAlpha: 1, duration: 0.3, stagger: 0.15 })
+    tl.fromTo(schoolSubtitle.value!.querySelectorAll('span, a'), { yPercent: 100 }, { yPercent: 0, autoAlpha: 1, duration: 0.3, stagger: 0.15 })
+
+    tl.play()
+  }, wrapper.value!)
+})
+
+onUnmounted(() => {
+  ctx.kill()
+})
 </script>
 
 <template>
   <div
+    ref="wrapper"
     flex="~ col"
     justify="center"
     items-center
@@ -30,11 +64,11 @@ const socialMedias = [
   >
     <div m="b-6">
       <h1
-        class="header"
+        class="header lg:text-9xl"
         mb="2 lg:4"
-        animated="~ fade-in-up ease-in-out delay-500"
         cursor-pointer
         select-none
+        overflow-hidden
         text-center
         tracking-tight
         transition-all
@@ -42,17 +76,44 @@ const socialMedias = [
         ease-in-out
         hover:tracking-wider
       >
-        mkamadeus
+        <span
+          ref="homeTitle"
+          inline-block
+          opacity-0
+        >
+          mkamadeus
+        </span>
       </h1>
-      <div text="center sm lg:lg #888" animated="~ fade-in-up ease-in-out delay-1000">
-        {{ $t('home.job_title') }}
-        <NuxtLink class="link" href="https://www.linkedin.com/company/xendit/">
+      <div
+        ref="jobSubtitle"
+
+        text="center sm lg:lg #888"
+        w-full
+        inline-flex
+        justify-center
+        overflow-hidden
+        space-x-1
+      >
+        <span inline-block opacity-0>
+          {{ $t('home.job_title') }}
+        </span>
+        <NuxtLink class="link" inline-block href="https://www.linkedin.com/company/xendit/" opacity-0>
           @Xendit
         </NuxtLink>
       </div>
-      <div text="center sm lg:lg #888" animated="~ fade-in-up ease-in-out delay-1300">
-        {{ $t('home.school_title') }}
-        <NuxtLink class="link" href="https://itb.ac.id/">
+      <div
+        ref="schoolSubtitle"
+        text="center sm lg:lg #888"
+        w-full
+        inline-flex
+        justify-center
+        overflow-hidden
+        space-x-1
+      >
+        <span inline-block opacity-0>
+          {{ $t('home.school_title') }}
+        </span>
+        <NuxtLink class="link" inline-block href="https://itb.ac.id/" opacity-0>
           @ITB
         </NuxtLink>
       </div>
@@ -63,19 +124,19 @@ const socialMedias = [
         justify-center
         md:hidden
         space-x-2
-        animated="~ fade-in-up ease-in-out delay-1600"
       >
-        <template v-for="l in socialMedias" :key="l.url">
-          <NuxtLink
-            :aria-label="l.title"
-            class="text-2xl text-#888 hover:text-#fff"
-            :class="l.icon"
-            col-span-1
-            transition="all duration-150"
-            target="_blank"
-            :href="l.url"
-          />
-        </template>
+        <NuxtLink
+          v-for="l in socialMedias"
+          ref="socialMediaIcons"
+          :key="l.url"
+          :aria-label="l.title"
+          class="text-2xl text-#888 hover:text-#fff"
+          :class="l.icon"
+          col-span-1
+          transition="all duration-150"
+          target="_blank"
+          :href="l.url"
+        />
       </div>
     </div>
   </div>
