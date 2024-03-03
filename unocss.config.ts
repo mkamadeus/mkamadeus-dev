@@ -48,7 +48,7 @@ export default defineConfig({
   ],
   shortcuts: {
     link: 'text-#888 hover:text-#ddd transition-all transition-duration-150 underline underline-dotted',
-    header: 'font-sans font-800 text-4xl lg:text-9xl text-#ddd',
+    header: 'font-sans font-800 text-4xl lg:text-5xl text-#ddd',
     textInput: 'rounded border border-#888 bg-transparent text-#ddd placeholder-#888 focus:outline-none focus:border-#ddd p-1'
   },
   theme: {

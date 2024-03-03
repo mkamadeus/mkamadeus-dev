@@ -64,7 +64,7 @@ onUnmounted(() => {
   >
     <div m="b-6">
       <h1
-        class="header"
+        class="header lg:text-9xl"
         mb="2 lg:4"
         cursor-pointer
         select-none

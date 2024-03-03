@@ -8,14 +8,14 @@ const routes = computed(() => [
     path: '/'
   },
   {
-    icon: 'i-carbon-blog',
-    title: t('navbar.blogs'),
-    path: '/blogs'
-  },
-  {
     icon: 'i-carbon-idea',
     title: t('navbar.projects'),
     path: '/projects'
+  },
+  {
+    icon: 'i-carbon-blog',
+    title: t('navbar.blogs'),
+    path: '/blogs'
   },
   {
     icon: 'i-carbon-user',
@@ -93,67 +93,86 @@ onMounted(() => {
 <template>
   <NavigationMenuRoot p="3vh lg:6vh" z-10 w-full>
     <NavigationMenuList
-      flex="~"
+      flex
       items-center
       justify-end
-      space-x="2 md:3"
       w="full"
+      space-x="2 md:3"
     >
-      <!-- SM NAV -->
-      <NavigationMenuItem v-for="l in routes" :key="l.path">
-        <NavigationMenuLink pos="relative" z-20>
-          <NuxtLink
-            :aria-label="l.title"
-            :class="[localePath(route.path) === localePath(l.path) ? 'text-#fff' : 'text-#888']"
-            class="hover:text-#fff"
-            transition="all duration-150"
-            pos="relative"
-            z="20"
-            p-1
-            :to="localePath(l.path)"
-          >
-            <div :class="l.icon" inline-block text-2xl md:hidden />
-            <span lt-md:hidden>{{ l.title }}</span>
-          </NuxtLink>
-          <div
-            ref="navigationDots"
-            pos="absolute left-0 right-0 bottom-0"
-            z="15"
-
-            h-full
-            w-full
-            flex
-            items-center
-            justify-center
-            opacity-0
-          >
+      <div
+        flex="~"
+        items-center
+        justify-end
+        space-x="2 md:3"
+      >
+        <NavigationMenuItem v-for="l in routes" :key="l.path">
+          <NavigationMenuLink pos="relative" z-20>
+            <NuxtLink
+              :aria-label="l.title"
+              :class="[localePath(route.path) === localePath(l.path) ? 'text-#fff' : 'text-#888']"
+              class="text-#888 hover:text-#fff"
+              transition="all duration-150"
+              block
+              :to="localePath(l.path)"
+            >
+              <div :class="l.icon" text-2xl md:hidden />
+              <span lt-md:hidden>{{ l.title }}</span>
+            </NuxtLink>
             <div
-              class="i-carbon-caret-up"
-              inline-block
-              text="#888 lg"
-              rounded-full
-            />
-          </div>
-        </NavigationMenuLink>
-      </NavigationMenuItem>
-      <NavigationMenuItem v-for="l in socialMedias" :key="l.url" display="lt-md:hidden">
-        <NavigationMenuLink>
-          <NuxtLink
-            :aria-label="l.title"
-            class="text-2xl text-#888 hover:text-#fff"
-            transition="all duration-150"
-            block
-            p-1
-            target="_blank"
-            :to="l.url"
-          >
-            <div :class="l.icon" />
-          </NuxtLink>
-        </NavigationMenuLink>
-      </NavigationMenuItem>
-      <NavigationMenuItem>
-        <NavigationLanguageDropdown />
-      </NavigationMenuItem>
+              ref="navigationDots"
+              pos="absolute left-0 right-0 bottom-0"
+              z="15"
+              h-full
+              w-full
+              flex
+              items-center
+              justify-center
+              opacity-0
+            >
+              <div
+                class="i-carbon-caret-up"
+                inline-block
+                text="#888 lg"
+                rounded-full
+              />
+            </div>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <Separator orientation="vertical" />
+      </div>
+      <div
+        flex="~"
+        items-center
+        justify-end
+        space-x="2 md:3"
+        lt-md:hidden
+      >
+        <NavigationMenuItem v-for="l in socialMedias" :key="l.url">
+          <NavigationMenuLink>
+            <NuxtLink
+              :aria-label="l.title"
+              class="text-2xl text-#888 hover:text-#fff"
+              transition="all duration-150"
+              block
+              target="_blank"
+              :to="l.url"
+            >
+              <div :class="l.icon" />
+            </NuxtLink>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <Separator orientation="vertical" />
+      </div>
+      <div
+        flex="~"
+        items-center
+        justify-end
+        space-x="2 md:3"
+      >
+        <NavigationMenuItem>
+          <NavigationLanguageDropdown />
+        </NavigationMenuItem>
+      </div>
     </NavigationMenuList>
   </NavigationMenuRoot>
 </template>
