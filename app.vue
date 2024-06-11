@@ -4,13 +4,17 @@ const { finalizePendingLocaleChange } = useI18n()
 const onBeforeEnter = async () => {
   await finalizePendingLocaleChange()
 }
+
+const useIdFunction = () => useId()
 </script>
 
 <template>
-  <NuxtLayout>
-    <NuxtLoadingIndicator bg="green" />
-    <NuxtPage :transition="{ onBeforeEnter }" />
-  </NuxtLayout>
+  <ConfigProvider :use-id="useIdFunction">
+    <NuxtLayout>
+      <NuxtLoadingIndicator bg="green" />
+      <NuxtPage :transition="{ onBeforeEnter }" />
+    </NuxtLayout>
+  </ConfigProvider>
 </template>
 
 <style>

@@ -45,53 +45,53 @@ const socialMedias = [
 const localePath = useLocalePath()
 const route = useRoute()
 
-const navigationDots = ref<HTMLDivElement[]>([])
+// const navigationDots = ref<HTMLDivElement[]>([])
 
-const { $gsap } = useNuxtApp()
+// const { $gsap } = useNuxtApp()
 
-let ctx: gsap.Context
-const timelines: gsap.core.Tween[] = []
+// let ctx: gsap.Context
+// const timelines: gsap.core.Tween[] = []
 
-onMounted(() => {
-  ctx = $gsap.context(() => {
-    for (let i = 0; i < navigationDots.value.length; i++) {
-      const dot = navigationDots.value[i]
-      // const dotTimeline = $gsap.timeline({ defaults: { ease: 'power3.inOut' } })
-      $gsap.set(dot, { autoAlpha: 0 })
-      const dotTween = $gsap.fromTo(dot, { yPercent: 0, scale: 0, opacity: 0 }, { yPercent: 80, duration: 0.75, autoAlpha: 1, opacity: 1, scale: 1, paused: true, ease: 'elastic.inOut(0.5, 0.15)' })
-      timelines.push(dotTween)
-    }
+// onMounted(() => {
+//   ctx = $gsap.context(() => {
+//     for (let i = 0; i < navigationDots.value.length; i++) {
+//       const dot = navigationDots.value[i]
+//       // const dotTimeline = $gsap.timeline({ defaults: { ease: 'power3.inOut' } })
+//       $gsap.set(dot, { autoAlpha: 0 })
+//       const dotTween = $gsap.fromTo(dot, { yPercent: 0, scale: 0, opacity: 0 }, { yPercent: 80, duration: 0.75, autoAlpha: 1, opacity: 1, scale: 1, paused: true, ease: 'elastic.inOut(0.5, 0.15)' })
+//       timelines.push(dotTween)
+//     }
 
-    const currentIndex = routes.value.findIndex(r => r.path === route.path)
-    if (currentIndex === -1) { return }
+//     const currentIndex = routes.value.findIndex(r => r.path === route.path)
+//     if (currentIndex === -1) { return }
 
-    timelines[currentIndex].play()
-  })
+//     timelines[currentIndex].play()
+//   })
 
-  onUnmounted(() => {
-    ctx.kill()
-  })
+//   onUnmounted(() => {
+//     ctx.kill()
+//   })
 
-  watch(() => route.path, (oldRoute, newRoute) => {
-    // TODO: fix on route not found
-    const oldIndex = routes.value.findIndex(r => r.path === oldRoute)
-    const newIndex = routes.value.findIndex(r => r.path === newRoute)
+//   watch(() => route.path, (oldRoute, newRoute) => {
+//     // TODO: fix on route not found
+//     const oldIndex = routes.value.findIndex(r => r.path === oldRoute)
+//     const newIndex = routes.value.findIndex(r => r.path === newRoute)
 
-    if (oldIndex !== -1) {
-      const oldTimeline = timelines[oldIndex]
-      oldTimeline.play()
-    }
+//     if (oldIndex !== -1) {
+//       const oldTimeline = timelines[oldIndex]
+//       oldTimeline.play()
+//     }
 
-    if (newIndex !== -1) {
-      const newTimeline = timelines[newIndex]
-      newTimeline.reverse()
-    }
-  })
-})
+//     if (newIndex !== -1) {
+//       const newTimeline = timelines[newIndex]
+//       newTimeline.reverse()
+//     }
+//   })
+// })
 </script>
 
 <template>
-  <NavigationMenuRoot p="3vh lg:6vh" z-10 w-full>
+  <NavigationMenuRoot p="3vh lg:6vh" absolute z-10 w-full>
     <NavigationMenuList
       flex
       items-center
@@ -106,7 +106,7 @@ onMounted(() => {
         space-x="2 md:3"
       >
         <NavigationMenuItem v-for="l in routes" :key="l.path">
-          <NavigationMenuLink pos="relative" z-20>
+          <NavigationMenuTrigger as-child>
             <NuxtLink
               :aria-label="l.title"
               :class="[localePath(route.path) === localePath(l.path) ? 'text-#fff' : 'text-#888']"
@@ -118,26 +118,36 @@ onMounted(() => {
               <div :class="l.icon" text-2xl md:hidden />
               <span lt-md:hidden>{{ l.title }}</span>
             </NuxtLink>
+          </NavigationMenuTrigger>
+          <!-- <div
+            ref="navigationDots"
+            pos="absolute left-0 right-0 bottom-0"
+            z="15"
+            h-full
+            w-full
+            flex
+            items-center
+            justify-center
+            opacity-0
+          >
             <div
-              ref="navigationDots"
-              pos="absolute left-0 right-0 bottom-0"
-              z="15"
-              h-full
-              w-full
-              flex
-              items-center
-              justify-center
-              opacity-0
-            >
-              <div
-                class="i-carbon-caret-up"
-                inline-block
-                text="#888 lg"
-                rounded-full
-              />
-            </div>
-          </NavigationMenuLink>
+              class="i-carbon-caret-up"
+              inline-block
+              text="#888 lg"
+              rounded-full
+            />
+          </div> -->
         </NavigationMenuItem>
+        <NavigationMenuIndicator
+          class="top-7 z-[1] flex items-end justify-center overflow-hidden transition-all duration-100 data-[state=hidden]:animate-fade-out data-[state=visible]:animate-fade-in !animate-duration-100 data-[state=hidden]:opacity-0"
+        >
+          <div
+            class="i-carbon-caret-up"
+            inline-block
+            text="#888 lg"
+            rounded-full
+          />
+        </NavigationMenuIndicator>
         <Separator orientation="vertical" />
       </div>
       <div
@@ -148,17 +158,16 @@ onMounted(() => {
         lt-md:hidden
       >
         <NavigationMenuItem v-for="l in socialMedias" :key="l.url">
-          <NavigationMenuLink>
-            <NuxtLink
-              :aria-label="l.title"
-              class="text-2xl text-#888 hover:text-#fff"
-              transition="all duration-150"
-              block
-              target="_blank"
-              :to="l.url"
-            >
-              <div :class="l.icon" />
-            </NuxtLink>
+          <NavigationMenuLink
+            :aria-label="l.title"
+            class="text-2xl text-#888 hover:text-#fff"
+            transition="all duration-150"
+            target="_blank"
+            :to="l.url"
+            external
+            block
+          >
+            <div :class="l.icon" />
           </NavigationMenuLink>
         </NavigationMenuItem>
         <Separator orientation="vertical" />

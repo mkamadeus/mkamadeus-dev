@@ -10,12 +10,14 @@ const toggleState = ref(false)
 <template>
   <DropdownMenuRoot
     v-model:open="toggleState"
-    text="#888"
-    relative
-    cursor-pointer
   >
     <DropdownMenuTrigger
+
+      text="#888"
+
+      relative
       inline-flex
+      cursor-pointer
       items-center
       rounded
       p-1

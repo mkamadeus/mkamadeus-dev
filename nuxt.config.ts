@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@vueuse/nuxt',
     '@unocss/nuxt',
-    '@vite-pwa/nuxt',
+    // '@vite-pwa/nuxt',
     '@nuxtjs/eslint-module',
     'radix-vue/nuxt'
   ],
