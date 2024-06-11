@@ -91,7 +91,7 @@ const route = useRoute()
 </script>
 
 <template>
-  <NavigationMenuRoot p="3vh lg:6vh" absolute z-10 w-full>
+  <NavigationMenuRoot p="3vh lg:6vh" z-10 w-full>
     <NavigationMenuList
       flex
       items-center
