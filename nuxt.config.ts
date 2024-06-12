@@ -5,15 +5,20 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@vueuse/nuxt',
     '@unocss/nuxt',
-    // '@vite-pwa/nuxt',
-    '@nuxtjs/eslint-module',
-    'radix-vue/nuxt'
+    '@nuxt/eslint',
+    'radix-vue/nuxt',
+    '@nuxtjs/seo',
   ],
   css: [
     '@unocss/reset/tailwind.css',
     '~/assets/styles/main.css',
-    '~/assets/styles/markdown.css'
+    '~/assets/styles/markdown.css',
   ],
+  site: {
+    url: 'https://mkamadeus.dev',
+    name: 'mkamadeus.dev',
+    description: 'mkamadeus\' personal website.',
+  },
   app: {
     layoutTransition: { name: 'layout', mode: 'out-in' },
     pageTransition: { name: 'page', mode: 'out-in' },
@@ -29,9 +34,9 @@ export default defineNuxtConfig({
         { property: 'og:description', content: 'mkamadeus\' personal website.' },
         { property: 'og:title', content: 'mkamadeus.dev' },
         { property: 'og:url', content: 'https://mkamadeus.dev' },
-        { property: 'og:locale', content: 'en_US' }
-      ]
-    }
+        { property: 'og:locale', content: 'en_US' },
+      ],
+    },
   },
   i18n: {
     lazy: true,
@@ -41,53 +46,56 @@ export default defineNuxtConfig({
       {
         code: 'en',
         name: 'English',
-        file: 'en.yaml'
+        file: 'en.yaml',
       },
       {
         code: 'id',
         name: 'Bahasa Indonesia',
-        file: 'id.yaml'
+        file: 'id.yaml',
       },
       {
         code: 'ja',
         name: '日本',
-        file: 'ja.yaml'
+        file: 'ja.yaml',
       },
       {
         code: 'ko',
         name: '한국어',
-        file: 'ko.yaml'
-      }
-    ]
+        file: 'ko.yaml',
+      },
+    ],
   },
   content: {
     markdown: {
       remarkPlugins: [
-        'remark-math'
+        'remark-math',
       ],
       rehypePlugins: {
         'rehype-katex': {
-          output: 'html' // the default value is 'htmlAndMathml'
-        }
-      }
+          output: 'html', // the default value is 'htmlAndMathml'
+        },
+      },
     },
     highlight: {
       theme: 'github-dark',
-      preload: ['hcl', 'sh', 'bash', 'cpp', 'yaml', 'jsx', 'vue', 'json']
-    }
+      preload: ['hcl', 'sh', 'bash', 'cpp', 'yaml', 'jsx', 'vue', 'json'],
+    },
   },
   devtools: {
-    enabled: true
+    enabled: true,
   },
   eslint: {
-    lintOnStart: false
+    config: {
+      stylistic: true,
+      typescript: true,
+    },
   },
   nitro: {
     prerender: {
       autoSubfolderIndex: false,
       routes: [
-        '/blogs'
-      ]
-    }
-  }
+        '/blogs',
+      ],
+    },
+  },
 })

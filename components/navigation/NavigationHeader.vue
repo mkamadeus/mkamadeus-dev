@@ -119,24 +119,6 @@ const route = useRoute()
               <span lt-md:hidden>{{ l.title }}</span>
             </NuxtLink>
           </NavigationMenuTrigger>
-          <!-- <div
-            ref="navigationDots"
-            pos="absolute left-0 right-0 bottom-0"
-            z="15"
-            h-full
-            w-full
-            flex
-            items-center
-            justify-center
-            opacity-0
-          >
-            <div
-              class="i-carbon-caret-up"
-              inline-block
-              text="#888 lg"
-              rounded-full
-            />
-          </div> -->
         </NavigationMenuItem>
         <NavigationMenuIndicator
           class="top-7 z-[1] flex items-end justify-center overflow-hidden transition-all duration-100 data-[state=hidden]:animate-fade-out data-[state=visible]:animate-fade-in !animate-duration-100 data-[state=hidden]:opacity-0"
