@@ -1,6 +1,6 @@
 <template>
   <main font="body antialiased" min-h="screen" pos="relative">
-    <NavigationHeader pos="absolute" />
+    <NavigationHeader absolute />
     <article>
       <slot />
     </article>

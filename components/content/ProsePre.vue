@@ -24,6 +24,8 @@
 </template>
 
 <script setup lang="ts">
+import { useClipboard } from '@vueuse/core'
+
 defineProps({
   code: {
     type: String,

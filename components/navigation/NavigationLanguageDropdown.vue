@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const { locale, locales, setLocale } = useI18n()
 
-// @ts-ignore
 const localeOptions = locales.value.map(l => [l.name, l.code]) as [string, string][]
 
 const toggleState = ref(false)
@@ -10,12 +9,12 @@ const toggleState = ref(false)
 <template>
   <DropdownMenuRoot
     v-model:open="toggleState"
-    text="#888"
-    relative
-    cursor-pointer
   >
     <DropdownMenuTrigger
+      text="#888"
+      relative
       inline-flex
+      cursor-pointer
       items-center
       rounded
       p-1

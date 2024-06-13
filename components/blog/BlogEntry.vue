@@ -42,7 +42,7 @@ defineProps<Props>()
       rounded="1"
     />
     <div h-18 max-w-72 flex-grow pl-4 text-wrap>
-      <div flex="~ justify-between" @click="$router.push(`/blogs/${id}`)">
+      <NuxtLink flex="~ justify-between" :to="`/blogs/${id}`">
         <div
           font="500 sans"
           text="lg"
@@ -57,7 +57,7 @@ defineProps<Props>()
         <div>
           <div h-5 w-5 group-hover:text="#ddd" transition="all duration-150" class="i-carbon-arrow-up-right" />
         </div>
-      </div>
+      </NuxtLink>
       <!-- <div text="xs truncate #555" mb-1 w-full>
         {{ description }}
       </div> -->

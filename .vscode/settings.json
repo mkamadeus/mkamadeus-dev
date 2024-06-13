@@ -12,7 +12,7 @@
     "vue",
   ],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "always",
   },
   "[vue]": {
     "editor.formatOnSave": false
@@ -39,4 +39,5 @@
     "titleBar.inactiveForeground": "#15202b99"
   },
   "peacock.color": "#cb7b20",
+  "eslint.experimental.useFlatConfig": true
 }

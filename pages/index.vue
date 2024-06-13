@@ -97,9 +97,9 @@ onUnmounted(() => {
         <span inline-block opacity-0>
           {{ $t('home.job_title') }}
         </span>
-        <NuxtLink class="link" inline-block href="https://www.linkedin.com/company/xendit/" opacity-0>
+        <a class="link" inline-block href="https://www.linkedin.com/company/xendit/" opacity-0>
           @Xendit
-        </NuxtLink>
+        </a>
       </div>
       <div
         ref="schoolSubtitle"
@@ -113,9 +113,9 @@ onUnmounted(() => {
         <span inline-block opacity-0>
           {{ $t('home.school_title') }}
         </span>
-        <NuxtLink class="link" inline-block href="https://itb.ac.id/" opacity-0>
+        <a class="link" inline-block href="https://itb.ac.id/" opacity-0>
           @ITB
-        </NuxtLink>
+        </a>
       </div>
       <div
         mt-2
@@ -125,7 +125,7 @@ onUnmounted(() => {
         md:hidden
         space-x-2
       >
-        <NuxtLink
+        <a
           v-for="l in socialMedias"
           ref="socialMediaIcons"
           :key="l.url"

@@ -73,7 +73,7 @@ useHead({
           </div>
           <div pl="3 lg:6">
             <div>{{ author?.name }}</div>
-            <NuxtLink :to="author?.html_url" class="text-dotted underline" target="_blank">
+            <NuxtLink :to="author?.html_url" class="text-dotted underline" target="_blank" external>
               <div font-mono>
                 @{{ author?.login }}
               </div>

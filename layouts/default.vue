@@ -1,6 +1,6 @@
 <template>
   <main font="body antialiased" min-h="screen" pos="relative" text="white">
-    <NavigationHeader z-10 />
+    <NavigationHeader relative />
     <div mx-auto container>
       <div flex="~" items-center justify-center>
         <slot />
