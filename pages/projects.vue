@@ -10,19 +10,19 @@ const projects = [
       'react',
       'vite',
       'tailwind',
-      'cloudflare-pages'
+      'cloudflare-pages',
     ],
-    url: 'https://geprek.mkamadeus.dev'
+    url: 'https://geprek.mkamadeus.dev',
   },
   {
     icon: 'i-carbon-bot',
     title: 'NIC Scraper',
-    description: "(Legally) scrape university students' data to be fed into Geprek",
+    description: '(Legally) scrape university students\' data to be fed into Geprek',
     stacks: [
       'go',
-      'http-request'
+      'http-request',
     ],
-    url: 'https://github.com/mkamadeus/nicscraper'
+    url: 'https://github.com/mkamadeus/nicscraper',
   },
   {
     icon: 'i-carbon-idea',
@@ -32,12 +32,12 @@ const projects = [
       'react',
       'typescript',
       'expressjs',
-      'socketio'
+      'socketio',
     ],
     url: [
       'https://github.com/arkavidia-hmif/arkavidia-monopoly-frontend',
-      'https://github.com/arkavidia-hmif/arkavidia-monopoly-backend'
-    ]
+      'https://github.com/arkavidia-hmif/arkavidia-monopoly-backend',
+    ],
   },
   {
     icon: 'i-carbon-network-overlay',
@@ -45,9 +45,9 @@ const projects = [
     description: 'Simple demo on Mutual TLS in multiple scenarios.',
     stacks: [
       'go',
-      'openssl'
+      'openssl',
     ],
-    url: 'https://github.com/mkamadeus/mtls-demo'
+    url: 'https://github.com/mkamadeus/mtls-demo',
   },
   {
     icon: 'i-carbon-application-web',
@@ -60,9 +60,9 @@ const projects = [
       'postgresql',
       'react',
       'nextjs',
-      'docker'
+      'docker',
     ],
-    isPrivate: true
+    isPrivate: true,
   },
   {
     icon: 'i-carbon-qr-code',
@@ -71,9 +71,9 @@ const projects = [
     stacks: [
       'google-sheets',
       'app-script',
-      'vue'
+      'vue',
     ],
-    isPrivate: true
+    isPrivate: true,
   },
   {
     icon: 'i-carbon-bot',
@@ -83,9 +83,9 @@ const projects = [
       'docker',
       'python',
       'selenium',
-      'http-request'
+      'http-request',
     ],
-    isPrivate: true
+    isPrivate: true,
   },
   {
     icon: 'i-carbon-cognitive',
@@ -95,13 +95,13 @@ const projects = [
       'go',
       'python',
       'fastapi',
-      'mlops'
+      'mlops',
     ],
     url: [
       'https://github.com/mkamadeus/myx',
-      'https://report.mkamadeus.dev/'
-    ]
-  }
+      'https://report.mkamadeus.dev/',
+    ],
+  },
 ]
 
 const localePath = useLocalePath()
@@ -138,27 +138,58 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div flex="~ col" w-full justify-center m="lg:x-8" px="3vh lg:6vh">
+  <div
+    flex="~ col"
+    w-full
+    justify-center
+    m="lg:x-8"
+    px="3vh lg:6vh"
+  >
     <div m="b-8 lg:b-16">
-      <h1 class="header" font="800" overflow-hidden pb="2 lg:4">
-        <span ref="title" inline-block opacity-0>
+      <h1
+        class="header"
+        font="800"
+        overflow-hidden
+        pb="2 lg:4"
+      >
+        <span
+          ref="title"
+          inline-block
+          opacity-0
+        >
           {{ t('projects.title') }}
         </span>
       </h1>
-      <div text="#999" flex overflow-hidden space-x-1>
+      <div
+        text="#999"
+        flex
+        overflow-hidden
+        space-x-1
+      >
         <span ref="subtitle">
           {{ $t('projects.subtitle') }}
         </span>
         <span ref="subtitleContact">
-          <NuxtLink class="text-#ddd link" :to="localePath('/contacts')">
+          <NuxtLink
+            class="text-#ddd link"
+            :to="localePath('/contacts')"
+          >
             {{
               $t('projects.contact_me') }}
           </NuxtLink>
         </span>
       </div>
     </div>
-    <div flex="~ col" space="y-8 lg:y-10" container="~" m="x-auto">
-      <template v-for="(p, i) in projects" :key="`project-${i}`">
+    <div
+      flex="~ col"
+      space="y-8 lg:y-10"
+      container="~"
+      m="x-auto"
+    >
+      <template
+        v-for="(p, i) in projects"
+        :key="`project-${i}`"
+      >
         <ProjectCard
           animated="~ fade-in-up ease-in-out"
           :style="`animation-delay: ${1500 + 100 * i}ms`"

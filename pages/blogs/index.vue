@@ -9,7 +9,7 @@ const { $gsap } = useNuxtApp()
 
 let ctx: gsap.Context
 onMounted(() => {
-  const items = listItems.value.map((item: { cardWrapper: HTMLDivElement; }) => item.cardWrapper)
+  const items = listItems.value.map((item: { cardWrapper: HTMLDivElement }) => item.cardWrapper)
   ctx = $gsap.context(() => {
     const tl = $gsap.timeline({ paused: true, defaults: { ease: 'power3.inOut' } })
 
@@ -83,7 +83,7 @@ const blogs = computed(() => {
         date: v.date,
         duration: v.duration,
         lang,
-        id
+        id,
       }
       return bp
     })
@@ -105,26 +105,57 @@ const blogs = computed(() => {
   return {
     years,
     postsByYear,
-    posts
+    posts,
   }
 })
 </script>
 
 <template>
-  <div container="~" mx-auto px="3vh lg:6vh" min-h-screen>
-    <h1 class="header" pb="2 lg:4" overflow-hidden font-800>
-      <span ref="title" inline-block opacity-0>
+  <div
+    container="~"
+    mx-auto
+    px="3vh lg:6vh"
+    min-h-screen
+  >
+    <h1
+      class="header"
+      pb="2 lg:4"
+      overflow-hidden
+      font-800
+    >
+      <span
+        ref="title"
+        inline-block
+        opacity-0
+      >
         {{ t('blogs.title') }}
       </span>
     </h1>
     <div text="#999">
-      <span ref="subtitle" inline-block opacity-0>
+      <span
+        ref="subtitle"
+        inline-block
+        opacity-0
+      >
         {{ t('blogs.subtitle') }}
       </span>
     </div>
-    <div mt="8 lg:16" container="~" grid="~ gap-2 cols-[repeat(1,1fr)] md:cols-[repeat(2,1fr)] lg:cols-[repeat(3,1fr)]">
-      <div v-for="post in blogs.posts" :key="post.id" inline-block overflow-hidden>
-        <BlogEntry ref="listItems" v-bind="post" opacity-0 />
+    <div
+      mt="8 lg:16"
+      container="~"
+      grid="~ gap-2 cols-[repeat(1,1fr)] md:cols-[repeat(2,1fr)] lg:cols-[repeat(3,1fr)]"
+    >
+      <div
+        v-for="post in blogs.posts"
+        :key="post.id"
+        inline-block
+        overflow-hidden
+      >
+        <BlogEntry
+          ref="listItems"
+          v-bind="post"
+          opacity-0
+        />
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@ Careful, incremental contributor. Small PRs, run lint before committing, never c
 
 ## Stack
 
-Nuxt 3 (Vue 3) · pnpm 8.3.1 · UnoCSS · @nuxt/content · @nuxtjs/i18n (en, id, ja, ko)
+Nuxt 3 (Vue 3) · Bun · UnoCSS · @nuxt/content · @nuxtjs/i18n (en, id, ja, ko)
 
 ## Commands
 

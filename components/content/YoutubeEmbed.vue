@@ -7,7 +7,10 @@ defineProps<Props>()
 </script>
 
 <template>
-  <div flex="~ justify-center" my-10>
+  <div
+    flex="~ justify-center"
+    my-10
+  >
     <iframe
       id="ytplayer"
       type="text/html"

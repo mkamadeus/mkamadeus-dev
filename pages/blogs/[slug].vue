@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // set blog layout
 definePageMeta({
-  layout: false
+  layout: false,
 })
 
 // get blog data
@@ -15,14 +15,14 @@ useHead({
   title: data.value?.title,
   meta: [
     { property: 'og:title', content: data.value?.title },
-    { property: 'og:type', content: 'article' }
+    { property: 'og:type', content: 'article' },
   ],
   link: [
     {
       rel: 'stylesheet',
-      href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css'
-    }
-  ]
+      href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css',
+    },
+  ],
 })
 
 // defineOgImage({

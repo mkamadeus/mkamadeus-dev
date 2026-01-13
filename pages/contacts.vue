@@ -3,18 +3,18 @@ const contacts = [
   {
     icon: 'i-carbon-email',
     contact: 'me@mkamadeus.dev',
-    href: 'mailto:me@mkamadeus.dev'
+    href: 'mailto:me@mkamadeus.dev',
   },
   {
     icon: 'i-carbon-phone',
     contact: '+62 811-1229-090',
-    href: 'https://wa.me/628111229090'
+    href: 'https://wa.me/628111229090',
   },
   {
     icon: 'i-carbon-logo-instagram',
     contact: 'mk.amadeus',
-    href: 'https://www.instagram.com/mk.amadeus/'
-  }
+    href: 'https://www.instagram.com/mk.amadeus/',
+  },
 ]
 
 const { $gsap } = useNuxtApp()
@@ -44,12 +44,32 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div flex="~ col" justify="center" items-center h="80vh lg:70vh" w="full">
-    <h1 ref="title" class="header" mb-4 animated="~ fade-in-up ease-in-out delay-500">
+  <div
+    flex="~ col"
+    justify="center"
+    items-center
+    h="80vh lg:70vh"
+    w="full"
+  >
+    <h1
+      ref="title"
+      class="header"
+      mb-4
+      animated="~ fade-in-up ease-in-out delay-500"
+    >
       {{ $t("contacts.title") }}
     </h1>
-    <div flex="~ col" items-center>
-      <div v-for="(c, i) in contacts" ref="contactEntries" :key="`contact-${i}`" flex="~" space="x-2">
+    <div
+      flex="~ col"
+      items-center
+    >
+      <div
+        v-for="(c, i) in contacts"
+        ref="contactEntries"
+        :key="`contact-${i}`"
+        flex="~"
+        space="x-2"
+      >
         <NuxtLink
           class="link"
           :href="c.href"
@@ -60,7 +80,10 @@ onUnmounted(() => {
           animated="~ fade-in-up ease-in-out"
           :style="`animation-delay:${1000 + 300 * i}ms`"
         >
-          <div :class="c.icon" inline-block />
+          <div
+            :class="c.icon"
+            inline-block
+          />
           <span>{{ c.contact }}</span>
         </NuxtLink>
       </div>

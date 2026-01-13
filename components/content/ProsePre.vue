@@ -1,7 +1,16 @@
 <template>
   <div pos-relative>
-    <pre :class="$props.class" text="base gray-100" font-400><slot /></pre>
-    <div flex="~ col items-end" space-y-2 pos="absolute top-3 right-3" text="xs #aaa">
+    <pre
+      :class="$props.class"
+      text="base gray-100"
+      font-400
+    ><slot /></pre>
+    <div
+      flex="~ col items-end"
+      space-y-2
+      pos="absolute top-3 right-3"
+      text="xs #aaa"
+    >
       <button
         flex="inline items-center"
         p="2"
@@ -16,7 +25,13 @@
         <div class="i-carbon-copy" />
         <div>Copy</div>
       </button>
-      <div v-if="copied" bg="#222" rounded-lg p-2 text-xs>
+      <div
+        v-if="copied"
+        bg="#222"
+        rounded-lg
+        p-2
+        text-xs
+      >
         Copied to clipboard!
       </div>
     </div>
@@ -29,28 +44,28 @@ import { useClipboard } from '@vueuse/core'
 defineProps({
   code: {
     type: String,
-    default: ''
+    default: '',
   },
   language: {
     type: String,
-    default: null
+    default: null,
   },
   filename: {
     type: String,
-    default: null
+    default: null,
   },
   highlights: {
     type: Array as () => number[],
-    default: () => []
+    default: () => [],
   },
   meta: {
     type: String,
-    default: null
+    default: null,
   },
   class: {
     type: String,
-    default: null
-  }
+    default: null,
+  },
 })
 
 const { copy, copied } = useClipboard()

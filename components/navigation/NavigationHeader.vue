@@ -5,41 +5,41 @@ const routes = computed(() => [
   {
     icon: 'i-carbon-home',
     title: t('navbar.home'),
-    path: '/'
+    path: '/',
   },
   {
     icon: 'i-carbon-idea',
     title: t('navbar.projects'),
-    path: '/projects'
+    path: '/projects',
   },
   {
     icon: 'i-carbon-blog',
     title: t('navbar.blogs'),
-    path: '/blogs'
+    path: '/blogs',
   },
   {
     icon: 'i-carbon-user',
     title: t('navbar.contacts'),
-    path: '/contacts'
-  }
+    path: '/contacts',
+  },
 ])
 
 const socialMedias = [
   {
     icon: 'i-carbon-logo-github',
     title: 'github',
-    url: 'https://github.com/mkamadeus'
+    url: 'https://github.com/mkamadeus',
   },
   {
     icon: 'i-carbon-logo-linkedin',
     title: 'linkedin',
-    url: 'https://www.linkedin.com/in/mkamadeus/'
+    url: 'https://www.linkedin.com/in/mkamadeus/',
   },
   {
     icon: 'i-carbon-logo-instagram',
     title: 'instagram',
-    url: 'https://www.instagram.com/mk.amadeus/'
-  }
+    url: 'https://www.instagram.com/mk.amadeus/',
+  },
 ]
 
 const localePath = useLocalePath()
@@ -91,7 +91,11 @@ const route = useRoute()
 </script>
 
 <template>
-  <NavigationMenuRoot p="3vh lg:6vh" z-10 w-full>
+  <NavigationMenuRoot
+    p="3vh lg:6vh"
+    z-10
+    w-full
+  >
     <NavigationMenuList
       flex
       items-center
@@ -105,7 +109,10 @@ const route = useRoute()
         justify-end
         space-x="2 md:3"
       >
-        <NavigationMenuItem v-for="l in routes" :key="l.path">
+        <NavigationMenuItem
+          v-for="l in routes"
+          :key="l.path"
+        >
           <NavigationMenuTrigger as-child>
             <NuxtLink
               :aria-label="l.title"
@@ -115,7 +122,11 @@ const route = useRoute()
               block
               :to="localePath(l.path)"
             >
-              <div :class="l.icon" text-2xl md:hidden />
+              <div
+                :class="l.icon"
+                text-2xl
+                md:hidden
+              />
               <span lt-md:hidden>{{ l.title }}</span>
             </NuxtLink>
           </NavigationMenuTrigger>
@@ -139,7 +150,10 @@ const route = useRoute()
         space-x="2 md:3"
         lt-md:hidden
       >
-        <NavigationMenuItem v-for="l in socialMedias" :key="l.url">
+        <NavigationMenuItem
+          v-for="l in socialMedias"
+          :key="l.url"
+        >
           <NavigationMenuLink
             :aria-label="l.title"
             class="text-2xl text-#888 hover:text-#fff"

@@ -24,7 +24,11 @@ const toggleState = ref(false)
     >
       <span>{{ locale.toUpperCase() }}</span>
       <span>
-        <div class="i-carbon-chevron-down" :class="{ 'rotate-180': toggleState }" transition="~ duration-300" />
+        <div
+          class="i-carbon-chevron-down"
+          :class="{ 'rotate-180': toggleState }"
+          transition="~ duration-300"
+        />
       </span>
     </DropdownMenuTrigger>
     <DropdownMenuPortal>

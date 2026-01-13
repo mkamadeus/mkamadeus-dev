@@ -3,18 +3,18 @@ const socialMedias = [
   {
     icon: 'i-carbon-logo-github',
     title: 'github',
-    url: 'https://github.com/mkamadeus'
+    url: 'https://github.com/mkamadeus',
   },
   {
     icon: 'i-carbon-logo-linkedin',
     title: 'linkedin',
-    url: 'https://www.linkedin.com/in/mkamadeus/'
+    url: 'https://www.linkedin.com/in/mkamadeus/',
   },
   {
     icon: 'i-carbon-logo-instagram',
     title: 'instagram',
-    url: 'https://www.instagram.com/mk.amadeus/'
-  }
+    url: 'https://www.instagram.com/mk.amadeus/',
+  },
 ]
 
 // defineOgImage({
@@ -94,10 +94,18 @@ onUnmounted(() => {
         overflow-hidden
         space-x-1
       >
-        <span inline-block opacity-0>
+        <span
+          inline-block
+          opacity-0
+        >
           {{ $t('home.job_title') }}
         </span>
-        <a class="link" inline-block href="https://www.linkedin.com/company/xendit/" opacity-0>
+        <a
+          class="link"
+          inline-block
+          href="https://www.linkedin.com/company/xendit/"
+          opacity-0
+        >
           @Xendit
         </a>
       </div>
@@ -110,10 +118,18 @@ onUnmounted(() => {
         overflow-hidden
         space-x-1
       >
-        <span inline-block opacity-0>
+        <span
+          inline-block
+          opacity-0
+        >
           {{ $t('home.school_title') }}
         </span>
-        <a class="link" inline-block href="https://itb.ac.id/" opacity-0>
+        <a
+          class="link"
+          inline-block
+          href="https://itb.ac.id/"
+          opacity-0
+        >
           @ITB
         </a>
       </div>

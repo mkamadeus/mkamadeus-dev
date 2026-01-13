@@ -8,7 +8,6 @@ type Props = {
   caption: string
 }
 defineProps<Props>()
-
 </script>
 
 <template>

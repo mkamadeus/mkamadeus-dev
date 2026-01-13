@@ -15,7 +15,6 @@ defineExpose({ cardWrapper })
 defineProps<Props>()
 // const author = toRef(props, 'author')
 // const { author: authorInfo, isPending: authorPending } = await useGithubUsername(author.value || 'mkamadeus')
-
 </script>
 
 <template>
@@ -41,8 +40,17 @@ defineProps<Props>()
       group-hover:filter="~ saturate-100"
       rounded="1"
     />
-    <div h-18 max-w-72 flex-grow pl-4 text-wrap>
-      <NuxtLink flex="~ justify-between" :to="`/blogs/${id}`">
+    <div
+      h-18
+      max-w-72
+      flex-grow
+      pl-4
+      text-wrap
+    >
+      <NuxtLink
+        flex="~ justify-between"
+        :to="`/blogs/${id}`"
+      >
         <div
           font="500 sans"
           text="lg"
@@ -55,7 +63,13 @@ defineProps<Props>()
           {{ title }}
         </div>
         <div>
-          <div h-5 w-5 group-hover:text="#ddd" transition="all duration-150" class="i-carbon-arrow-up-right" />
+          <div
+            h-5
+            w-5
+            group-hover:text="#ddd"
+            transition="all duration-150"
+            class="i-carbon-arrow-up-right"
+          />
         </div>
       </NuxtLink>
       <!-- <div text="xs truncate #555" mb-1 w-full>
@@ -68,14 +82,25 @@ defineProps<Props>()
         mb-4
         space-x-3
       >
-        <div flex items-center space-x-1>
+        <div
+          flex
+          items-center
+          space-x-1
+        >
           <div class="i-carbon-calendar" />
           <div>
             {{ dayjs(date).format("D MMM YYYY") || "??" }}
           </div>
         </div>
-        <div flex items-center space-x-1>
-          <div inline-flex class="i-carbon-timer" />
+        <div
+          flex
+          items-center
+          space-x-1
+        >
+          <div
+            inline-flex
+            class="i-carbon-timer"
+          />
           <div>{{ duration || "??" }} minute{{ duration > 1 ? 's' : '' }}</div>
         </div>
       </div>

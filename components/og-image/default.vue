@@ -2,7 +2,7 @@
 <script setup lang="ts">
 // inherited attrs can mess up the satori parser
 defineOptions({
-  inheritAttrs: false
+  inheritAttrs: false,
 })
 
 type Props = {

@@ -1,5 +1,9 @@
 <template>
-  <main font="body antialiased" min-h="screen" pos="relative">
+  <main
+    font="body antialiased"
+    min-h="screen"
+    pos="relative"
+  >
     <NavigationHeader absolute />
     <article>
       <slot />
