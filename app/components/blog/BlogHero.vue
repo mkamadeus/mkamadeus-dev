@@ -24,7 +24,7 @@ const dateFormat = computed(() => {
   }
 })
 
-const { author, isPending: authorPending } = await useGithubUsername(props.data?.author || 'mkamadeus')
+const { author, status } = await useGithubUsername(props.data?.author || 'mkamadeus')
 
 useHead({
   meta: [
@@ -90,7 +90,7 @@ useHead({
           </div>
         </div>
         <div
-          v-if="!authorPending"
+          v-if="status === 'success'"
           flex
           items-center
           text="#aaa"
