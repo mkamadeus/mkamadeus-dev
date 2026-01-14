@@ -6,8 +6,17 @@ definePageMeta({
 
 // get blog data
 const route = useRoute()
-const { data, pending } = await useAsyncData(`blog-${route.params.slug}`, () => {
-  return queryContent().where({ _path: `/blogs/en/${route.params.slug}` }).findOne()
+const { locale } = useI18n()
+const { data, pending } = await useAsyncData(`blog-${locale.value}-${route.params.slug}`, async () => {
+  // Try localized content first, fallback to English
+  const localizedPath = `/blogs/${locale.value}/${route.params.slug}`
+  const fallbackPath = `/blogs/en/${route.params.slug}`
+
+  let content = await queryContent().where({ _path: localizedPath }).findOne().catch(() => null)
+  if (!content) {
+    content = await queryContent().where({ _path: fallbackPath }).findOne()
+  }
+  return content
 })
 if (!pending.value && !data.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found.' })
@@ -43,7 +52,7 @@ useHead({
       p="3vh"
       min-h="90vh"
     >
-      <ContentDoc :path="`/blogs/en/${route.params.slug}`" />
+      <ContentDoc :path="data?._path" />
     </div>
   </NuxtLayout>
 </template>

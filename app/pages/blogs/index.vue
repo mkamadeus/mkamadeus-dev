@@ -30,7 +30,15 @@ onUnmounted(() => {
 })
 
 const { t } = useI18n()
-const { data } = await useAsyncData('blogs', () => queryContent('/blogs/en').find())
+const { locale } = useI18n()
+const { data } = await useAsyncData(`blogs-${locale.value}`, async () => {
+  // Try localized content first, fallback to English
+  let content = await queryContent(`/blogs/${locale.value}`).find().catch(() => [])
+  if (!content || content.length === 0) {
+    content = await queryContent('/blogs/en').find()
+  }
+  return content
+})
 
 type ContentType = NonNullable<typeof data.value>
 
