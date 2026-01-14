@@ -28,12 +28,6 @@ useHead({
     { property: 'og:title', content: data.value?.title },
     { property: 'og:type', content: 'article' },
   ],
-  link: [
-    {
-      rel: 'stylesheet',
-      href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css',
-    },
-  ],
 })
 
 // defineOgImage({

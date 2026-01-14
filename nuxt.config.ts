@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     '@unocss/reset/tailwind.css',
     '~/assets/styles/main.css',
     '~/assets/styles/markdown.css',
+    'katex/dist/katex.min.css',
   ],
   site: {
     url: 'https://mkamadeus.dev',
