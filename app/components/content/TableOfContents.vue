@@ -1,9 +1,12 @@
 <script setup lang="ts">
-const route = useRoute()
-const { data } = await useAsyncData(`blog-${route.params.slug}`, () => {
-  return queryContent().where({ _path: `/blogs/en/${route.params.slug}` }).findOne()
-})
-const toc = computed(() => data.value!.body.toc)
+import type { ParsedContent } from '@nuxt/content'
+
+type Props = {
+  data: ParsedContent | null
+}
+
+const props = defineProps<Props>()
+const toc = computed(() => props.data?.body?.toc ?? { links: [] })
 </script>
 
 <template>

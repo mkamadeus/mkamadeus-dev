@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
+import type { ParsedContent } from '@nuxt/content'
 
-// get blog data
-const route = useRoute()
-const { data, pending } = await useAsyncData(`blog-${route.params.slug}`, () => {
-  return queryContent().where({ _path: `/blogs/en/${route.params.slug}` }).findOne()
-})
-if (!pending.value && !data.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page not found.' })
+type Props = {
+  data: ParsedContent | null
 }
+
+const props = defineProps<Props>()
 
 const { locale } = useI18n()
 const dateFormat = computed(() => {
@@ -26,13 +24,13 @@ const dateFormat = computed(() => {
   }
 })
 
-const { author, isPending: authorPending } = await useGithubUsername(data.value?.author || 'mkamadeus')
+const { author, isPending: authorPending } = await useGithubUsername(props.data?.author || 'mkamadeus')
 
 useHead({
   meta: [
-    { property: 'og:title', content: data.value?.title },
+    { property: 'og:title', content: props.data?.title },
     { property: 'article:author', content: author.value?.html_url },
-    { property: 'article:published_time', content: data.value?.date },
+    { property: 'article:published_time', content: props.data?.date },
   ],
 })
 </script>
@@ -58,7 +56,7 @@ useHead({
           mb="4 lg:8"
           grid-col-span-2
         >
-          {{ data?.title }}
+          {{ props.data?.title }}
         </div>
         <div
           flex
@@ -76,7 +74,7 @@ useHead({
               <div class="i-carbon-calendar" />
             </span>
             <span>{{
-              dayjs(data?.date as string).format(dateFormat) || "??"
+              dayjs(props.data?.date as string).format(dateFormat) || "??"
             }}</span>
           </div>
           <div>•</div>
@@ -88,7 +86,7 @@ useHead({
             <span>
               <div class="i-carbon-timer" />
             </span>
-            <span> {{ (data!.duration as string) || "??" }} minute{{ data!.duration > 1 ? 's' : '' }} </span>
+            <span> {{ (props.data!.duration as string) || "??" }} minute{{ props.data!.duration > 1 ? 's' : '' }} </span>
           </div>
         </div>
         <div

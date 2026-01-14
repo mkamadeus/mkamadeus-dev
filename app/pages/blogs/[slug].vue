@@ -34,7 +34,7 @@ useHead({
 
 <template>
   <NuxtLayout name="blog">
-    <BlogHero />
+    <BlogHero :data="data" />
     <div
       class="prose"
       w="full"
