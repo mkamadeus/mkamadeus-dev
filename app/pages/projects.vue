@@ -105,6 +105,7 @@ const projects = [
 ]
 
 const localePath = useLocalePath()
+const wrapper = ref<HTMLElement>()
 const title = ref<HTMLElement>()
 const subtitle = ref<HTMLElement>()
 const subtitleContact = ref<HTMLElement>()
@@ -125,7 +126,7 @@ onMounted(() => {
     tl.fromTo(subtitleContact.value!, { yPercent: 100 }, { yPercent: 0, autoAlpha: 1, duration: 0.3 })
 
     tl.play()
-  })
+  }, wrapper.value!)
 })
 
 onUnmounted(() => {
@@ -139,6 +140,7 @@ onUnmounted(() => {
 
 <template>
   <div
+    ref="wrapper"
     flex="~ col"
     w-full
     justify-center

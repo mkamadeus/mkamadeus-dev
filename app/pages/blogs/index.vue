@@ -44,15 +44,21 @@ const blogs = computed(() => {
   pages.forEach((page) => {
     const date = dayjs(page.date)
     const year = date.year().toString()
-    if (!parsedContent[year]) { parsedContent[year] = [] }
+    if (!parsedContent[year]) {
+      parsedContent[year] = []
+    }
     parsedContent[year].push(page)
   })
 
   // get list of years
   const years = Object.keys(parsedContent).sort((y1, y2) => {
     const diff = parseInt(y1) - parseInt(y2)
-    if (diff > 0) { return -1 }
-    if (diff < 0) { return 1 }
+    if (diff > 0) {
+      return -1
+    }
+    if (diff < 0) {
+      return 1
+    }
     return 0
   })
 
@@ -63,8 +69,12 @@ const blogs = computed(() => {
       const d1 = dayjs(b1.date)
       const d2 = dayjs(b2.date)
       const diff = d1.diff(d2)
-      if (diff > 0) { return -1 }
-      if (diff < 0) { return 1 }
+      if (diff > 0) {
+        return -1
+      }
+      if (diff < 0) {
+        return 1
+      }
       return 0
     })
 
@@ -73,7 +83,9 @@ const blogs = computed(() => {
       const parsed = v._path!.split('/')
       const id = parsed.pop() || ''
       let lang = parsed.pop() || 'en'
-      if (lang === 'blogs') { lang = 'en' }
+      if (lang === 'blogs') {
+        lang = 'en'
+      }
 
       const bp: BlogPost = {
         title: v.title!,
@@ -97,8 +109,12 @@ const blogs = computed(() => {
     const d1 = dayjs(b1.date)
     const d2 = dayjs(b2.date)
     const diff = d1.diff(d2)
-    if (diff > 0) { return -1 }
-    if (diff < 0) { return 1 }
+    if (diff > 0) {
+      return -1
+    }
+    if (diff < 0) {
+      return 1
+    }
     return 0
   })
 

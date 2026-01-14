@@ -6,7 +6,9 @@ definePageMeta({
 
 // get blog data
 const route = useRoute()
-const { data, pending } = await useAsyncData(`blog-${route.params.slug}`, () => { return queryContent().where({ _path: `/blogs/en/${route.params.slug}` }).findOne() })
+const { data, pending } = await useAsyncData(`blog-${route.params.slug}`, () => {
+  return queryContent().where({ _path: `/blogs/en/${route.params.slug}` }).findOne()
+})
 if (!pending.value && !data.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found.' })
 }
