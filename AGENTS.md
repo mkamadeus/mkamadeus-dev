@@ -6,7 +6,7 @@ Careful, incremental contributor. Small PRs, run lint before committing, never c
 
 ## Stack
 
-Nuxt 3 (Vue 3) · Bun · UnoCSS · @nuxt/content · @nuxtjs/i18n (en, id, ja, ko)
+Nuxt 4 (Vue 3) · Bun · UnoCSS · @nuxt/content · @nuxtjs/i18n (en, id, ja, ko)
 
 ## Commands
 
@@ -22,14 +22,20 @@ bun lint-fix          # Lint auto-fix
 ## Structure
 
 ```
-pages/          # Page components
-components/     # Vue components
-content/blogs/  # Markdown posts (by locale)
-locales/        # i18n translations (yaml)
-layouts/        # Nuxt layouts
-composables/    # Vue composables
-plugins/        # Nuxt plugins
-public/         # Static assets
+app/                # Application code (Nuxt 4)
+├── pages/          # Page components
+├── components/     # Vue components
+├── layouts/        # Nuxt layouts
+├── composables/    # Vue composables
+├── plugins/        # Nuxt plugins
+├── assets/         # Styles and assets
+├── types/          # TypeScript types
+├── app.vue         # Root component
+└── error.vue       # Error page
+content/blogs/      # Markdown posts (by locale)
+locales/            # i18n translations (yaml)
+public/             # Static assets
+server/             # Server routes & middleware
 ```
 
 ## Testing
