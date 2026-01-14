@@ -171,7 +171,7 @@ onUnmounted(() => {
         </span>
         <span ref="subtitleContact">
           <NuxtLink
-            class="text-#ddd link"
+            class="link text-#ddd"
             :to="localePath('/contacts')"
           >
             {{

@@ -40,7 +40,7 @@ export default defineNuxtConfig({
   },
   i18n: {
     lazy: true,
-    langDir: './locales',
+    langDir: '../locales',
     defaultLocale: 'en',
     locales: [
       {

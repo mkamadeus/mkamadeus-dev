@@ -7,8 +7,9 @@
   >
     <NavigationHeader relative />
     <div
-      mx-auto
+
       container
+      mx-auto
     >
       <div
         flex="~"

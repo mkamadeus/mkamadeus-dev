@@ -58,7 +58,7 @@ const url = computed(() => {
       >
         <NuxtLink
           display="block"
-          class="i-carbon-launch text-lg text-#bbb link"
+          class="i-carbon-launch text-lg link text-#bbb"
           justify-center
           font="body"
           flex="~"
