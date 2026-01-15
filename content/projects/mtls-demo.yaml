@@ -1,0 +1,22 @@
+order: 4
+icon: i-carbon-network-overlay
+stacks:
+  - go
+  - openssl
+url: https://github.com/mkamadeus/mtls-demo
+
+en:
+  title: mTLS Demo
+  description: Simple demo on Mutual TLS in multiple scenarios.
+
+id:
+  title: mTLS Demo
+  description: Demo sederhana tentang Mutual TLS dalam berbagai skenario.
+
+ja:
+  title: mTLS Demo
+  description: 複数のシナリオでのMutual TLSのシンプルなデモ。
+
+ko:
+  title: mTLS Demo
+  description: 여러 시나리오에서의 Mutual TLS 간단한 데모.

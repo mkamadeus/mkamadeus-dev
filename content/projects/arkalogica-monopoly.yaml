@@ -1,0 +1,26 @@
+order: 3
+icon: i-carbon-idea
+stacks:
+  - react
+  - typescript
+  - expressjs
+  - socketio
+url:
+  - https://github.com/arkavidia-hmif/arkavidia-monopoly-frontend
+  - https://github.com/arkavidia-hmif/arkavidia-monopoly-backend
+
+en:
+  title: Arkalogica Monopoly
+  description: Simple monopoly-like game based on websockets.
+
+id:
+  title: Arkalogica Monopoly
+  description: Game sederhana mirip monopoli berbasis websocket.
+
+ja:
+  title: Arkalogica Monopoly
+  description: WebSocketベースのシンプルなモノポリー風ゲーム。
+
+ko:
+  title: Arkalogica Monopoly
+  description: 웹소켓 기반의 간단한 모노폴리 게임.

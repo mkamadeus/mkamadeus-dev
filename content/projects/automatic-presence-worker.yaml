@@ -1,0 +1,24 @@
+order: 7
+icon: i-carbon-bot
+stacks:
+  - docker
+  - python
+  - selenium
+  - http-request
+isPrivate: true
+
+en:
+  title: Automatic Presence Worker
+  description: University presence automated for the pandemic.
+
+id:
+  title: Automatic Presence Worker
+  description: Otomasi presensi universitas untuk masa pandemi.
+
+ja:
+  title: Automatic Presence Worker
+  description: パンデミック時の大学出席自動化システム。
+
+ko:
+  title: Automatic Presence Worker
+  description: 팬데믹 기간 동안 대학 출석 자동화 시스템.

@@ -1,0 +1,24 @@
+order: 1
+icon: i-carbon-search
+stacks:
+  - react
+  - vite
+  - tailwind
+  - cloudflare-pages
+url: https://geprek.mkamadeus.dev
+
+en:
+  title: Geprek NIM Finder
+  description: Student ID finder for ITB students. Static site with no backend.
+
+id:
+  title: Geprek NIM Finder
+  description: Pencari NIM mahasiswa ITB. Situs statis tanpa backend.
+
+ja:
+  title: Geprek NIM Finder
+  description: ITB学生の学生ID検索ツール。バックエンドなしの静的サイト。
+
+ko:
+  title: Geprek NIM Finder
+  description: ITB 학생을 위한 학번 검색기. 백엔드 없는 정적 사이트.

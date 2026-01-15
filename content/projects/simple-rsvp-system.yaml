@@ -1,0 +1,23 @@
+order: 6
+icon: i-carbon-qr-code
+stacks:
+  - google-sheets
+  - app-script
+  - vue
+isPrivate: true
+
+en:
+  title: Simple RSVP System
+  description: Makeshift QR code based RSVP system mainly relying on Google Suite
+
+id:
+  title: Simple RSVP System
+  description: Sistem RSVP berbasis kode QR yang mengandalkan Google Suite
+
+ja:
+  title: Simple RSVP System
+  description: Google Suiteを主に利用したQRコードベースの簡易RSVPシステム
+
+ko:
+  title: Simple RSVP System
+  description: Google Suite를 주로 사용하는 QR 코드 기반 RSVP 시스템

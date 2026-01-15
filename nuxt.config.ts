@@ -1,4 +1,12 @@
 export default defineNuxtConfig({
+  ignore: [
+    '**/extensions/**',
+    '**/uploads/**',
+    '**/database/**',
+    '**/node_modules/**',
+    '**/.git/**',
+    '**/dist/**',
+  ],
   modules: [
     '@nuxt/content',
     '@nuxtjs/i18n',
@@ -81,6 +89,14 @@ export default defineNuxtConfig({
       theme: 'github-dark',
       preload: ['hcl', 'sh', 'bash', 'cpp', 'yaml', 'jsx', 'vue', 'json'],
     },
+    ignore: [
+      '**/extensions/**',
+      '**/uploads/**',
+      '**/database/**',
+      '**/node_modules/**',
+      '**/.git/**',
+      '**/dist/**',
+    ],
   },
   devtools: {
     enabled: true,

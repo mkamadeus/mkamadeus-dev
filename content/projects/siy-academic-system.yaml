@@ -1,0 +1,27 @@
+order: 5
+icon: i-carbon-application-web
+stacks:
+  - typescript
+  - fastify
+  - prisma
+  - postgresql
+  - react
+  - nextjs
+  - docker
+isPrivate: true
+
+en:
+  title: SIY Academic System
+  description: Fullstack system for managing and calculating score for use in FTMD ITB
+
+id:
+  title: SIY Academic System
+  description: Sistem fullstack untuk mengelola dan menghitung nilai untuk digunakan di FTMD ITB
+
+ja:
+  title: SIY Academic System
+  description: FTMD ITBで使用するスコア管理・計算のためのフルスタックシステム
+
+ko:
+  title: SIY Academic System
+  description: FTMD ITB에서 사용하기 위한 점수 관리 및 계산 풀스택 시스템
