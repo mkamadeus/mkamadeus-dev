@@ -10,6 +10,8 @@ Nuxt 4 (Vue 3) · Bun · UnoCSS · @nuxt/content · @nuxtjs/i18n (en, id, ja, ko
 
 ## Commands
 
+Always use `bun` (never `npm`, `yarn`, or `pnpm`).
+
 ```sh
 bun install           # Install dependencies
 bun dev               # Dev server
@@ -17,6 +19,7 @@ bun run build         # Production build
 bun run generate      # Static site generation
 bun lint              # Lint check
 bun lint-fix          # Lint auto-fix
+bun add --exact <pkg> # Add dependency (exact version)
 ```
 
 ## Structure
