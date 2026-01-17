@@ -1,12 +1,4 @@
 export default defineNuxtConfig({
-  ignore: [
-    '**/extensions/**',
-    '**/uploads/**',
-    '**/database/**',
-    '**/node_modules/**',
-    '**/.git/**',
-    '**/dist/**',
-  ],
   modules: [
     '@nuxt/content',
     '@nuxtjs/i18n',
@@ -15,18 +7,9 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@nuxt/eslint',
     'radix-vue/nuxt',
-    '@nuxtjs/seo',
   ],
-  css: [
-    '@unocss/reset/tailwind.css',
-    '~/assets/styles/main.css',
-    '~/assets/styles/markdown.css',
-    'katex/dist/katex.min.css',
-  ],
-  site: {
-    url: 'https://mkamadeus.dev',
-    name: 'mkamadeus.dev',
-    description: 'mkamadeus\' personal website.',
+  devtools: {
+    enabled: true,
   },
   app: {
     layoutTransition: { name: 'layout', mode: 'out-in' },
@@ -47,47 +30,56 @@ export default defineNuxtConfig({
       ],
     },
   },
-  i18n: {
-    lazy: true,
-    langDir: '../locales',
-    defaultLocale: 'en',
-    locales: [
-      {
-        code: 'en',
-        name: 'English',
-        file: 'en.yaml',
-      },
-      {
-        code: 'id',
-        name: 'Bahasa Indonesia',
-        file: 'id.yaml',
-      },
-      {
-        code: 'ja',
-        name: '日本',
-        file: 'ja.yaml',
-      },
-      {
-        code: 'ko',
-        name: '한국어',
-        file: 'ko.yaml',
-      },
-    ],
+  css: [
+    '@unocss/reset/tailwind.css',
+    '~/assets/styles/main.css',
+    'katex/dist/katex.min.css',
+  ],
+  site: {
+    url: 'https://mkamadeus.dev',
+    name: 'mkamadeus.dev',
+    description: 'mkamadeus\' personal website.',
   },
   content: {
     markdown: {
+      tags: {
+        p: 'p',
+        h1: 'h1',
+        h2: 'h2',
+        h3: 'h3',
+        h4: 'h4',
+        h5: 'h5',
+        h6: 'h6',
+        blockquote: 'blockquote',
+        code: 'code',
+        pre: 'pre',
+        ul: 'ul',
+        ol: 'ol',
+        li: 'li',
+        a: 'a',
+        img: 'img',
+        strong: 'strong',
+        em: 'em',
+        hr: 'hr',
+        table: 'table',
+        thead: 'thead',
+        tbody: 'tbody',
+        tr: 'tr',
+        th: 'th',
+        td: 'td',
+      },
       remarkPlugins: [
         'remark-math',
       ],
       rehypePlugins: {
         'rehype-katex': {
-          output: 'html', // the default value is 'htmlAndMathml'
+          output: 'html',
         },
       },
     },
     highlight: {
       theme: 'github-dark',
-      preload: ['hcl', 'sh', 'bash', 'cpp', 'yaml', 'jsx', 'vue', 'json'],
+      langs: ['hcl', 'sh', 'bash', 'cpp', 'yaml', 'jsx', 'vue', 'json', 'ts', 'js', 'python'],
     },
     ignore: [
       '**/extensions/**',
@@ -98,15 +90,15 @@ export default defineNuxtConfig({
       '**/dist/**',
     ],
   },
-  devtools: {
-    enabled: true,
-  },
-  eslint: {
-    config: {
-      stylistic: true,
-      typescript: true,
-    },
-  },
+  ignore: [
+    '**/extensions/**',
+    '**/uploads/**',
+    '**/database/**',
+    '**/node_modules/**',
+    '**/.git/**',
+    '**/dist/**',
+  ],
+  compatibilityDate: '2026-01-15',
   nitro: {
     prerender: {
       autoSubfolderIndex: false,
@@ -114,5 +106,46 @@ export default defineNuxtConfig({
         '/blogs',
       ],
     },
+  },
+  eslint: {
+    config: {
+      stylistic: true,
+      typescript: true,
+    },
+  },
+  i18n: {
+    baseUrl: 'https://mkamadeus.dev',
+    lazy: true,
+    langDir: 'locales',
+    defaultLocale: 'en',
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
+    locales: [
+      {
+        code: 'en',
+        language: 'en-US',
+        name: 'English',
+        file: 'en.yaml',
+      },
+      {
+        code: 'id',
+        language: 'id-ID',
+        name: 'Bahasa Indonesia',
+        file: 'id.yaml',
+      },
+      {
+        code: 'ja',
+        language: 'ja-JP',
+        name: '日本',
+        file: 'ja.yaml',
+      },
+      {
+        code: 'ko',
+        language: 'ko-KR',
+        name: '한국어',
+        file: 'ko.yaml',
+      },
+    ],
   },
 })
