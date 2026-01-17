@@ -12,12 +12,13 @@ const toggleState = ref(false)
   >
     <DropdownMenuTrigger
       text="#888"
-      relative
+
+      p-1
+      rounded
       inline-flex
       cursor-pointer
       items-center
-      rounded
-      p-1
+      relative
       space-x-1
       :class="{ 'text-white': toggleState }"
       @click="toggleState = !toggleState"
@@ -36,20 +37,22 @@ const toggleState = ref(false)
         flex="col"
         bg="#222"
         w="40"
-        absolute
+
+        p-1
+        rounded-3
         right-0
         top-10
+        absolute
         z-50
-        rounded-3
-        p-1
         :side-offset="-50"
       >
         <DropdownMenuItem
           v-for="(option, i) of localeOptions"
           :key="i"
-          cursor-pointer
-          rounded-2
+
           p-1
+          rounded-2
+          cursor-pointer
           bg="hover:#333"
           text="#aaa"
           @click="setLocale(option[1]);"

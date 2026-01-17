@@ -66,20 +66,22 @@ onUnmounted(() => {
       <h1
         class="header lg:text-9xl"
         mb="2 lg:4"
+
+        tracking-tight
+        text-center
         cursor-pointer
         select-none
-        overflow-hidden
-        text-center
-        tracking-tight
         transition-all
         duration-300
         ease-in-out
+        overflow-hidden
         hover:tracking-wider
       >
         <span
           ref="homeTitle"
-          inline-block
+
           opacity-0
+          inline-block
         >
           mkamadeus
         </span>
@@ -88,23 +90,26 @@ onUnmounted(() => {
         ref="jobSubtitle"
 
         text="center sm lg:lg #888"
-        w-full
+
         inline-flex
+        w-full
         justify-center
         overflow-hidden
         space-x-1
       >
         <span
-          inline-block
+
           opacity-0
+          inline-block
         >
           {{ $t('home.job_title') }}
         </span>
         <a
           class="link"
-          inline-block
+
           href="https://www.linkedin.com/company/xendit/"
           opacity-0
+          inline-block
         >
           @Xendit
         </a>
@@ -112,34 +117,38 @@ onUnmounted(() => {
       <div
         ref="schoolSubtitle"
         text="center sm lg:lg #888"
-        w-full
+
         inline-flex
+        w-full
         justify-center
         overflow-hidden
         space-x-1
       >
         <span
-          inline-block
+
           opacity-0
+          inline-block
         >
           {{ $t('home.school_title') }}
         </span>
         <a
           class="link"
-          inline-block
+
           href="https://itb.ac.id/"
           opacity-0
+          inline-block
         >
           @ITB
         </a>
       </div>
       <div
+
         mt-2
-        w-full
         flex
+        w-full
         justify-center
-        md:hidden
         space-x-2
+        md:hidden
       >
         <a
           v-for="l in socialMedias"

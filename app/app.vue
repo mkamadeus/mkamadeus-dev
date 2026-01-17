@@ -10,10 +10,12 @@ const useIdFunction = () => useId()
 
 <template>
   <ConfigProvider :use-id="useIdFunction">
-    <NuxtLayout>
-      <NuxtLoadingIndicator bg="green" />
-      <NuxtPage :transition="{ onBeforeEnter }" />
-    </NuxtLayout>
+    <div class="dark">
+      <NuxtLayout>
+        <NuxtLoadingIndicator bg="green" />
+        <NuxtPage :transition="{ onBeforeEnter }" />
+      </NuxtLayout>
+    </div>
   </ConfigProvider>
 </template>
 

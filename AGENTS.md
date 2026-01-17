@@ -40,7 +40,7 @@ server/             # Server routes & middleware
 
 ## Testing
 
-No test suite. Verify via `bun dev` + browser.
+No test suite. Verify via browser (use existing dev server if running, otherwise start with `bun dev`).
 
 ## Safety
 

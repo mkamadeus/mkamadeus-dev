@@ -1,3 +1,18 @@
+<script setup lang="ts">
+const head = useLocaleHead({
+  addSeoAttributes: true,
+})
+
+useHead({
+  htmlAttrs: {
+    lang: head.value.htmlAttrs!.lang,
+    dir: head.value.htmlAttrs!.dir,
+  },
+  link: [...(head.value.link || [])],
+  meta: [...(head.value.meta || [])],
+})
+</script>
+
 <template>
   <main
     font="body antialiased"
@@ -8,8 +23,8 @@
     <NavigationHeader relative />
     <div
 
-      container
       mx-auto
+      container
     >
       <div
         flex="~"

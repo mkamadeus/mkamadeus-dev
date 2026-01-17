@@ -93,8 +93,9 @@ const route = useRoute()
 <template>
   <NavigationMenuRoot
     p="3vh lg:6vh"
-    z-10
+
     w-full
+    z-10
   >
     <NavigationMenuList
       flex
@@ -132,13 +133,14 @@ const route = useRoute()
           </NavigationMenuTrigger>
         </NavigationMenuItem>
         <NavigationMenuIndicator
-          class="top-7 z-[1] flex items-end justify-center overflow-hidden transition-all duration-100 data-[state=hidden]:animate-fade-out data-[state=visible]:animate-fade-in !animate-duration-100 data-[state=hidden]:opacity-0"
+          class="flex transition-all duration-100 items-end top-7 justify-center z-[1] overflow-hidden data-[state=hidden]:opacity-0 data-[state=hidden]:animate-fade-out data-[state=visible]:animate-fade-in !animate-duration-100"
         >
           <div
             class="i-carbon-caret-up"
-            inline-block
+
             text="#888 lg"
             rounded-full
+            inline-block
           />
         </NavigationMenuIndicator>
         <Separator orientation="vertical" />

@@ -16,9 +16,10 @@
         p="2"
         bg="#222 hover:#333"
         font="300"
+
+        rounded-lg
         w-max
         cursor-pointer
-        rounded-lg
         space-x-2
         @click="copy(code)"
       >
@@ -28,9 +29,10 @@
       <div
         v-if="copied"
         bg="#222"
-        rounded-lg
-        p-2
+
         text-xs
+        p-2
+        rounded-lg
       >
         Copied to clipboard!
       </div>

@@ -7,12 +7,13 @@ const year = dayjs().year()
 <template>
   <footer
     flex="~ col"
-    items-center
-    justify-center
+
     w="full"
     p="3vh lg:6vh"
     text="#888"
     font-mono
+    items-center
+    justify-center
   >
     CC BY-NC-SA 4.0 {{ year }}
   </footer>

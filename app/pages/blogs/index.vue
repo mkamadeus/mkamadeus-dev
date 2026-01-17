@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Collections } from '@nuxt/content'
 import dayjs from 'dayjs'
 
 const title = ref()
@@ -9,6 +10,8 @@ const { $gsap } = useNuxtApp()
 
 let ctx: gsap.Context
 onMounted(() => {
+  if (!listItems.value) return
+
   const items = listItems.value.map((item: { cardWrapper: HTMLDivElement }) => item.cardWrapper)
   ctx = $gsap.context(() => {
     const tl = $gsap.timeline({ paused: true, defaults: { ease: 'power3.inOut' } })
@@ -31,13 +34,18 @@ onUnmounted(() => {
 
 const { t } = useI18n()
 const { locale } = useI18n()
+
 const { data } = await useAsyncData(`blogs-${locale.value}`, async () => {
-  // Try localized content first, fallback to English
-  let content = await queryContent(`/blogs/${locale.value}`).find().catch(() => [])
+  const collection = `blogs_${locale.value}` as keyof Collections
+  let content = await queryCollection(collection).all()
+
   if (!content || content.length === 0) {
-    content = await queryContent('/blogs/en').find()
+    content = await queryCollection('blogs_en').all()
   }
+
   return content
+}, {
+  watch: [locale],
 })
 
 type ContentType = NonNullable<typeof data.value>
@@ -88,22 +96,18 @@ const blogs = computed(() => {
 
     // map blogs to simplified format
     postsByYear[year] = parsedContent[year].map((v) => {
-      const parsed = v._path!.split('/')
-      const id = parsed.pop() || ''
-      let lang = parsed.pop() || 'en'
-      if (lang === 'blogs') {
-        lang = 'en'
-      }
+      const stemParts = (v.stem || '').split('/')
+      const filename = stemParts[stemParts.length - 1] || ''
 
       const bp: BlogPost = {
         title: v.title!,
         author: v.author,
         description: v.description,
-        path: v._path!,
+        path: v.path || '',
         date: v.date,
         duration: v.duration,
-        lang,
-        id,
+        lang: locale.value,
+        id: filename,
       }
       return bp
     })
@@ -144,13 +148,15 @@ const blogs = computed(() => {
     <h1
       class="header"
       pb="2 lg:4"
-      overflow-hidden
+
       font-800
+      overflow-hidden
     >
       <span
         ref="title"
-        inline-block
+
         opacity-0
+        inline-block
       >
         {{ t('blogs.title') }}
       </span>
@@ -158,8 +164,9 @@ const blogs = computed(() => {
     <div text="#999">
       <span
         ref="subtitle"
-        inline-block
+
         opacity-0
+        inline-block
       >
         {{ t('blogs.subtitle') }}
       </span>

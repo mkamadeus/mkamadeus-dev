@@ -59,8 +59,9 @@ useHead({
           {{ props.data?.title }}
         </div>
         <div
-          flex
+
           font-mono
+          flex
           space-x-2
           text="lg:xl #aaa"
           mb="8 lg:12"
@@ -100,9 +101,10 @@ useHead({
             h="10 lg:12"
           >
             <img
+
+              rounded-full
               h-full
               w-full
-              rounded-full
               shadow
               :src="author?.avatar_url"
             >

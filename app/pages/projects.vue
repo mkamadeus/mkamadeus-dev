@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { t } = useI18n({ useScope: 'local' })
+const { t } = useI18n()
 
 const projects = await useProjects()
 
@@ -55,8 +55,9 @@ onUnmounted(() => {
       >
         <span
           ref="title"
-          inline-block
+
           opacity-0
+          inline-block
         >
           {{ t('projects.title') }}
         </span>
@@ -68,15 +69,14 @@ onUnmounted(() => {
         space-x-1
       >
         <span ref="subtitle">
-          {{ $t('projects.subtitle') }}
+          {{ t('projects.subtitle') }}
         </span>
         <span ref="subtitleContact">
           <NuxtLink
             class="link text-#ddd"
             :to="localePath('/contacts')"
           >
-            {{
-              $t('projects.contact_me') }}
+            {{ t('projects.contact_me') }}
           </NuxtLink>
         </span>
       </div>

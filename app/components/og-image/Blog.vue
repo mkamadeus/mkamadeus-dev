@@ -14,11 +14,11 @@ defineProps<Props>()
 </script>
 
 <template>
-  <div class="h-full w-full flex flex-col items-start justify-center bg-black p-12 text-white">
-    <h1 class="my-0 mb-2 text-8xl">
+  <div class="text-white p-12 bg-black flex flex-col h-full w-full items-start justify-center">
+    <h1 class="text-8xl my-0 mb-2">
       {{ title }}
     </h1>
-    <p class="max-w-10ch text-2xl text-gray-500">
+    <p class="text-2xl text-gray-500 max-w-10ch">
       {{ description }}
     </p>
   </div>

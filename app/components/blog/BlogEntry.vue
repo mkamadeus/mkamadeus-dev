@@ -41,10 +41,11 @@ defineProps<Props>()
       rounded="1"
     />
     <div
+
+      pl-4
+      flex-grow
       h-18
       max-w-72
-      flex-grow
-      pl-4
       text-wrap
     >
       <NuxtLink
@@ -56,9 +57,10 @@ defineProps<Props>()
           text="lg"
           group-hover:text="#ddd"
           transition="all duration-150"
-          mb-1
+
           line-clamp="2"
           leading-tight
+          mb-1
         >
           {{ title }}
         </div>

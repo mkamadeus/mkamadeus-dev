@@ -30,8 +30,9 @@ const url = computed(() => {
     w="full"
   >
     <div
-      col-span-3
+
       inline-flex
+      col-span-3
       items-center
       space="x-2"
       text="lg lg:2xl #ddd"
@@ -47,8 +48,9 @@ const url = computed(() => {
     </div>
     <span
       v-if="!isPrivate && url"
-      col-span-2
+
       flex
+      col-span-2
       justify-end
       space-x-2
     >
@@ -71,8 +73,9 @@ const url = computed(() => {
       </template>
     </span>
     <div
-      col-span-4
+
       font-300
+      col-span-4
       text="#bbb"
     >
       {{ description }}
