@@ -17,7 +17,8 @@ const props = defineProps<Props>()
 
 const handleLanguageClick = (locale: string, event: Event) => {
   event.stopPropagation()
-  navigateTo(`/${locale}/blogs/${props.id}`)
+  const path = locale === 'en' ? `/blogs/${props.id}` : `/${locale}/blogs/${props.id}`
+  navigateTo(path)
 }
 </script>
 
