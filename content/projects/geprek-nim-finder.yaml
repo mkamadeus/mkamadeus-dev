@@ -7,18 +7,18 @@ stacks:
   - cloudflare-pages
 url: https://geprek.mkamadeus.dev
 
-en:
+en_US:
   title: Geprek NIM Finder
   description: Student ID finder for ITB students. Static site with no backend.
 
-id:
+id_ID:
   title: Geprek NIM Finder
   description: Pencari NIM mahasiswa ITB. Situs statis tanpa backend.
 
-ja:
+ja_JP:
   title: Geprek NIM Finder
   description: ITB学生の学生ID検索ツール。バックエンドなしの静的サイト。
 
-ko:
+ko_KR:
   title: Geprek NIM Finder
   description: ITB 학생을 위한 학번 검색기. 백엔드 없는 정적 사이트.

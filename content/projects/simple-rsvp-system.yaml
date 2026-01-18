@@ -6,18 +6,18 @@ stacks:
   - vue
 isPrivate: true
 
-en:
+en_US:
   title: Simple RSVP System
   description: Makeshift QR code based RSVP system mainly relying on Google Suite
 
-id:
+id_ID:
   title: Simple RSVP System
   description: Sistem RSVP berbasis kode QR yang mengandalkan Google Suite
 
-ja:
+ja_JP:
   title: Simple RSVP System
   description: Google Suiteを主に利用したQRコードベースの簡易RSVPシステム
 
-ko:
+ko_KR:
   title: Simple RSVP System
   description: Google Suite를 주로 사용하는 QR 코드 기반 RSVP 시스템

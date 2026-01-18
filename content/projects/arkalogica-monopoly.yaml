@@ -9,18 +9,18 @@ url:
   - https://github.com/arkavidia-hmif/arkavidia-monopoly-frontend
   - https://github.com/arkavidia-hmif/arkavidia-monopoly-backend
 
-en:
+en_US:
   title: Arkalogica Monopoly
   description: Simple monopoly-like game based on websockets.
 
-id:
+id_ID:
   title: Arkalogica Monopoly
   description: Game sederhana mirip monopoli berbasis websocket.
 
-ja:
+ja_JP:
   title: Arkalogica Monopoly
   description: WebSocketベースのシンプルなモノポリー風ゲーム。
 
-ko:
+ko_KR:
   title: Arkalogica Monopoly
   description: 웹소켓 기반의 간단한 모노폴리 게임.

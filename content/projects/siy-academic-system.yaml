@@ -10,18 +10,18 @@ stacks:
   - docker
 isPrivate: true
 
-en:
+en_US:
   title: SIY Academic System
   description: Fullstack system for managing and calculating score for use in FTMD ITB
 
-id:
+id_ID:
   title: SIY Academic System
   description: Sistem fullstack untuk mengelola dan menghitung nilai untuk digunakan di FTMD ITB
 
-ja:
+ja_JP:
   title: SIY Academic System
   description: FTMD ITBで使用するスコア管理・計算のためのフルスタックシステム
 
-ko:
+ko_KR:
   title: SIY Academic System
   description: FTMD ITB에서 사용하기 위한 점수 관리 및 계산 풀스택 시스템

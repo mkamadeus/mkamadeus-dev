@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { BlogCollectionItem } from '~/types/content'
-
 definePageMeta({
   layout: false,
 })

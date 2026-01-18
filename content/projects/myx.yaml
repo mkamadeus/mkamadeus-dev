@@ -9,18 +9,18 @@ url:
   - https://github.com/mkamadeus/myx
   - https://report.mkamadeus.dev/
 
-en:
+en_US:
   title: "Myx: ML Experiment to Service"
   description: Final project and been made a thesis report for graduation.
 
-id:
+id_ID:
   title: "Myx: ML Experiment to Service"
   description: Proyek akhir yang dijadikan laporan tugas akhir untuk kelulusan.
 
-ja:
+ja_JP:
   title: "Myx: ML Experiment to Service"
   description: 卒業のための最終プロジェクトおよび論文レポート。
 
-ko:
+ko_KR:
   title: "Myx: ML Experiment to Service"
   description: 졸업을 위한 최종 프로젝트 및 논문 보고서.

@@ -15,19 +15,19 @@ const projectSchema = z.object({
   stacks: z.array(z.string()),
   url: z.union([z.string(), z.array(z.string())]),
   isPrivate: z.boolean().optional(),
-  en: z.object({
+  en_US: z.object({
     title: z.string(),
     description: z.string(),
   }),
-  id: z.object({
+  id_ID: z.object({
     title: z.string(),
     description: z.string(),
   }),
-  ja: z.object({
+  ja_JP: z.object({
     title: z.string(),
     description: z.string(),
   }),
-  ko: z.object({
+  ko_KR: z.object({
     title: z.string(),
     description: z.string(),
   }),

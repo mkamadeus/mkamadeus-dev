@@ -5,18 +5,18 @@ stacks:
   - openssl
 url: https://github.com/mkamadeus/mtls-demo
 
-en:
+en_US:
   title: mTLS Demo
   description: Simple demo on Mutual TLS in multiple scenarios.
 
-id:
+id_ID:
   title: mTLS Demo
   description: Demo sederhana tentang Mutual TLS dalam berbagai skenario.
 
-ja:
+ja_JP:
   title: mTLS Demo
   description: 複数のシナリオでのMutual TLSのシンプルなデモ。
 
-ko:
+ko_KR:
   title: mTLS Demo
   description: 여러 시나리오에서의 Mutual TLS 간단한 데모.

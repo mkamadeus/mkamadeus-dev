@@ -9,10 +9,10 @@ interface ProjectData {
   url: string | string[]
   isPrivate?: boolean
   order: number
-  en: ProjectLocaleData
-  id: ProjectLocaleData
-  ja: ProjectLocaleData
-  ko: ProjectLocaleData
+  en_US: ProjectLocaleData
+  id_ID: ProjectLocaleData
+  ja_JP: ProjectLocaleData
+  ko_KR: ProjectLocaleData
 }
 
 interface ProjectOutput {
@@ -32,8 +32,15 @@ export const useProjects = async () => {
 
   return projects
     .map((project: ProjectData): ProjectOutput => {
-      const currentLocale = locale.value as 'en' | 'id' | 'ja' | 'ko'
-      const localeData = project[currentLocale] || project.en
+      const localeMap: Record<string, keyof ProjectData> = {
+        en: 'en_US',
+        id: 'id_ID',
+        ja: 'ja_JP',
+        ko: 'ko_KR',
+      }
+
+      const localeKey = localeMap[locale.value] || 'en_US'
+      const localeData = project[localeKey] as ProjectLocaleData
 
       return {
         icon: project.icon,

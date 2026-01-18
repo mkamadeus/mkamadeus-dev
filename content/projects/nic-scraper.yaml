@@ -5,18 +5,18 @@ stacks:
   - http-request
 url: https://github.com/mkamadeus/nicscraper
 
-en:
+en_US:
   title: NIC Scraper
   description: (Legally) scrape university students' data to be fed into Geprek
 
-id:
+id_ID:
   title: NIC Scraper
   description: Mengambil data mahasiswa universitas (secara legal) untuk dimasukkan ke Geprek
 
-ja:
+ja_JP:
   title: NIC Scraper
   description: （合法的に）大学生のデータをスクレイピングしてGeprekに提供
 
-ko:
+ko_KR:
   title: NIC Scraper
   description: (합법적으로) 대학생 데이터를 스크래핑하여 Geprek에 제공
