@@ -8,13 +8,17 @@ type Props = {
   author?: string
   date: string
   duration?: number
+  availableLanguages?: string[]
 }
 const cardWrapper = ref<HTMLDivElement>()
 defineExpose({ cardWrapper })
 
-defineProps<Props>()
-// const author = toRef(props, 'author')
-// const { author: authorInfo, isPending: authorPending } = await useGithubUsername(author.value || 'mkamadeus')
+const props = defineProps<Props>()
+
+const handleLanguageClick = (locale: string, event: Event) => {
+  event.stopPropagation()
+  navigateTo(`/${locale}/blogs/${props.id}`)
+}
 </script>
 
 <template>
@@ -104,6 +108,30 @@ defineProps<Props>()
             class="i-carbon-timer"
           />
           <div>{{ duration ?? "??" }} minute{{ (duration ?? 0) > 1 ? 's' : '' }}</div>
+        </div>
+        <div
+          v-if="availableLanguages && availableLanguages.length > 0"
+          flex
+          items-center
+          space-x-1
+        >
+          <button
+            v-for="lang in availableLanguages"
+            :key="lang"
+            px-1.5
+            py-0.5
+            rounded
+            text="2xs"
+            font="500 mono"
+            bg="#444/50"
+            hover:bg="#555/70"
+            transition="colors duration-150"
+            cursor-pointer
+            border="1 #666/30"
+            @click="(e) => handleLanguageClick(lang, e)"
+          >
+            {{ lang.toUpperCase() }}
+          </button>
         </div>
       </div>
       <!-- <div

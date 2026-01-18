@@ -8,6 +8,17 @@ const { locale } = useI18n()
 
 const slug = route.params.slug as string
 
+// Redirect to English if content is not in current locale (check before fetching)
+if (locale.value !== 'en') {
+  const collectionName = `blogs_${locale.value}` as 'blogs_en' | 'blogs_id' | 'blogs_ja' | 'blogs_ko'
+  const stemPath = `blogs/${locale.value}/${slug}`
+  const localizedContent = await queryCollection(collectionName).where('stem', '=', stemPath).first().catch(() => null)
+
+  if (!localizedContent) {
+    await navigateTo(`/blogs/${slug}`, { redirectCode: 301 })
+  }
+}
+
 const { data } = await useAsyncData(`blog-${locale.value}-${slug}`, async () => {
   return await useBlogBySlug(slug)
 }, {

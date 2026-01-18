@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const handleError = () => clearError({ redirect: '/' })
 const error = useError()
+const handleError = async () => await clearError({ redirect: '/' })
 </script>
 
 <template>

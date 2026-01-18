@@ -42,6 +42,23 @@ const { data } = await useAsyncData(`blogs-${locale.value}`, async () => {
   watch: [locale],
 })
 
+const availableLanguagesMap = ref<Record<string, string[]>>({})
+
+onMounted(async () => {
+  const pages = data.value || []
+  const langMap: Record<string, string[]> = {}
+
+  for (const page of pages) {
+    const stemParts = (page.stem || '').split('/')
+    const filename = stemParts[stemParts.length - 1] || ''
+    if (filename) {
+      langMap[filename] = await useBlogAvailableLanguages(filename)
+    }
+  }
+
+  availableLanguagesMap.value = langMap
+})
+
 type ContentType = BlogCollectionItem
 
 const blogs = computed(() => {
@@ -182,6 +199,7 @@ const blogs = computed(() => {
         <BlogEntry
           ref="listItems"
           v-bind="post"
+          :available-languages="availableLanguagesMap[post.id]"
           opacity-0
         />
       </div>

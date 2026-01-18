@@ -19,7 +19,8 @@ export const useBlogAvailableLanguages = async (slug: string) => {
 
   for (const locale of locales) {
     const collectionName = `blogs_${locale}` as 'blogs_en' | 'blogs_id' | 'blogs_ja' | 'blogs_ko'
-    const content = await queryCollection(collectionName).where('stem', '=', slug).first().catch(() => null)
+    const stemPath = `blogs/${locale}/${slug}`
+    const content = await queryCollection(collectionName).where('stem', '=', stemPath).first().catch(() => null)
     if (content) {
       available.push(locale)
     }
@@ -35,9 +36,12 @@ export const useBlogBySlug = async (slug: string): Promise<BlogCollectionItem | 
   const collectionName = `blogs_${currentLocale}` as 'blogs_en' | 'blogs_id' | 'blogs_ja' | 'blogs_ko'
   const fallbackCollectionName = 'blogs_en'
 
-  let content = await queryCollection(collectionName).where('stem', '=', slug).first().catch(() => null)
+  const stemPath = `blogs/${currentLocale}/${slug}`
+  const fallbackStemPath = `blogs/en/${slug}`
+
+  let content = await queryCollection(collectionName).where('stem', '=', stemPath).first().catch(() => null)
   if (!content) {
-    content = await queryCollection(fallbackCollectionName).where('stem', '=', slug).first().catch(() => null)
+    content = await queryCollection(fallbackCollectionName).where('stem', '=', fallbackStemPath).first().catch(() => null)
   }
 
   return content as BlogCollectionItem | null
