@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Collections } from '@nuxt/content'
+import type { BlogCollectionItem } from '~/types/content'
 import dayjs from 'dayjs'
 
 const title = ref()
@@ -36,23 +36,17 @@ const { t } = useI18n()
 const { locale } = useI18n()
 
 const { data } = await useAsyncData(`blogs-${locale.value}`, async () => {
-  const collection = `blogs_${locale.value}` as keyof Collections
-  let content = await queryCollection(collection).all()
-
-  if (!content || content.length === 0) {
-    content = await queryCollection('blogs_en').all()
-  }
-
-  return content
+  const { blogs, fallbackBlogs } = await useBlogs()
+  return (blogs.length > 0 ? blogs : fallbackBlogs) as BlogCollectionItem[]
 }, {
   watch: [locale],
 })
 
-type ContentType = NonNullable<typeof data.value>
+type ContentType = BlogCollectionItem
 
 const blogs = computed(() => {
   const pages = data.value || []
-  const parsedContent: Record<string, ContentType> = {}
+  const parsedContent: Record<string, ContentType[]> = {}
   const postsByYear: Record<string, BlogPost[]> = {}
   const posts: BlogPost[] = []
 
@@ -81,7 +75,7 @@ const blogs = computed(() => {
   // for each year listed
   Object.keys(parsedContent).forEach((year) => {
     // sort blogs
-    parsedContent[year].sort((b1, b2) => {
+    parsedContent[year]?.sort((b1, b2) => {
       const d1 = dayjs(b1.date)
       const d2 = dayjs(b2.date)
       const diff = d1.diff(d2)
@@ -95,7 +89,7 @@ const blogs = computed(() => {
     })
 
     // map blogs to simplified format
-    postsByYear[year] = parsedContent[year].map((v) => {
+    postsByYear[year] = parsedContent[year]?.map((v) => {
       const stemParts = (v.stem || '').split('/')
       const filename = stemParts[stemParts.length - 1] || ''
 
@@ -110,11 +104,14 @@ const blogs = computed(() => {
         id: filename,
       }
       return bp
-    })
+    }) || []
   })
 
   Object.keys(postsByYear).forEach((year) => {
-    posts.push(...postsByYear[year])
+    const yearPosts = postsByYear[year]
+    if (yearPosts) {
+      posts.push(...yearPosts)
+    }
   })
 
   posts.sort((b1, b2) => {

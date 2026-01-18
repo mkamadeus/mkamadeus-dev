@@ -1,19 +1,25 @@
+import type { BlogsEnCollectionItem, BlogsIdCollectionItem, BlogsJaCollectionItem, BlogsKoCollectionItem } from '@nuxt/content'
+
+type BlogCollectionItem = BlogsEnCollectionItem | BlogsIdCollectionItem | BlogsJaCollectionItem | BlogsKoCollectionItem
+
 export const useBlogs = async () => {
   const { locale } = useI18n()
   const currentLocale = locale.value as string
 
-  const blogs = await queryContent(`blogs/${currentLocale}`).find().catch(() => [])
-  const fallbackBlogs = currentLocale !== 'en' ? await queryContent('blogs/en').find() : []
+  const collectionName = `blogs_${currentLocale}` as 'blogs_en' | 'blogs_id' | 'blogs_ja' | 'blogs_ko'
+  const blogs = await queryCollection(collectionName).all().catch(() => [] as BlogCollectionItem[])
+  const fallbackBlogs = currentLocale !== 'en' ? await queryCollection('blogs_en').all().catch(() => [] as BlogsEnCollectionItem[]) : []
 
   return { blogs, fallbackBlogs, currentLocale }
 }
 
 export const useBlogAvailableLanguages = async (slug: string) => {
-  const locales = ['en', 'id', 'ja', 'ko']
+  const locales = ['en', 'id', 'ja', 'ko'] as const
   const available: string[] = []
 
   for (const locale of locales) {
-    const content = await queryContent(`blogs/${locale}/${slug}`).findOne().catch(() => null)
+    const collectionName = `blogs_${locale}` as 'blogs_en' | 'blogs_id' | 'blogs_ja' | 'blogs_ko'
+    const content = await queryCollection(collectionName).where('stem', '=', slug).first().catch(() => null)
     if (content) {
       available.push(locale)
     }
@@ -22,17 +28,17 @@ export const useBlogAvailableLanguages = async (slug: string) => {
   return available
 }
 
-export const useBlogBySlug = async (slug: string) => {
+export const useBlogBySlug = async (slug: string): Promise<BlogCollectionItem | null> => {
   const { locale } = useI18n()
   const currentLocale = locale.value as string
 
-  const localizedPath = `blogs/${currentLocale}/${slug}`
-  const fallbackPath = `blogs/en/${slug}`
+  const collectionName = `blogs_${currentLocale}` as 'blogs_en' | 'blogs_id' | 'blogs_ja' | 'blogs_ko'
+  const fallbackCollectionName = 'blogs_en'
 
-  let content = await queryContent(localizedPath).findOne().catch(() => null)
+  let content = await queryCollection(collectionName).where('stem', '=', slug).first().catch(() => null)
   if (!content) {
-    content = await queryContent(fallbackPath).findOne().catch(() => null)
+    content = await queryCollection(fallbackCollectionName).where('stem', '=', slug).first().catch(() => null)
   }
 
-  return content
+  return content as BlogCollectionItem | null
 }

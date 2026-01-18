@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@nuxt/eslint',
+    '@nuxtjs/seo',
     'radix-vue/nuxt',
   ],
   devtools: {
@@ -41,8 +42,24 @@ export default defineNuxtConfig({
     description: 'mkamadeus\' personal website.',
   },
   content: {
-    markdown: {
-      tags: {
+    build: {
+      markdown: {
+        remarkPlugins: {
+          'remark-math': {},
+        },
+        rehypePlugins: {
+          'rehype-katex': {
+            output: 'html',
+          },
+        },
+        highlight: {
+          theme: 'github-dark',
+          langs: ['hcl', 'sh', 'bash', 'cpp', 'yaml', 'jsx', 'vue', 'json', 'ts', 'js', 'python'],
+        },
+      },
+    },
+    renderer: {
+      alias: {
         p: 'p',
         h1: 'h1',
         h2: 'h2',
@@ -68,27 +85,7 @@ export default defineNuxtConfig({
         th: 'th',
         td: 'td',
       },
-      remarkPlugins: [
-        'remark-math',
-      ],
-      rehypePlugins: {
-        'rehype-katex': {
-          output: 'html',
-        },
-      },
     },
-    highlight: {
-      theme: 'github-dark',
-      langs: ['hcl', 'sh', 'bash', 'cpp', 'yaml', 'jsx', 'vue', 'json', 'ts', 'js', 'python'],
-    },
-    ignore: [
-      '**/extensions/**',
-      '**/uploads/**',
-      '**/database/**',
-      '**/node_modules/**',
-      '**/.git/**',
-      '**/dist/**',
-    ],
   },
   ignore: [
     '**/extensions/**',
@@ -100,12 +97,16 @@ export default defineNuxtConfig({
   ],
   compatibilityDate: '2026-01-15',
   nitro: {
+    preset: 'cloudflare_pages',
     prerender: {
       autoSubfolderIndex: false,
       routes: [
         '/blogs',
       ],
     },
+  },
+  typescript: {
+    typeCheck: true,
   },
   eslint: {
     config: {
@@ -115,12 +116,8 @@ export default defineNuxtConfig({
   },
   i18n: {
     baseUrl: 'https://mkamadeus.dev',
-    lazy: true,
     langDir: 'locales',
     defaultLocale: 'en',
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
     locales: [
       {
         code: 'en',

@@ -5,9 +5,9 @@ type Props = {
   id: string
   title: string
   description: string
-  author: string
+  author?: string
   date: string
-  duration: number
+  duration?: number
 }
 const cardWrapper = ref<HTMLDivElement>()
 defineExpose({ cardWrapper })
@@ -103,7 +103,7 @@ defineProps<Props>()
             inline-flex
             class="i-carbon-timer"
           />
-          <div>{{ duration || "??" }} minute{{ duration > 1 ? 's' : '' }}</div>
+          <div>{{ duration ?? "??" }} minute{{ (duration ?? 0) > 1 ? 's' : '' }}</div>
         </div>
       </div>
       <!-- <div

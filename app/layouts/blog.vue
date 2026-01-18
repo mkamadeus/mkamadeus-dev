@@ -1,12 +1,10 @@
 <script setup lang="ts">
-const head = useLocaleHead({
-  addSeoAttributes: true,
-})
+const head = useLocaleHead()
 
 useHead({
   htmlAttrs: {
     lang: head.value.htmlAttrs!.lang,
-    dir: head.value.htmlAttrs!.dir,
+    dir: (head.value.htmlAttrs!.dir as 'ltr' | 'rtl' | 'auto') || 'ltr',
   },
   link: [...(head.value.link || [])],
   meta: [...(head.value.meta || [])],

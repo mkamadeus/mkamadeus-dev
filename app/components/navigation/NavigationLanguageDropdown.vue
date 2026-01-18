@@ -55,7 +55,7 @@ const toggleState = ref(false)
           cursor-pointer
           bg="hover:#333"
           text="#aaa"
-          @click="setLocale(option[1]);"
+          @click="setLocale(option[1] as 'en' | 'id' | 'ja' | 'ko');"
         >
           {{ option[0] }}
         </DropdownMenuItem>

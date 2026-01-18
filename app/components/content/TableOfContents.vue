@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { ParsedContent } from '@nuxt/content'
+import type { BlogCollectionItem } from '~/types/content'
 
 type Props = {
-  data: ParsedContent | null
+  data: BlogCollectionItem | null
 }
 
 const props = defineProps<Props>()

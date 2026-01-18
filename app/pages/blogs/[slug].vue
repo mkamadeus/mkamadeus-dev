@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Collections } from '@nuxt/content'
+import type { BlogCollectionItem } from '~/types/content'
 
 definePageMeta({
   layout: false,
@@ -11,23 +11,7 @@ const { locale } = useI18n()
 const slug = route.params.slug as string
 
 const { data } = await useAsyncData(`blog-${locale.value}-${slug}`, async () => {
-  try {
-    const collection = `blogs_${locale.value}` as keyof Collections
-    const fullStem = `blogs/${locale.value}/${slug}`
-
-    let content = await queryCollection(collection).where('stem', '=', fullStem).first()
-
-    if (!content && locale.value !== 'en') {
-      const fallbackStem = `blogs/en/${slug}`
-      content = await queryCollection('blogs_en').where('stem', '=', fallbackStem).first()
-    }
-
-    return content
-  }
-  catch (error) {
-    console.error('Query error:', error)
-    return null
-  }
+  return await useBlogBySlug(slug)
 }, {
   watch: [locale],
 })
@@ -36,9 +20,7 @@ if (!data.value) {
   throw createError({ statusCode: 404, statusMessage: 'Blog post not found' })
 }
 
-const head = useLocaleHead({
-  addSeoAttributes: true,
-})
+const head = useLocaleHead()
 
 useHead({
   title: data.value?.title,
@@ -54,11 +36,11 @@ useHead({
 
 <template>
   <NuxtLayout name="blog">
-    <BlogHero :data="data" />
+    <BlogHero :data="data!" />
     <ContentRenderer
-      :value="data"
+      :value="data!"
       :prose="false"
-      class="prose prose-invert prose-teal"
+      class="prose prose-teal prose-invert"
       w="full"
       max-w="75ch"
       mx-auto

@@ -9,6 +9,30 @@ const blogSchema = z.object({
   blog: z.boolean().optional(),
 })
 
+const projectSchema = z.object({
+  order: z.number(),
+  icon: z.string(),
+  stacks: z.array(z.string()),
+  url: z.union([z.string(), z.array(z.string())]),
+  isPrivate: z.boolean().optional(),
+  en: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+  id: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+  ja: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+  ko: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+})
+
 export default defineContentConfig({
   collections: {
     blogs_en: defineCollection({
@@ -30,6 +54,11 @@ export default defineContentConfig({
       type: 'page',
       source: 'blogs/ko/**',
       schema: blogSchema,
+    }),
+    projects: defineCollection({
+      type: 'data',
+      source: 'projects/**',
+      schema: projectSchema,
     }),
   },
 })

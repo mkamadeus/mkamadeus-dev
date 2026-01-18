@@ -1,11 +1,38 @@
+interface ProjectLocaleData {
+  title: string
+  description: string
+}
+
+interface ProjectData {
+  icon: string
+  stacks: string[]
+  url: string | string[]
+  isPrivate?: boolean
+  order: number
+  en: ProjectLocaleData
+  id: ProjectLocaleData
+  ja: ProjectLocaleData
+  ko: ProjectLocaleData
+}
+
+interface ProjectOutput {
+  icon: string
+  title: string
+  description: string
+  stacks: string[]
+  url: string | string[]
+  isPrivate?: boolean
+  order: number
+}
+
 export const useProjects = async () => {
   const { locale } = useI18n()
 
-  const projects = await queryContent('projects').find()
+  const projects = await queryCollection('projects').all()
 
   return projects
-    .map((project) => {
-      const currentLocale = locale.value as string
+    .map((project: ProjectData): ProjectOutput => {
+      const currentLocale = locale.value as 'en' | 'id' | 'ja' | 'ko'
       const localeData = project[currentLocale] || project.en
 
       return {
@@ -18,5 +45,5 @@ export const useProjects = async () => {
         order: project.order,
       }
     })
-    .sort((a, b) => a.order - b.order)
+    .sort((a: ProjectOutput, b: ProjectOutput) => a.order - b.order)
 }

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
-import type { ParsedContent } from '@nuxt/content'
+import type { BlogCollectionItem } from '~/types/content'
 
 type Props = {
-  data: ParsedContent | null
+  data: BlogCollectionItem | null
 }
 
 const props = defineProps<Props>()
@@ -87,7 +87,7 @@ useHead({
             <span>
               <div class="i-carbon-timer" />
             </span>
-            <span> {{ (props.data!.duration as string) || "??" }} minute{{ props.data!.duration > 1 ? 's' : '' }} </span>
+            <span> {{ props.data!.duration ?? "??" }} minute{{ (props.data!.duration ?? 0) > 1 ? 's' : '' }} </span>
           </div>
         </div>
         <div

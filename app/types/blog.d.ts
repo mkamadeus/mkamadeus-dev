@@ -1,10 +1,10 @@
 type BlogPost = {
   id: string
   title: string
-  author: string
+  author?: string
   description: string
   path: string
   date: string
-  duration: number
+  duration?: number
   lang: string
 }
